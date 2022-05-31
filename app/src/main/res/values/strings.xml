@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Space Mines</string>
+    <string name="mines">Mines</string>
+    <string name="planets">Planets</string>
+    <string name="id"> ID:</string>
+    <string name="name"> Name:</string>
+    <string name="size"> Size:</string>
+    <string name="planet_icon">Planet Icon</string>
+    <string name="planet_name">Planet Name</string>
+    <string name="planet_size">Planet Size</string>
+    <string name="planet_id">Planet ID</string>
+    <string name="entertainment_fragment">Entertainment Fragment</string>
+    <string name="housing_fragment">Housing Fragment</string>
+    <string name="mines_fragment">Mines Fragment</string>
+    <string name="population_fragment">Population Fragment</string>
+    <string name="galaxy_fragment">Galaxy Fragment</string>
+    <string name="galaxy_created">Galaxy Created</string>
+    <string name="select">Select Button</string>
+    <string name="planet_id1">Planet Id: ----</string>
+    <string name="planet_name2">Planet Name: ----</string>
+    <string name="planet_size2">Planet Diameter: ----</string>
+    <string name="total_minerals">Total Minerals</string>
+    <string name="mineral">Mineral</string>
+    <string name="mass_t">Mass (T)</string>
+    <string name="value">Value($)</string>
+    <string name="cu">Copper</string>
+    <string name="empty">----</string>
+    <string name="au">Gold</string>
+    <string name="ag">Silver</string>
+    <string name="pt">Platinum</string>
+    <string name="pd">Palladium</string>
+    <string name="mined_minerals">Mined Minerals</string>
+    <string name="remaining_minerals">Remaining Minerals</string>
+    <string name="current_workers">Current Workers On: %1$s</string>
+    <string name="miner_staff_count">Miner Staff Count: %1$s</string>
+    <string name="miner_support_staff_count">Miner Support Staff Count: %1$s</string>
+    <string name="entertainer_staff_count">Entertainer Staff Count: %1$s</string>
+    <string name="entertainer_support_staff_count">Entertainer Support Staff Count: %1$s</string>
+</resources>

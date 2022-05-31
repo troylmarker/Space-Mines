@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGalaxy"
+        android:layout_width="match_parent"
+        android:layout_height="177dp" />
+
+    <ScrollView
+        android:id="@+id/scrPlanetInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/planetId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/planet_id1" />
+
+            <TextView
+                android:id="@+id/planetName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/planet_name2" />
+
+            <TextView
+                android:id="@+id/planetSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/planet_size2" />
+
+            <TextView
+                android:id="@+id/minerCount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/miner_staff_count"/>
+
+            <TextView
+                android:id="@+id/minerSupportStaffCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/miner_support_staff_count" />
+
+            <TextView
+                android:id="@+id/entertainerCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/entertainer_staff_count" />
+
+            <TextView
+                android:id="@+id/entertainerSupportCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/entertainer_support_staff_count" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/total_minerals" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10sp"
+                android:rowCount="5"
+                android:columnCount="3">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:background="@drawable/bottomborder"
+                    android:text="@string/mineral"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/bottomborder"
+                    android:text="@string/mass_t"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/bottomborder"
+                    android:text="@string/value"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/cu" />
+
+                <TextView
+                    android:id="@+id/cuMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/cuValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/ag" />
+
+                <TextView
+                    android:id="@+id/agMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/agValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/au" />
+
+                <TextView
+                    android:id="@+id/auMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/auValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/pt" />
+
+                <TextView
+                    android:id="@+id/ptMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/ptValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/pd" />
+
+                <TextView
+                    android:id="@+id/pdMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/pdValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+            </GridLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/mined_minerals" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10sp"
+                android:rowCount="5"
+                android:columnCount="3">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:background="@drawable/bottomborder"
+                    android:text="@string/mineral"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/bottomborder"
+                    android:text="@string/mass_t"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/bottomborder"
+                    android:text="@string/value"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/cu" />
+
+                <TextView
+                    android:id="@+id/cuMMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/cuMValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/ag" />
+
+                <TextView
+                    android:id="@+id/agMMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/agMValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/au" />
+
+                <TextView
+                    android:id="@+id/auMMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/auMValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/pt" />
+
+                <TextView
+                    android:id="@+id/ptMMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/ptMValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/pd" />
+
+                <TextView
+                    android:id="@+id/pdMMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/pdMValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+            </GridLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/remaining_minerals" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10sp"
+                android:rowCount="5"
+                android:columnCount="3">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:background="@drawable/bottomborder"
+                    android:text="@string/mineral"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/bottomborder"
+                    android:text="@string/mass_t"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/bottomborder"
+                    android:text="@string/value"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/cu" />
+
+                <TextView
+                    android:id="@+id/cuRMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/cuRValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/ag" />
+
+                <TextView
+                    android:id="@+id/agRMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/agRValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/au" />
+
+                <TextView
+                    android:id="@+id/auRMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/auRValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/pt" />
+
+                <TextView
+                    android:id="@+id/ptRMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/ptRValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="fill"
+                    android:text="@string/pd" />
+
+                <TextView
+                    android:id="@+id/pdRMass"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+                <TextView
+                    android:id="@+id/pdRValue"
+                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty" />
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
