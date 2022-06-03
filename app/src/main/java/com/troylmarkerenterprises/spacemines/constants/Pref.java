@@ -25,6 +25,7 @@ package com.troylmarkerenterprises.spacemines.constants;
 public class Pref {
     public static final String PREFS_TABLE = "prefs";
     public static final String PREF_PLANETNAME = "PlanetName";
+    public static final String PREF_PLANETID = "PlanetId";
     public static final String COL_PREF = "pref";
     public static final String COL_VALUE = "value";
 }

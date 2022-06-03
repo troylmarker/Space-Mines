@@ -34,7 +34,9 @@
     <string name="remaining_minerals">Remaining Minerals</string>
     <string name="current_workers">Current Workers On: %1$s</string>
     <string name="miner_staff_count">Miner Staff Count: %1$s</string>
-    <string name="miner_support_staff_count">Miner Support Staff Count: %1$s</string>
+    <string name="miner_supervisor_count">Miner Supervisor Count: %1$s</string>
+    <string name="maintenance_staff_count">Maintenance Staff Count: %1$s</string>
+    <string name="maintenance_supervisor_count">Maintenance Supervisor Count: %1$s</string>
     <string name="entertainer_staff_count">Entertainer Staff Count: %1$s</string>
-    <string name="entertainer_support_staff_count">Entertainer Support Staff Count: %1$s</string>
+    <string name="entertainer_support_staff_count">Entertainer Supervisor Count: %1$s</string>
 </resources>

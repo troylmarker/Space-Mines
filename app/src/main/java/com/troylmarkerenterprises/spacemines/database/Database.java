@@ -26,14 +26,17 @@ import static com.troylmarkerenterprises.spacemines.constants.Db.COL_AG;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_AU;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_CU;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_CURRENT;
-import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ENTERTAIN;
-import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ENTERTAIN_SUPPORT;
+
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ICON;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ID;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_LEVEL;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MINE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MINERS;
-import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MINERS_SUPPORT;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MINERS_SUPERVISOR;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MAINTENANCE;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MAINTENANCE_SUPERVISOR;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ENTERTAIN;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ENTERTAIN_SUPERVISOR;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_M_AG;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_M_AU;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_M_CU;
@@ -50,9 +53,11 @@ import static com.troylmarkerenterprises.spacemines.constants.Db.COL_P_PD;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_P_PT;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_SIZE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_SUPPORT;
-import static com.troylmarkerenterprises.spacemines.constants.Db.DB_PATH;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_TIME;
 import static com.troylmarkerenterprises.spacemines.constants.Db.DB_NAME;
+import static com.troylmarkerenterprises.spacemines.constants.Db.DB_PATH;
 import static com.troylmarkerenterprises.spacemines.constants.Db.DB_VERSION;
+import static com.troylmarkerenterprises.spacemines.constants.Db.IN_TRANSIT_WORKER_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.MINES_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.PLANETS_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.PRICING_TABLE;
@@ -70,6 +75,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.troylmarkerenterprises.spacemines.helpers.General;
+import com.troylmarkerenterprises.spacemines.helpers.Planet;
 import com.troylmarkerenterprises.spacemines.model.PlanetModel;
 import com.troylmarkerenterprises.spacemines.model.PricingModel;
 
@@ -81,7 +87,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Database extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
-    com.troylmarkerenterprises.spacemines.helpers.Planet ph = new com.troylmarkerenterprises.spacemines.helpers.Planet();
+    Planet ph = new Planet();
     General gh = new General();
     Context context;
 
@@ -100,22 +106,31 @@ public class Database extends SQLiteOpenHelper {
 
     public final String PRICING_TABLE_SQL = String.format(
             "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s REAL, %s REAL," +
-                    " %s REAL, %s REAL, %s REAL)", PRICING_TABLE, COL_ID, COL_P_CU,
-            COL_P_AG, COL_P_AU, COL_P_PT, COL_P_PD);
+                    " %s REAL, %s REAL, %s REAL)",
+            PRICING_TABLE, COL_ID, COL_P_CU, COL_P_AG, COL_P_AU, COL_P_PT, COL_P_PD);
 
     //SQL To create the Worker Table
 
     public final String WORKER_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%s TEXT PRIMARY KEY, %s INTEGER " +
-                    " %s INTEGER, %s INTEGER, %s INTEGER)", WORKER_TABLE, COL_ID,
-            COL_MINERS, COL_MINERS_SUPPORT, COL_ENTERTAIN, COL_ENTERTAIN_SUPPORT);
+            "CREATE TABLE %s (%s TEXT PRIMARY KEY, %s INTEGER, " +
+                    " %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER)",
+            WORKER_TABLE, COL_NAME, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE,
+            COL_MAINTENANCE_SUPERVISOR, COL_ENTERTAIN, COL_ENTERTAIN_SUPERVISOR);
+
+    //SQL To create the In Transit Worker Table
+
+    public final String TRANSIT_WORKER_TABLE_SQL = String.format(
+            "CREATE TABLE %s (%S TEXT PRIMARY KEY, %s INTEGER, " +
+                    " %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s TEXT)",
+            IN_TRANSIT_WORKER_TABLE, COL_NAME, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE,
+            COL_MAINTENANCE_SUPERVISOR, COL_ENTERTAIN, COL_ENTERTAIN_SUPERVISOR, COL_TIME);
 
     //SQL To create the Mines Table
 
     public final String MINE_TABLE_SQL = String.format(
             "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT," +
-                    " %s INTEGER, %S INTEGER)", MINES_TABLE, COL_ID, COL_MINE,
-            COL_LEVEL, COL_CURRENT);
+                    " %s INTEGER, %S INTEGER)",
+            MINES_TABLE, COL_ID, COL_MINE, COL_LEVEL, COL_CURRENT);
 
     //SQL To create the Prefs Table
 

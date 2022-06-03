@@ -33,7 +33,7 @@ public class Db {
     public static final String PRICING_TABLE = "pricing";
     public static final String WORKER_TABLE = "workers";
     public static final String MINES_TABLE = "mines";
-
+    public static final String IN_TRANSIT_WORKER_TABLE = "transit_workers";
     public static final String COL_ID = "id";
     public static final String COL_NAME = "name";
     public static final String COL_POP = "population";
@@ -42,10 +42,12 @@ public class Db {
     public static final String COL_LEVEL = "level";
     public static final String COL_CURRENT = "current";
     public static final String COL_MINERS = "miners";
-    public static final String COL_MINERS_SUPPORT = "miners_support";
+    public static final String COL_MINERS_SUPERVISOR = "miners_supervisor";
+    public static final String COL_MAINTENANCE = "maintenance";
+    public static final String COL_MAINTENANCE_SUPERVISOR = "maintenance_supervisor";
     public static final String COL_SUPPORT = "support";
     public static final String COL_ENTERTAIN = "entertain";
-    public static final String COL_ENTERTAIN_SUPPORT = "entertain_support";
+    public static final String COL_ENTERTAIN_SUPERVISOR = "entertain_supervisor";
     public static final String COL_CU = "t_cu";
     public static final String COL_AG = "t_ag";
     public static final String COL_AU = "t_au";
@@ -62,4 +64,5 @@ public class Db {
     public static final String COL_P_AU = "p_au";
     public static final String COL_P_PT = "p_pt";
     public static final String COL_P_PD = "p_pd";
+    public static final String COL_TIME = "time";
 }

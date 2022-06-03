@@ -24,6 +24,7 @@ package com.troylmarkerenterprises.spacemines.fragments;
 
 import static com.troylmarkerenterprises.spacemines.constants.Db.PLANETS_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.PRICING_TABLE;
+import static com.troylmarkerenterprises.spacemines.constants.Pref.PREF_PLANETID;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -57,6 +58,7 @@ public class Planets extends Fragment {
     RecyclerView planets;
     PlanetInterface planetInterface;
     GalaxyInterface galaxyInterface;
+    int Index;
 
     public static Planets newInstance() {
         return new Planets();
@@ -65,31 +67,42 @@ public class Planets extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         getParentFragmentManager ().setFragmentResultListener ("requestKey", this, new FragmentResultListener () {
             @Override
             public void onFragmentResult (@NonNull String requestKey, @NonNull Bundle result) {
                 Bundle results = result;
-
             }
         });
         loadDatabase();
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_planets, container, false);
         planets = view.findViewById(R.id.rvGalaxy);
+        if (savedInstanceState != null) {
+            Index = savedInstanceState.getInt(PREF_PLANETID);
+            Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index));
+        }
+
         planetInterface = new PlanetInterface () {
             @Override
             public void onPlanetChange(int index) {
-                Planets.this.displayPlanet (view, mGalaxy.get (index), mPricing.get (index));
+                Index = index;
+                Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index));
             }
         };
         gAdapter = new GalaxyRVA(mGalaxy, requireActivity(), planetInterface, galaxyInterface);
         planets.setAdapter(gAdapter);
         planets.setLayoutManager(new LinearLayoutManager(requireActivity()));
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(PREF_PLANETID, Index);
     }
 
     private void loadDatabase() {
