@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/miner_support_staff_count"
+        android:text="@string/miner_supervisor_count"
         android:textColor="@color/white" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/entertainer_support_staff_count"
+        android:text="@string/entertainer_supervisor_count"
         android:textColor="@color/white" />
 
 </LinearLayout>

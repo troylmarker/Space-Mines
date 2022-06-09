@@ -25,8 +25,7 @@ package com.troylmarkerenterprises.spacemines.fragments;
 import static com.troylmarkerenterprises.spacemines.constants.Pref.PREF_PLANETNAME;
 
 import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.os.Bundle;import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;

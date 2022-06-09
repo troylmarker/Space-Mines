@@ -58,7 +58,7 @@
                 android:id="@+id/minerSupportStaffCount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/miner_support_staff_count" />
+                android:text="@string/miner_supervisor_count" />
 
             <TextView
                 android:id="@+id/entertainerCount"
@@ -70,7 +70,7 @@
                 android:id="@+id/entertainerSupportCount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/entertainer_support_staff_count" />
+                android:text="@string/entertainer_supervisor_count" />
 
             <TextView
                 android:layout_width="match_parent"
