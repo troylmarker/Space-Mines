@@ -4,21 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.1734375" />
+        <entry key="..\:/Users/troylmarker/Documents/Troy L Marker Enterprises/SpaceMines/Space-Mines/app/src/main/res/layout/fragment_planets.xml" value="0.3569230769230769" />
         <entry key="app/src/main/res/drawable/bottomborder.xml" value="0.2155" />
-        <entry key="app/src/main/res/drawable/fullborder.xml" value="0.309" />
-        <entry key="app/src/main/res/drawable/ll_border.xml" value="0.309" />
-        <entry key="app/src/main/res/drawable/lm_border.xml" value="0.309" />
-        <entry key="app/src/main/res/drawable/lr_border.xml" value="0.309" />
-        <entry key="app/src/main/res/drawable/ml_border.xml" value="0.309" />
-        <entry key="app/src/main/res/drawable/mm_border.xml" value="0.309" />
-        <entry key="app/src/main/res/drawable/mr_border.xml" value="0.309" />
-        <entry key="app/src/main/res/drawable/ul_border.xml" value="0.309" />
-        <entry key="app/src/main/res/drawable/um_border.xml" value="0.309" />
-        <entry key="app/src/main/res/drawable/ur_border.xml" value="0.309" />
-        <entry key="app/src/main/res/layout-land/fragment_planets.xml" value="0.5" />
-        <entry key="app/src/main/res/layout-land/fragment_workers.xml" value="0.16534391534391535" />
+        <entry key="app/src/main/res/layout-land/fragment_planets.xml" value="0.15608465608465608" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20878623188405798" />
-        <entry key="app/src/main/res/layout/fragment_planets.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_planets.xml" value="0.184375" />
         <entry key="app/src/main/res/layout/fragment_workers.xml" value="0.35833333333333334" />
       </map>
     </option>

@@ -31,8 +31,8 @@ import com.troylmarkerenterprises.spacemines.fragments.Entertainment;
 import com.troylmarkerenterprises.spacemines.fragments.Housing;
 import com.troylmarkerenterprises.spacemines.fragments.Mines;
 import com.troylmarkerenterprises.spacemines.fragments.Planets;
-import com.troylmarkerenterprises.spacemines.fragments.Workers;
 import com.troylmarkerenterprises.spacemines.fragments.Shipping;
+import com.troylmarkerenterprises.spacemines.fragments.Workers;
 
 public class Main extends FragmentStateAdapter {
     final int PAGE_COUNT  = 6;
