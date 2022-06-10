@@ -45,7 +45,6 @@ public class Db {
     public static final String COL_MINERS_SUPERVISOR = "miners_supervisor";
     public static final String COL_MAINTENANCE = "maintenance";
     public static final String COL_MAINTENANCE_SUPERVISOR = "maintenance_supervisor";
-    public static final String COL_SUPPORT = "support";
     public static final String COL_ENTERTAIN = "entertain";
     public static final String COL_ENTERTAIN_SUPERVISOR = "entertain_supervisor";
     public static final String COL_CU = "t_cu";

@@ -160,6 +160,7 @@
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/d_w_c"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -168,6 +169,7 @@
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/d_s_c"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -187,23 +189,25 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ml_border"
-                    android:text="@string/entertainers"
+                    android:text="@string/maintenance"
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/m_w_c"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/mm_border"
-                    android:text="@string/entertainer_staff_count"
+                    android:text="@string/maintenance_staff_count"
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/m_s_c"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/mr_border"
-                    android:text="@string/entertainer_supervisor_count"
+                    android:text="@string/maintenance_supervisor_count"
                     android:textAlignment="center" />
 
             </LinearLayout>
@@ -218,18 +222,20 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ll_border"
-                    android:text="@string/maintenance"
+                    android:text="@string/entertainers"
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/e_w_c"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/lm_border"
-                    android:text="@string/maintenance_staff_count"
+                    android:text="@string/entertainer_staff_count"
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/e_s_c"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"

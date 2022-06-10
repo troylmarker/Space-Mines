@@ -52,7 +52,6 @@ import static com.troylmarkerenterprises.spacemines.constants.Db.COL_P_CU;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_P_PD;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_P_PT;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_SIZE;
-import static com.troylmarkerenterprises.spacemines.constants.Db.COL_SUPPORT;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_TIME;
 import static com.troylmarkerenterprises.spacemines.constants.Db.DB_NAME;
 import static com.troylmarkerenterprises.spacemines.constants.Db.DB_PATH;
@@ -78,6 +77,7 @@ import com.troylmarkerenterprises.spacemines.helpers.General;
 import com.troylmarkerenterprises.spacemines.helpers.Planet;
 import com.troylmarkerenterprises.spacemines.model.PlanetModel;
 import com.troylmarkerenterprises.spacemines.model.PricingModel;
+import com.troylmarkerenterprises.spacemines.model.WorkerModel;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -112,17 +112,17 @@ public class Database extends SQLiteOpenHelper {
     //SQL To create the Worker Table
 
     public final String WORKER_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%s TEXT PRIMARY KEY, %s INTEGER, " +
+            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s INTEGER, " +
                     " %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER)",
-            WORKER_TABLE, COL_NAME, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE,
+            WORKER_TABLE, COL_ID, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE,
             COL_MAINTENANCE_SUPERVISOR, COL_ENTERTAIN, COL_ENTERTAIN_SUPERVISOR);
 
     //SQL To create the In Transit Worker Table
 
     public final String TRANSIT_WORKER_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%S TEXT PRIMARY KEY, %s INTEGER, " +
+            "CREATE TABLE %s (%S INTEGER PRIMARY KEY, %s INTEGER, " +
                     " %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s TEXT)",
-            IN_TRANSIT_WORKER_TABLE, COL_NAME, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE,
+            IN_TRANSIT_WORKER_TABLE, COL_ID, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE,
             COL_MAINTENANCE_SUPERVISOR, COL_ENTERTAIN, COL_ENTERTAIN_SUPERVISOR, COL_TIME);
 
     //SQL To create the Mines Table
@@ -253,8 +253,11 @@ public class Database extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
             values.put(COL_ID, i.get());
             values.put(COL_MINERS, 0);
-            values.put(COL_SUPPORT, 0);
+            values.put(COL_MINERS_SUPERVISOR, 0);
+            values.put(COL_MAINTENANCE, 0);
+            values.put(COL_MAINTENANCE_SUPERVISOR, 0);
             values.put(COL_ENTERTAIN, 0);
+            values.put(COL_ENTERTAIN_SUPERVISOR, 0);
             db.insert(WORKER_TABLE, null, values);
             i.getAndIncrement();
         }
@@ -278,6 +281,25 @@ public class Database extends SQLiteOpenHelper {
         }
         db.close();
         return pricing;
+    }
+
+    public ArrayList<WorkerModel> loadWorkers() {
+        ArrayList<WorkerModel> workers = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = String.format("SELECT * FROM %s ORDER BY %s", WORKER_TABLE, COL_ID);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            int minw = cursor.getInt(1);
+            int mins = cursor.getInt(2);
+            int maiw = cursor.getInt(3);
+            int mais = cursor.getInt(4);
+            int entw = cursor.getInt(5);
+            int ents = cursor.getInt(6);
+            workers.add(new WorkerModel(id, minw, mins, maiw, mais, entw, ents));
+        }
+        db.close();
+        return workers;
     }
 
     public boolean checkDataBase() {

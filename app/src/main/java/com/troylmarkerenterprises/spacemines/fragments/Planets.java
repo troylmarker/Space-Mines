@@ -24,6 +24,7 @@ package com.troylmarkerenterprises.spacemines.fragments;
 
 import static com.troylmarkerenterprises.spacemines.constants.Db.PLANETS_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.PRICING_TABLE;
+import static com.troylmarkerenterprises.spacemines.constants.Db.WORKER_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Pref.PREF_PLANETID;
 
 import android.os.Bundle;
@@ -34,7 +35,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,6 +46,7 @@ import com.troylmarkerenterprises.spacemines.interfaces.PlanetInterface;
 import com.troylmarkerenterprises.spacemines.interfaces.GalaxyInterface;
 import com.troylmarkerenterprises.spacemines.model.PlanetModel;
 import com.troylmarkerenterprises.spacemines.model.PricingModel;
+import com.troylmarkerenterprises.spacemines.model.WorkerModel;
 
 import java.util.ArrayList;
 
@@ -53,11 +54,12 @@ public class Planets extends Fragment {
 
     private ArrayList<PlanetModel> mGalaxy;
     private ArrayList<PricingModel> mPricing;
+    private ArrayList<WorkerModel> mWorker;
 
     GalaxyRVA gAdapter;
     RecyclerView planets;
-    PlanetInterface planetInterface;
     GalaxyInterface galaxyInterface;
+    PlanetInterface planetInterface;
     int Index;
 
     public static Planets newInstance() {
@@ -69,11 +71,8 @@ public class Planets extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        getParentFragmentManager ().setFragmentResultListener ("requestKey", this, new FragmentResultListener () {
-            @Override
-            public void onFragmentResult (@NonNull String requestKey, @NonNull Bundle result) {
-                Bundle results = result;
-            }
+        getParentFragmentManager ().setFragmentResultListener ("requestKey", this, (requestKey, result) -> {
+            Bundle results = result;
         });
         loadDatabase();
     }
@@ -84,15 +83,12 @@ public class Planets extends Fragment {
         planets = view.findViewById(R.id.rvGalaxy);
         if (savedInstanceState != null) {
             Index = savedInstanceState.getInt(PREF_PLANETID);
-            Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index));
+            Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index), mWorker.get(Index));
         }
 
-        planetInterface = new PlanetInterface () {
-            @Override
-            public void onPlanetChange(int index) {
-                Index = index;
-                Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index));
-            }
+        planetInterface = index -> {
+            Index = index;
+            Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index) , mWorker.get(Index));
         };
         gAdapter = new GalaxyRVA(mGalaxy, requireActivity(), planetInterface, galaxyInterface);
         planets.setAdapter(gAdapter);
@@ -117,9 +113,14 @@ public class Planets extends Fragment {
         } else {
             mPricing = null;
         }
+        if (db.doesTableExist(WORKER_TABLE)) {
+            mWorker = db.loadWorkers();
+        } else {
+            mWorker = null;
+        }
     }
 
-    public void displayPlanet(@NonNull View view, @NonNull PlanetModel planet, @NonNull PricingModel pricing) {
+    public void displayPlanet(@NonNull View view, @NonNull PlanetModel planet, @NonNull PricingModel pricing, WorkerModel workers) {
         General gh = new General();
         TextView planetId = view.findViewById(R.id.planetId);
         TextView planetName = view.findViewById(R.id.planetName);
@@ -154,9 +155,21 @@ public class Planets extends Fragment {
         TextView ptRValue = view.findViewById(R.id.ptRValue);
         TextView pdRMass = view.findViewById(R.id.pdRMass);
         TextView pdRValue = view.findViewById(R.id.pdRValue);
+        TextView minerWC = view.findViewById(R.id.d_w_c);
+        TextView minerSC = view.findViewById(R.id.d_s_c);
+        TextView maintWC = view.findViewById(R.id.m_w_c);
+        TextView maintSC = view.findViewById(R.id.m_s_c);
+        TextView enterWC = view.findViewById(R.id.e_w_c);
+        TextView enterSC = view.findViewById(R.id.e_s_c);
         planetId.setText(String.format("%s", planet.getId()));
         planetName.setText(String.format("%s", planet.getName()));
         planetSize.setText(String.format("%s miles", planet.getSize()));
+        minerWC.setText(String.valueOf(workers.getMiners()));
+        minerSC.setText(String.valueOf(workers.getMiners_supervisor()));
+        maintWC.setText(String.valueOf(workers.getMaintenance()));
+        maintSC.setText(String.valueOf(workers.getMaintenance_supervisor()));
+        enterWC.setText(String.valueOf(workers.getEntertain()));
+        enterSC.setText(String.valueOf(workers.getEntertain_supervisor()));
         cuMass.setText(gh.getNamedNumber(planet.getT_CU()));
         cuValue.setText(String.format("$%s", gh.getNamedNumber(planet.getT_CU() * (pricing.getCu () * 36000d))));
         agMass.setText(gh.getNamedNumber(planet.getT_AG()));
