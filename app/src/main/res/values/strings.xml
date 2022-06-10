@@ -8,7 +8,7 @@
     <string name="size"> Size:</string>
     <string name="planet_icon">Planet Icon</string>
     <string name="planet_name">Name</string>
-    <string name="planet_size">Size</string>
+    <string name="planet_size">Diameter</string>
     <string name="planet_id">ID</string>
     <string name="entertainment_fragment">Entertainment Fragment</string>
     <string name="housing_fragment">Housing Fragment</string>
@@ -42,4 +42,8 @@
     <string name="workers">Workers</string>
     <string name="department">Department</string>
     <string name="supervisors">Supervisors</string>
+    <string name="planet">Planet</string>
+    <string name="miners">Miners</string>
+    <string name="entertainers">Entertainers</string>
+    <string name="maintenance">Maintenance</string>
 </resources>

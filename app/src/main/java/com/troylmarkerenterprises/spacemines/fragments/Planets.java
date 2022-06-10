@@ -154,9 +154,9 @@ public class Planets extends Fragment {
         TextView ptRValue = view.findViewById(R.id.ptRValue);
         TextView pdRMass = view.findViewById(R.id.pdRMass);
         TextView pdRValue = view.findViewById(R.id.pdRValue);
-        planetId.setText(String.format("Planet Id: %s", planet.getId()));
-        planetName.setText(String.format("Planet Name: %s", planet.getName()));
-        planetSize.setText(String.format("Planet Diameter: %s miles", planet.getSize()));
+        planetId.setText(String.format("%s", planet.getId()));
+        planetName.setText(String.format("%s", planet.getName()));
+        planetSize.setText(String.format("%s miles", planet.getSize()));
         cuMass.setText(gh.getNamedNumber(planet.getT_CU()));
         cuValue.setText(String.format("$%s", gh.getNamedNumber(planet.getT_CU() * (pricing.getCu () * 36000d))));
         agMass.setText(gh.getNamedNumber(planet.getT_AG()));

@@ -16,86 +16,91 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".5"
-        android:paddingTop="10sp">
+        android:paddingTop="10sp"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Planet"
-                android:textAlignment="center"/>
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/planet"
+                    android:textAlignment="center" />
 
-            <TextView
-                android:layout_width="0dp"
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight=".33"
-                android:text="@string/planet_id"
-                android:textAlignment="center"
-                android:background="@drawable/ul_border"/>
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ul_border"
+                    android:text="@string/planet_id"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/um_border"
+                    android:text="@string/planet_name"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ur_border"
+                    android:text="@string/planet_size"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight=".33"
-                android:text="@string/planet_name"
-                android:textAlignment="center"
-                android:background="@drawable/um_border" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".33"
-                android:text="@string/planet_size"
-                android:textAlignment="center"
-                android:background="@drawable/ur_border"/>
+                <TextView
+                    android:id="@+id/planetId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ll_border"
+                    android:text="@string/planet_id_value"
+                    android:textAlignment="center" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/planetName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/lm_border"
+                    android:text="@string/planet_name_value"
+                    android:textAlignment="center" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/planetSize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/lr_border"
+                    android:text="@string/planet_size_value"
+                    android:textAlignment="center" />
 
-            <TextView
-                android:id="@+id/planetId"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/planet_id_value"
-                android:textAlignment="center"
-                android:layout_weight=".33"
-                android:bockground="@drawable/"/>
-
-            <TextView
-                android:id="@+id/planetName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".33"
-                android:text="@string/planet_name_value"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:id="@+id/planetSize"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".33"
-                android:text="@string/planet_size_value"
-                android:textAlignment="center"/>
-
-        </LinearLayout>
-
-
-
-
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -120,35 +125,26 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ul_border"
-                    android:textAlignment="center"
-                    android:text="@string/department"/>
+                    android:text="@string/department"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/um_border"
-                    android:textAlignment="center"
-                    android:text="@string/workers" />
+                    android:text="@string/workers"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ur_border"
-                    android:textAlignment="center"
-                    android:text="@string/supervisors" />
+                    android:text="@string/supervisors"
+                    android:textAlignment="center" />
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/auMass"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".33"
-                android:background="@drawable/mm_border"
-                android:text="@string/empty"
-                android:textAlignment="center" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -158,26 +154,26 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight=".33"
                     android:background="@drawable/ml_border"
-                    android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:text="Miners"/>
+                    android:text="@string/miners"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight=".33"
                     android:background="@drawable/mm_border"
-                    android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:text="@string/miner_staff_count"/>
+                    android:text="@string/miner_staff_count"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/mr_border"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:text="@string/miner_supervisor_count"/>
+                    android:background="@drawable/mr_border"
+                    android:text="@string/miner_supervisor_count"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -189,26 +185,26 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight=".33"
                     android:background="@drawable/ml_border"
-                    android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:text="Entertainers"/>
+                    android:text="@string/entertainers"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight=".33"
                     android:background="@drawable/mm_border"
-                    android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:text="@string/entertainer_staff_count"/>
+                    android:text="@string/entertainer_staff_count"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/mr_border"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:text="@string/entertainer_supervisor_count"/>
+                    android:background="@drawable/mr_border"
+                    android:text="@string/entertainer_supervisor_count"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -220,26 +216,26 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight=".33"
                     android:background="@drawable/ll_border"
-                    android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:text="Maintenance"/>
+                    android:text="@string/maintenance"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight=".33"
                     android:background="@drawable/lm_border"
-                    android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:text="@string/maintenance_staff_count"/>
+                    android:text="@string/maintenance_staff_count"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/lr_border"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:text="@string/entertainer_supervisor_count"/>
+                    android:background="@drawable/lr_border"
+                    android:text="@string/entertainer_supervisor_count"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -251,8 +247,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:text="@string/total_minerals" />
+                    android:text="@string/total_minerals"
+                    android:textAlignment="center" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -261,28 +258,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ul_border"
-                    android:textAlignment="center"
-                    android:text="@string/mineral" />
+                    android:text="@string/mineral"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/um_border"
-                    android:text="@string/mass_t"/>
+                    android:text="@string/mass_t"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
-                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ur_border"
-                    android:text="@string/value"/>
+                    android:text="@string/value"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -292,30 +289,30 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/ml_border"
-                    android:text="@string/cu" />
+                    android:text="@string/cu"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/cuMass"
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/mm_border"
-                    android:text="@string/empty" />
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/cuValue"
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/mr_border"
-                    android:text="@string/empty" />
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -325,12 +322,255 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/ml_border"
-                    android:text="@string/au" />
+                    android:text="@string/ag"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/agMass"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/agValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/au"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/auMass"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/auValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/pt"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/ptMass"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/ptValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ll_border"
+                    android:text="@string/pd"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/pdMass"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/pdValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/lr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mined_minerals"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ul_border"
+                    android:text="@string/mineral"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/um_border"
+                    android:text="@string/mass_t"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ur_border"
+                    android:text="@string/value"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/cu"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/cuMMass"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+
+                <TextView
+                    android:id="@+id/cuMValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/ag"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/agMMass"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/agMValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/au"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/auMMass"
@@ -340,18 +580,17 @@
                     android:background="@drawable/mm_border"
                     android:text="@string/empty"
                     android:textAlignment="center" />
+
                 <TextView
-                    android:id="@+id/auValue"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/auMValue"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/mr_border"
-                    android:text="@string/empty" />
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -359,30 +598,30 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/ml_border"
-                    android:text="@string/pt" />
+                    android:text="@string/pt"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/ptMass"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/ptMMass"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/mm_border"
-                    android:text="@string/empty" />
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/ptValue"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/ptMValue"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/mr_border"
-                    android:text="@string/empty" />
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -392,44 +631,44 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:background="@drawable/ll_border"
-                    android:text="@string/pd"/>
+                    android:background="@drawable/ml_border"
+                    android:text="@string/pd"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/pdMass"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/pdMMass"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/mm_border"
-                    android:text="@string/empty" />
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/pdValue"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/pdMValue"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
-                    android:background="@drawable/lr_border"
-                    android:text="@string/empty" />
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:text="@string/mined_minerals" />
+                    android:text="@string/remaining_minerals"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -443,286 +682,193 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ul_border"
-                    android:text="@string/mineral" />
+                    android:text="@string/mineral"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/um_border"
-                    android:text="@string/mass_t"/>
+                    android:text="@string/mass_t"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:textAlignment="center"
                     android:background="@drawable/ur_border"
-                    android:text="@string/value"/>
+                    android:text="@string/value"
+                    android:textAlignment="center" />
             </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_weight=".33"
-                android:textAlignment="center"
-                android:background="@drawable/ml_border"
-                android:text="@string/cu" />
-
-            <TextView
-                android:id="@+id/cuMValue"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_weight=".33"
-                android:textAlignment="center"
-                android:background="@drawable/mr_border"
-                android:text="@string/empty" />
-
-        </LinearLayout>
-
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10sp"
-                android:rowCount="5"
-                android:columnCount="3">
-
-
-
-
-
-
-
-
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:text="@string/ag" />
-
-                <TextView
-                    android:id="@+id/agMMass"
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
-
-                <TextView
-                    android:id="@+id/agMValue"
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:text="@string/au" />
-
-                <TextView
-                    android:id="@+id/auMMass"
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
-
-                <TextView
-                    android:id="@+id/auMValue"
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:text="@string/pt" />
-
-                <TextView
-                    android:id="@+id/ptMMass"
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
-
-                <TextView
-                    android:id="@+id/ptMValue"
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:text="@string/pd" />
-
-                <TextView
-                    android:id="@+id/pdMMass"
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
-
-                <TextView
-                    android:id="@+id/pdMValue"
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
-
-            </GridLayout>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/remaining_minerals" />
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10sp"
-                android:rowCount="5"
-                android:columnCount="3">
+                android:orientation="horizontal">
 
                 <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:background="@drawable/bottomborder"
-                    android:text="@string/mineral"
-                    tools:ignore="RtlCompat" />
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:background="@drawable/bottomborder"
-                    android:text="@string/mass_t"/>
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:background="@drawable/bottomborder"
-                    android:text="@string/value"/>
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:text="@string/cu" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/cu"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/cuRMass"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
 
                 <TextView
                     android:id="@+id/cuRValue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:text="@string/ag" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/ag"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/agRMass"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/agRValue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:text="@string/au" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/au"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/auRMass"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/auRValue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:text="@string/pt" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/pt"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/ptRMass"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/ptRValue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="fill"
-                    android:text="@string/pd" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/pd"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/pdRMass"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/pdRValue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="125dp"
-                    android:textAlignment="center"
-                    android:text="@string/empty" />
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center" />
 
-            </GridLayout>
-
+            </LinearLayout>
         </LinearLayout>
-
     </ScrollView>
 
 </LinearLayout>
+
