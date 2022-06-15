@@ -2,9 +2,8 @@
  *   Project Name: Space Mines                                                *
  *   Class Name: com.troylmarkerenterprises.spacemines.adapters.GalaxyRVA     *
  *   File Name: GalaxyRVA.java                                                *
- *   File Type: Class file                                                    *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/11/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -35,8 +34,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.troylmarkerenterprises.spacemines.R;
 import com.troylmarkerenterprises.spacemines.database.Database;
-import com.troylmarkerenterprises.spacemines.interfaces.GalaxyInterface;
-import com.troylmarkerenterprises.spacemines.interfaces.PlanetInterface;
+import com.troylmarkerenterprises.spacemines.interfaces.Galaxy;
+import com.troylmarkerenterprises.spacemines.interfaces.Planet;
 import com.troylmarkerenterprises.spacemines.model.PlanetModel;
 
 import java.util.List;
@@ -46,10 +45,10 @@ public class GalaxyRVA extends RecyclerView.Adapter<com.troylmarkerenterprises.s
 
     Database db;
     Context context;
-    PlanetInterface listener;
-    GalaxyInterface selectedPlanet;
+    Planet listener;
+    Galaxy selectedPlanet;
 
-    public GalaxyRVA (List<PlanetModel> galaxy, Context context, PlanetInterface listener, GalaxyInterface mCallback) {
+    public GalaxyRVA (List<PlanetModel> galaxy, Context context, Planet listener, Galaxy mCallback) {
         this.galaxy = galaxy;
         this.context = context;
         this.listener = listener;
@@ -118,5 +117,4 @@ public class GalaxyRVA extends RecyclerView.Adapter<com.troylmarkerenterprises.s
     public int getItemCount() {
         return galaxy.size();
     }
-
 }

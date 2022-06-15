@@ -1,10 +1,9 @@
 /******************************************************************************
  *   Project Name: Space Mines                                                *
- *   Class Name: com.troylmarkerenterprises.spacemines.listeners.GalaxyListener
- *   File Name: GalaxyListener.java                                           *
- *   File Type: Interface file                                                *
- *   File Creation Date: 5/25/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   Class Name: com.troylmarkerenterprises.spacemines.interfaces.Galaxy      *
+ *   File Name: Galaxy.java                                                   *
+ *   File Creation Date: 6/14/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -24,6 +23,7 @@ package com.troylmarkerenterprises.spacemines.interfaces;
 
 import android.os.Bundle;
 
-public interface GalaxyInterface {
-    public void planet(Bundle planetInfo);
+@SuppressWarnings("unused")
+public interface Galaxy {
+    void planet(Bundle planetInfo);
  }

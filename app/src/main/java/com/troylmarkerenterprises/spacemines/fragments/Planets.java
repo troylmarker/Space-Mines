@@ -2,9 +2,8 @@
  *   Project Name: Space Mines                                                *
  *   Class Name: com.troylmarkerenterprises.spacemines.fragments.Planets      *
  *   File Name: Planets.java                                                  *
- *   File Type: Interface file                                                *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/14/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -42,8 +41,8 @@ import com.troylmarkerenterprises.spacemines.R;
 import com.troylmarkerenterprises.spacemines.adapters.GalaxyRVA;
 import com.troylmarkerenterprises.spacemines.database.Database;
 import com.troylmarkerenterprises.spacemines.helpers.General;
-import com.troylmarkerenterprises.spacemines.interfaces.PlanetInterface;
-import com.troylmarkerenterprises.spacemines.interfaces.GalaxyInterface;
+import com.troylmarkerenterprises.spacemines.interfaces.Planet;
+import com.troylmarkerenterprises.spacemines.interfaces.Galaxy;
 import com.troylmarkerenterprises.spacemines.model.PlanetModel;
 import com.troylmarkerenterprises.spacemines.model.PricingModel;
 import com.troylmarkerenterprises.spacemines.model.WorkerModel;
@@ -58,8 +57,8 @@ public class Planets extends Fragment {
 
     GalaxyRVA gAdapter;
     RecyclerView planets;
-    GalaxyInterface galaxyInterface;
-    PlanetInterface planetInterface;
+    Galaxy galaxyInterface;
+    Planet planet;
     int Index;
 
     public static Planets newInstance() {
@@ -86,11 +85,11 @@ public class Planets extends Fragment {
             Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index), mWorker.get(Index));
         }
 
-        planetInterface = index -> {
+        planet = index -> {
             Index = index;
             Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index) , mWorker.get(Index));
         };
-        gAdapter = new GalaxyRVA(mGalaxy, requireActivity(), planetInterface, galaxyInterface);
+        gAdapter = new GalaxyRVA(mGalaxy, requireActivity(), planet, galaxyInterface);
         planets.setAdapter(gAdapter);
         planets.setLayoutManager(new LinearLayoutManager(requireActivity()));
         return view;
@@ -120,7 +119,8 @@ public class Planets extends Fragment {
         }
     }
 
-    public void displayPlanet(@NonNull View view, @NonNull PlanetModel planet, @NonNull PricingModel pricing, WorkerModel workers) {
+    public void displayPlanet(@NonNull View view, @NonNull PlanetModel planet, @NonNull PricingModel pricing,
+                              WorkerModel workers) {
         General gh = new General();
         TextView planetId = view.findViewById(R.id.planetId);
         TextView planetName = view.findViewById(R.id.planetName);

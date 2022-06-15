@@ -2,9 +2,8 @@
  *   Project Name: Space Mines                                                *
  *   Class Name: com.troylmarkerenterprises.spacemines.helpers.Planet         *
  *   File Name: Planet.java                                                   *
- *   File Type: Interface file                                                *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/14/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -24,29 +23,21 @@ package com.troylmarkerenterprises.spacemines.helpers;
 
 import java.util.Random;
 
+@SuppressWarnings("unused")
 public class Planet {
 
     public Planet() {
-
     }
 
     public String getName() {
         String retString;
-        String firstLetter = Character.toString((char) ((char) new Random().nextInt(
-                (77 - 65) + 1) + 65));
-        String secondLetter = Character.toString((char) ((char) new Random().nextInt(
-                (57 - 48) + 1) + 48));
-        String thirdLetter = Character.toString((char) ((char) new Random().nextInt(
-                (90 - 78) + 1) + 78));
-        String forthLetter = Character.toString((char) ((char) new Random().nextInt(
-                (57 - 48) + 1) + 48));
-        String fifthLetter = Character.toString((char) ((char) new Random().nextInt(
-                (57 - 48) + 1) + 48));
-        String sixthLetter = Character.toString((char) ((char) new Random().nextInt(
-                (57 - 48) + 1) + 48));
-
-        retString = firstLetter + secondLetter + thirdLetter + "-" + forthLetter + fifthLetter +
-                sixthLetter;
+        String firstLetter = Character.toString((char) ((char) new Random().nextInt((77 - 65) + 1) + 65));
+        String secondLetter = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
+        String thirdLetter = Character.toString((char) ((char) new Random().nextInt((90 - 78) + 1) + 78));
+        String forthLetter = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
+        String fifthLetter = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
+        String sixthLetter = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
+        retString = firstLetter + secondLetter + thirdLetter + "-" + forthLetter + fifthLetter + sixthLetter;
         return retString;
     }
 
@@ -84,9 +75,27 @@ public class Planet {
 
     public double getPD(double cMass) {
         return cMass * .0000001;
-    }
+    } 
 
     public Integer getIcon() {
         return new Random().nextInt((9  - 1) + 1) + 1;
+    }
+    
+    public double getDistance() {
+        Random random = new Random();
+        double range = 45000000000d - 60000000d;
+        double scaled = random.nextDouble() * range;
+        return scaled + 60000000d;
+    }
+
+    public double getCord() {
+        Random random = new Random();
+        double range = 100000d - 1d;
+        double scaled = random.nextDouble() * range;
+        return scaled + 1;
+    }
+
+    public int getAngle() {
+        return new Random().nextInt((360 - 1) + 1) + 1;
     }
 }

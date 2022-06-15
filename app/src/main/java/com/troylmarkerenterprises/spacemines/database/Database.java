@@ -2,9 +2,8 @@
  *   Project Name: Space Mines                                                *
  *   Class Name: com.troylmarkerenterprises.spacemines.database.Database      *
  *   File Name: Database.java                                                 *
- *   File Type: Interface file                                                *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/13/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -26,17 +25,16 @@ import static com.troylmarkerenterprises.spacemines.constants.Db.COL_AG;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_AU;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_CU;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_CURRENT;
-
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ENTERTAIN;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ENTERTAIN_SUPERVISOR;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ICON;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ID;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_LEVEL;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MAINTENANCE;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MAINTENANCE_SUPERVISOR;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MINE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MINERS;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MINERS_SUPERVISOR;
-import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MAINTENANCE;
-import static com.troylmarkerenterprises.spacemines.constants.Db.COL_MAINTENANCE_SUPERVISOR;
-import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ENTERTAIN;
-import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ENTERTAIN_SUPERVISOR;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_M_AG;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_M_AU;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_M_CU;
@@ -44,6 +42,26 @@ import static com.troylmarkerenterprises.spacemines.constants.Db.COL_M_PD;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_M_PT;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_NAME;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PD;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET0;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET1;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET10;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET11;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET12;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET13;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET14;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET15;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET16;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET17;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET18;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET19;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET2;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET3;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET4;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET5;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET6;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET7;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET8;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PLANET9;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_POP;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_PT;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_P_AG;
@@ -53,12 +71,16 @@ import static com.troylmarkerenterprises.spacemines.constants.Db.COL_P_PD;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_P_PT;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_SIZE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_TIME;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_XCORD;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_YCORD;
+import static com.troylmarkerenterprises.spacemines.constants.Db.COL_ZCORD;
 import static com.troylmarkerenterprises.spacemines.constants.Db.DB_NAME;
-import static com.troylmarkerenterprises.spacemines.constants.Db.DB_PATH;
 import static com.troylmarkerenterprises.spacemines.constants.Db.DB_VERSION;
+import static com.troylmarkerenterprises.spacemines.constants.Db.DISTANCE_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.IN_TRANSIT_WORKER_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.MINES_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.PLANETS_TABLE;
+import static com.troylmarkerenterprises.spacemines.constants.Db.POINTS_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.PRICING_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.WORKER_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Pref.COL_PREF;
@@ -70,7 +92,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.troylmarkerenterprises.spacemines.helpers.General;
@@ -80,7 +101,6 @@ import com.troylmarkerenterprises.spacemines.model.PricingModel;
 import com.troylmarkerenterprises.spacemines.model.WorkerModel;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @SuppressWarnings("unused")
@@ -94,42 +114,42 @@ public class Database extends SQLiteOpenHelper {
     // SQL To create the Planet Table
 
     public final String PLANET_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT NOT NULL," +
-                    " %s INTEGER, %s INTEGER, %s REAL, %s REAL, %s REAL, %s REAL," +
-                    " %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %S REAL," +
-                    " %s INTEGER)",
-            PLANETS_TABLE, COL_ID, COL_NAME, COL_SIZE, COL_POP, COL_CU, COL_AG,
-            COL_AU, COL_PT, COL_PD, COL_M_CU, COL_M_AG, COL_M_AU, COL_M_PT,
-            COL_M_PD, COL_ICON);
+        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT NOT NULL, %s INTEGER, %s INTEGER, %s REAL, %s REAL, %s REAL," +
+        " %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %S REAL, %s INTEGER)",
+        PLANETS_TABLE, COL_ID, COL_NAME, COL_SIZE, COL_POP, COL_CU, COL_AG, COL_AU, COL_PT, COL_PD, COL_M_CU, COL_M_AG,
+        COL_M_AU, COL_M_PT, COL_M_PD, COL_ICON);
+
+    //SQL To create the points table for planet location
+
+    public final String POINTS_TABLE_SQL = String.format(
+        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s REAL, %s REAL, %s REAL)",
+        POINTS_TABLE, COL_ID, COL_XCORD, COL_YCORD, COL_ZCORD);
 
     // SQL To create the Pricing Table
 
     public final String PRICING_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s REAL, %s REAL," +
-                    " %s REAL, %s REAL, %s REAL)",
-            PRICING_TABLE, COL_ID, COL_P_CU, COL_P_AG, COL_P_AU, COL_P_PT, COL_P_PD);
+        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL)",
+        PRICING_TABLE, COL_ID, COL_P_CU, COL_P_AG, COL_P_AU, COL_P_PT, COL_P_PD);
 
     //SQL To create the Worker Table
 
     public final String WORKER_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s INTEGER, " +
-                    " %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER)",
-            WORKER_TABLE, COL_ID, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE,
-            COL_MAINTENANCE_SUPERVISOR, COL_ENTERTAIN, COL_ENTERTAIN_SUPERVISOR);
+        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER)",
+        WORKER_TABLE, COL_ID, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE, COL_MAINTENANCE_SUPERVISOR, COL_ENTERTAIN,
+        COL_ENTERTAIN_SUPERVISOR);
 
     //SQL To create the In Transit Worker Table
 
     public final String TRANSIT_WORKER_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%S INTEGER PRIMARY KEY, %s INTEGER, " +
-                    " %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s TEXT)",
-            IN_TRANSIT_WORKER_TABLE, COL_ID, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE,
-            COL_MAINTENANCE_SUPERVISOR, COL_ENTERTAIN, COL_ENTERTAIN_SUPERVISOR, COL_TIME);
+        "CREATE TABLE %s (%S INTEGER PRIMARY KEY, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER," +
+            " %s TEXT)",
+        IN_TRANSIT_WORKER_TABLE, COL_ID, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE, COL_MAINTENANCE_SUPERVISOR,
+        COL_ENTERTAIN, COL_ENTERTAIN_SUPERVISOR, COL_TIME);
 
     //SQL To create the Mines Table
 
     public final String MINE_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT," +
-                    " %s INTEGER, %S INTEGER)",
+            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT, %s INTEGER, %S INTEGER)",
             MINES_TABLE, COL_ID, COL_MINE, COL_LEVEL, COL_CURRENT);
 
     //SQL To create the Prefs Table
@@ -138,6 +158,15 @@ public class Database extends SQLiteOpenHelper {
             "CREATE TABLE %s (%s TEXT UNIQUE ON CONFLICT REPLACE, %s TEXT)",
             PREFS_TABLE, COL_PREF, COL_VALUE);
 
+    //SQL To create the distance table
+
+    public final String DISTANCE_TABLE_SQL = String.format(
+            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL," +
+                " %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL)",
+            DISTANCE_TABLE, COL_ID, COL_PLANET0, COL_PLANET1, COL_PLANET2, COL_PLANET3, COL_PLANET4, COL_PLANET5, COL_PLANET6,
+            COL_PLANET7, COL_PLANET8, COL_PLANET9, COL_PLANET10, COL_PLANET11, COL_PLANET12, COL_PLANET13, COL_PLANET14,
+            COL_PLANET15, COL_PLANET16, COL_PLANET17, COL_PLANET18, COL_PLANET19);
+
     public Database(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.context = context.getApplicationContext();
@@ -145,13 +174,14 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL(PLANET_TABLE_SQL);
+        db.execSQL(POINTS_TABLE_SQL);
         db.execSQL(PRICING_TABLE_SQL);
         db.execSQL(WORKER_TABLE_SQL);
+        db.execSQL(TRANSIT_WORKER_TABLE_SQL);
         db.execSQL(MINE_TABLE_SQL);
         db.execSQL(PREFS_TABLE_SQL);
-
+        db.execSQL(DISTANCE_TABLE_SQL);
     }
 
     @Override
@@ -159,9 +189,13 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public void createDatabase() {
-        createGalaxy();
-        createPricing();
-        initialWorkerCount();
+        if (!doesTableExist(PLANETS_TABLE)) {
+            createGalaxy();
+            createPoints();
+            createPricing();
+            createWorkerCount();
+            createDistances();
+        }
     }
 
     @SuppressWarnings("IntegerDivisionInFloatingPointContext")
@@ -197,6 +231,90 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void createPoints() {
+        db = getWritableDatabase();
+        db.delete(POINTS_TABLE, null, null);
+        AtomicInteger i = new AtomicInteger();
+        while (i.get() <20) {
+            ContentValues values = new ContentValues();
+            values.put(COL_ID, i.get());
+            values.put(COL_XCORD, ph.getCord());
+            values.put(COL_YCORD, ph.getCord());
+            values.put(COL_ZCORD, ph.getCord());
+            db.insert(POINTS_TABLE,null,values);
+            i.getAndIncrement();
+        }
+        db.close();
+    }
+
+    public void createPricing() {
+        db = getWritableDatabase();
+        db.delete(PRICING_TABLE, null, null);
+        AtomicInteger i = new AtomicInteger();
+        while (i.get() < 20) {
+            ContentValues values = new ContentValues();
+            values.put(COL_ID, i.get());
+            values.put(COL_P_CU, gh.getCuPrice());
+            values.put(COL_P_AG, gh.getAgPrice());
+            values.put(COL_P_AU, gh.getAuPrice());
+            values.put(COL_P_PT, gh.getPtPrice());
+            values.put(COL_P_PD, gh.getPdPrice());
+            db.insert(PRICING_TABLE, null, values);
+            i.getAndIncrement();
+        }
+        db.close();
+    }
+
+    public void createWorkerCount() {
+        db = getWritableDatabase();
+        db.delete(WORKER_TABLE, null, null);
+        AtomicInteger i = new AtomicInteger();
+        while (i.get() < 20) {
+            ContentValues values = new ContentValues();
+            values.put(COL_ID, i.get());
+            values.put(COL_MINERS, 0);
+            values.put(COL_MINERS_SUPERVISOR, 0);
+            values.put(COL_MAINTENANCE, 0);
+            values.put(COL_MAINTENANCE_SUPERVISOR, 0);
+            values.put(COL_ENTERTAIN, 0);
+            values.put(COL_ENTERTAIN_SUPERVISOR, 0);
+            db.insert(WORKER_TABLE, null, values);
+            i.getAndIncrement();
+        }
+        db.close();
+    }
+
+    public void createDistances() {
+        db = getWritableDatabase();
+        db.delete(DISTANCE_TABLE, null, null);
+        for(int i=0; i < 20; i++) {
+            ContentValues values = new ContentValues();
+            values.put(COL_ID, i);
+            values.put(COL_PLANET0, 0);
+            values.put(COL_PLANET1, 0);
+            values.put(COL_PLANET2, 0);
+            values.put(COL_PLANET3, 0);
+            values.put(COL_PLANET4, 0);
+            values.put(COL_PLANET5, 0);
+            values.put(COL_PLANET6, 0);
+            values.put(COL_PLANET7, 0);
+            values.put(COL_PLANET8, 0);
+            values.put(COL_PLANET9, 0);
+            values.put(COL_PLANET10, 0);
+            values.put(COL_PLANET11, 0);
+            values.put(COL_PLANET12, 0);
+            values.put(COL_PLANET13, 0);
+            values.put(COL_PLANET14, 0);
+            values.put(COL_PLANET15, 0);
+            values.put(COL_PLANET16, 0);
+            values.put(COL_PLANET17, 0);
+            values.put(COL_PLANET18, 0);
+            values.put(COL_PLANET19, 0);
+            db.insert(DISTANCE_TABLE,null, values);
+        }
+        db.close();
+    }
+
     public ArrayList<PlanetModel> loadGalaxy() {
         ArrayList<PlanetModel> planets = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -225,43 +343,6 @@ public class Database extends SQLiteOpenHelper {
         }
         db.close();
         return planets;
-    }
-
-    public void createPricing() {
-        db = getWritableDatabase();
-        db.delete(PRICING_TABLE, null, null);
-        AtomicInteger i = new AtomicInteger();
-        while (i.get() < 20) {
-            ContentValues values = new ContentValues();
-            values.put(COL_ID, i.get());
-            values.put(COL_P_CU, gh.getCuPrice());
-            values.put(COL_P_AG, gh.getAgPrice());
-            values.put(COL_P_AU, gh.getAuPrice());
-            values.put(COL_P_PT, gh.getPtPrice());
-            values.put(COL_P_PD, gh.getPdPrice());
-            db.insert(PRICING_TABLE, null, values);
-            i.getAndIncrement();
-        }
-        db.close();
-    }
-
-    public void initialWorkerCount() {
-        db = getWritableDatabase();
-        db.delete(WORKER_TABLE, null, null);
-        AtomicInteger i = new AtomicInteger();
-        while (i.get() < 20) {
-            ContentValues values = new ContentValues();
-            values.put(COL_ID, i.get());
-            values.put(COL_MINERS, 0);
-            values.put(COL_MINERS_SUPERVISOR, 0);
-            values.put(COL_MAINTENANCE, 0);
-            values.put(COL_MAINTENANCE_SUPERVISOR, 0);
-            values.put(COL_ENTERTAIN, 0);
-            values.put(COL_ENTERTAIN_SUPERVISOR, 0);
-            db.insert(WORKER_TABLE, null, values);
-            i.getAndIncrement();
-        }
-        db.close();
     }
 
     public ArrayList<PricingModel> loadPricing() {
@@ -300,20 +381,6 @@ public class Database extends SQLiteOpenHelper {
         }
         db.close();
         return workers;
-    }
-
-    public boolean checkDataBase() {
-        AtomicBoolean checkFlag = new AtomicBoolean(true);
-        SQLiteDatabase checkDB;
-        String testPath = DB_PATH + DB_NAME;
-
-        try {
-            checkDB = SQLiteDatabase.openDatabase(testPath, null, SQLiteDatabase.OPEN_READONLY);
-            checkDB.close();
-        } catch (SQLiteException e) {
-            checkFlag.set(false);
-        }
-        return checkFlag.get();
     }
 
     public boolean doesTableExist(String tableName) {

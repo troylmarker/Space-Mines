@@ -40,21 +40,8 @@ public class PlanetModel {
     private double m_PD;
     private int icon;
 
-    public PlanetModel(int id,
-                       String name,
-                       int size,
-                       int population,
-                       double t_CU,
-                       double t_AG,
-                       double t_AU,
-                       double t_PT,
-                       double t_PD,
-                       double m_CU,
-                       double m_AG,
-                       double m_AU,
-                       double m_PT,
-                       double m_PD,
-                       int icon) {
+    public PlanetModel(int id, String name, int size, int population, double t_CU, double t_AG, double t_AU, double t_PT,
+                       double t_PD, double m_CU, double m_AG, double m_AU, double m_PT, double m_PD, int icon) {
         this.id = id;
         this.name = name;
         this.size = size;
@@ -191,5 +178,4 @@ public class PlanetModel {
     public void setIcon(int icon) {
         this.icon = icon;
     }
-
 }

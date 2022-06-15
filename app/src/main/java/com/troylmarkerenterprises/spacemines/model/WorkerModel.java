@@ -30,7 +30,8 @@ public class WorkerModel {
     private int entertain;
     private int entertain_supervisor;
 
-    public WorkerModel(int id, int miners, int miners_supervisor, int maintenance, int maintenance_supervisor, int entertain, int entertain_supervisor) {
+    public WorkerModel(int id, int miners, int miners_supervisor, int maintenance, int maintenance_supervisor, int entertain,
+                       int entertain_supervisor) {
         this.id = id;
         this.miners = miners;
         this.miners_supervisor = miners_supervisor;

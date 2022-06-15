@@ -2,9 +2,8 @@
  *   Project Name: Space Mines                                                *
  *   Class Name: com.troylmarkerenterprises.spacemines.fragments.Entertainment*
  *   File Name: Entertainment.java                                            *
- *   File Type: Interface file                                                *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/14/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -45,8 +44,7 @@ public class Entertainment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_entertainment, container, false);
         TextView textView = (TextView) view;
         textView.setText(R.string.entertainment_fragment);

@@ -2,9 +2,8 @@
  *   Project Name: Space Mines                                                *
  *   Class Name: com.troylmarkerenterprises.spacemines.adapters.Main          *
  *   File Name: Main.java                                                     *
- *   File Type: Class file                                                    *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/12/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -75,4 +74,3 @@ public class Main extends FragmentStateAdapter {
         return returnFragment;
     }
 }
-

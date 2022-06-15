@@ -1,10 +1,9 @@
 /******************************************************************************
  *   Project Name: Space Mines                                                *
- *   Class Name: com.troylmarkerenterprises.spacemines.listeners.Planet       *
- *   File Name: Planet.java                                                   *
- *   File Type: Interface file                                                *
- *   File Creation Date: 5/25/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   Class Name: com.troylmarkerenterprises.spacemines.model.PointModel       *
+ *   File Name: PointModel.java                                               *
+ *   File Creation Date: 6/13/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -20,8 +19,51 @@
  *   See the License for the specific language governing permissions and      *
  *   limitations under the License.                                           *
  ******************************************************************************/
-package com.troylmarkerenterprises.spacemines.interfaces;
+package com.troylmarkerenterprises.spacemines.model;
 
-public interface PlanetInterface {
-    public void onPlanetChange(int index);
+@SuppressWarnings("unused")
+public class PointModel {
+    private int id;
+    private double x_cord;
+    private double y_cord;
+    private double z_cord;
+
+    public PointModel(int id, double x_cord, double y_cord, double z_cord) {
+        this.id = id;
+        this.x_cord = x_cord;
+        this.y_cord = y_cord;
+        this.z_cord = z_cord;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getX_cord() {
+        return x_cord;
+    }
+
+    public void setX_cord(double x_cord) {
+        this.x_cord = x_cord;
+    }
+
+    public double getY_cord() {
+        return y_cord;
+    }
+
+    public void setY_cord(double y_cord) {
+        this.y_cord = y_cord;
+    }
+
+    public double getZ_cord() {
+        return z_cord;
+    }
+
+    public void setZ_cord(double z_cord) {
+        this.z_cord = z_cord;
+    }
 }

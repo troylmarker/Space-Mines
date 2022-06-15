@@ -2,9 +2,8 @@
  *   Project Name: Space Mines                                                *
  *   Class Name: com.troylmarkerenterprises.spacemines.constants.Pref         *
  *   File Name: Pref.java                                                     *
- *   File Type: Interface file                                                *
- *   File Creation Date: 5/24/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/12/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *

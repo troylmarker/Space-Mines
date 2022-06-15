@@ -2,9 +2,8 @@
  *   Project Name: Space Mines                                                *
  *   Class Name: com.troylmarkerenterprises.spacemines.activities.Main        *
  *   File Name: Main.java                                                     *
- *   File Type: Class file                                                    *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/11/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -33,7 +32,6 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.troylmarkerenterprises.spacemines.database.Database;
 import com.troylmarkerenterprises.spacemines.R;
 
-
 public class Main extends FragmentActivity {
 
 
@@ -43,11 +41,8 @@ public class Main extends FragmentActivity {
         setContentView (R.layout.activity_main);
         Database db = new Database (this.getApplicationContext());
         ViewPager2 viewPager = findViewById (R.id.pager);
-        viewPager.setAdapter (new com.troylmarkerenterprises.spacemines.adapters.Main
-                (this));
-        if (!db.checkDataBase ()) {
-            db.createDatabase ();
-        }
+        viewPager.setAdapter (new com.troylmarkerenterprises.spacemines.adapters.Main(this));
+        db.createDatabase ();
 
         TabLayout tabLayout = findViewById (R.id.sliding_tabs);
         new TabLayoutMediator (tabLayout, viewPager, (tab, position) -> {

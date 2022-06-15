@@ -1,10 +1,9 @@
 /******************************************************************************
  *   Project Name: Space Mines                                                *
- *   Class Name: com.troylmarkerenterprises.spacemines.constants.DbCon        *
+ *   Class Name: com.troylmarkerenterprises.spacemines.constants.Db           *
  *   File Name: Db.java                                                       *
- *   File Type: Class file                                                    *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/12/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -33,6 +32,8 @@ public class Db {
     public static final String PRICING_TABLE = "pricing";
     public static final String WORKER_TABLE = "workers";
     public static final String MINES_TABLE = "mines";
+    public static final String DISTANCE_TABLE = "distance";
+    public static final String POINTS_TABLE = "points";
     public static final String IN_TRANSIT_WORKER_TABLE = "transit_workers";
     public static final String COL_ID = "id";
     public static final String COL_NAME = "name";
@@ -64,4 +65,27 @@ public class Db {
     public static final String COL_P_PT = "p_pt";
     public static final String COL_P_PD = "p_pd";
     public static final String COL_TIME = "time";
+    public static final String COL_XCORD = "x_cord";
+    public static final String COL_YCORD = "y_cord";
+    public static final String COL_ZCORD = "z_cord";
+    public static final String COL_PLANET0 = "planet_0";
+    public static final String COL_PLANET1 = "planet_1";
+    public static final String COL_PLANET2 = "planet_2";
+    public static final String COL_PLANET3 = "planet_3";
+    public static final String COL_PLANET4 = "planet_4";
+    public static final String COL_PLANET5 = "planet_5";
+    public static final String COL_PLANET6 = "planet_6";
+    public static final String COL_PLANET7 = "planet_7";
+    public static final String COL_PLANET8 = "planet_8";
+    public static final String COL_PLANET9 = "planet_9";
+    public static final String COL_PLANET10 = "planet_10";
+    public static final String COL_PLANET11 = "planet_11";
+    public static final String COL_PLANET12 = "planet_12";
+    public static final String COL_PLANET13 = "planet_13";
+    public static final String COL_PLANET14 = "planet_14";
+    public static final String COL_PLANET15 = "planet_15";
+    public static final String COL_PLANET16 = "planet_16";
+    public static final String COL_PLANET17 = "planet_17";
+    public static final String COL_PLANET18 = "planet_18";
+    public static final String COL_PLANET19 = "planet_19";
 }

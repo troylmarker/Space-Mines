@@ -2,9 +2,8 @@
  *   Project Name: Space Mines                                                *
  *   Class Name: com.troylmarkerenterprises.spacemines.fragments.Workers      *
  *   File Name: Workers.java                                                  *
- *   File Type: Interface file                                                *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
+ *   File Creation Date: 6/14/2022                                            *
+ *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
  *                                                                            *
@@ -24,15 +23,13 @@ package com.troylmarkerenterprises.spacemines.fragments;
 
 import static com.troylmarkerenterprises.spacemines.constants.Pref.PREF_PLANETNAME;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;import android.view.LayoutInflater;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import androidx.fragment.app.Fragment;
-
 
 import com.troylmarkerenterprises.spacemines.R;
 import com.troylmarkerenterprises.spacemines.database.Database;
@@ -54,8 +51,7 @@ public class Workers extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_workers, container, false);
         db = new Database(requireContext().getApplicationContext());
         currentPlanet = view.findViewById (R.id.txtCurrentPlanet);

@@ -1,8 +1,8 @@
 /******************************************************************************
  *   Project Name: Space Mines                                                *
- *   Class Name: com.troylmarkerenterprises.spacemines.viewholder.Galaxy      *
- *   File Name: Galaxy.java                                                   *
- *   File Creation Date: 6/11/2022                                            *
+ *   Class Name: com.troylmarkerenterprises.spacemines.interfaces.Planet      *
+ *   File Name: Planet.java                                                   *
+ *   File Creation Date: 6/14/2022                                            *
  *   File Creator: troylmarker                                                *
  *                                                                            *
  *   Copyright 2022  by Troy L Marker Enterprises                             *
@@ -19,29 +19,9 @@
  *   See the License for the specific language governing permissions and      *
  *   limitations under the License.                                           *
  ******************************************************************************/
-package com.troylmarkerenterprises.spacemines.viewholder;
-
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.troylmarkerenterprises.spacemines.R;
+package com.troylmarkerenterprises.spacemines.interfaces;
 
 @SuppressWarnings("unused")
-public class Galaxy extends RecyclerView.ViewHolder {
-    public ImageView imgPlanetIcon;
-    public TextView txtPlanetId;
-    public TextView txtPlanetName;
-    public TextView txtPlanetSize;
-    public ImageView imgSelect;
-
-    public Galaxy(View itemView) {
-        super(itemView);
-        imgPlanetIcon = itemView.findViewById(R.id.imgPlanetIcon);
-        txtPlanetId = itemView.findViewById(R.id.txtPlanetId);
-        txtPlanetName = itemView.findViewById(R.id.txtPlanetName);
-        txtPlanetSize = itemView.findViewById(R.id.txtPlanetSize);
-    }
+public interface Planet {
+    void onPlanetChange(int index);
 }
