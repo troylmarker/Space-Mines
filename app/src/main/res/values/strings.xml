@@ -46,4 +46,5 @@
     <string name="miners">Miners</string>
     <string name="entertainers">Entertainers</string>
     <string name="maintenance">Maintenance</string>
+    <string name="shipping_fragment">Shipping Fragment</string>
 </resources>
