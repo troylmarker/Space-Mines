@@ -95,6 +95,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.troylmarkerenterprises.spacemines.helpers.General;
 import com.troylmarkerenterprises.spacemines.helpers.Planet;
 import com.troylmarkerenterprises.spacemines.model.PlanetModel;
+import com.troylmarkerenterprises.spacemines.model.PointModel;
 import com.troylmarkerenterprises.spacemines.model.PricingModel;
 import com.troylmarkerenterprises.spacemines.model.WorkerModel;
 
@@ -282,29 +283,20 @@ public class Database extends SQLiteOpenHelper {
         db = getWritableDatabase();
         db.delete(DISTANCE_TABLE, null, null);
         for(int i=0; i < 20; i++) {
-            ContentValues values = new ContentValues();
-            values.put(COL_ID, i);
-            values.put(COL_PLANET0, 0);
-            values.put(COL_PLANET1, 0);
-            values.put(COL_PLANET2, 0);
-            values.put(COL_PLANET3, 0);
-            values.put(COL_PLANET4, 0);
-            values.put(COL_PLANET5, 0);
-            values.put(COL_PLANET6, 0);
-            values.put(COL_PLANET7, 0);
-            values.put(COL_PLANET8, 0);
-            values.put(COL_PLANET9, 0);
-            values.put(COL_PLANET10, 0);
-            values.put(COL_PLANET11, 0);
-            values.put(COL_PLANET12, 0);
-            values.put(COL_PLANET13, 0);
-            values.put(COL_PLANET14, 0);
-            values.put(COL_PLANET15, 0);
-            values.put(COL_PLANET16, 0);
-            values.put(COL_PLANET17, 0);
-            values.put(COL_PLANET18, 0);
-            values.put(COL_PLANET19, 0);
-            db.insert(DISTANCE_TABLE,null, values);
+            PointModel planet1 = getPlanetPoint(i);
+            for(int j = 0; j < 20; j++) {
+                PointModel planet2 = getPlanetPoint(j);
+                double distance;
+                if (j == i) {
+                    distance = ph.calcDistFromHome(planet1);
+                } else {
+                    distance = ph.calcDistBetweenPlanets(planet1, planet2);
+                }
+                ContentValues values = new ContentValues();
+                values.put(COL_ID, i);
+                values.put("planet_" + j, distance);
+                db.insert(DISTANCE_TABLE,null, values);
+            }
         }
         db.close();
     }
@@ -376,6 +368,22 @@ public class Database extends SQLiteOpenHelper {
         db.close();
         return workers;
     }
+
+    public PointModel getPlanetPoint(int pp) {
+        PointModel returnPoint = new PointModel();
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = String.format("SELECT * FROM %s WHERE %s = %s", POINTS_TABLE, COL_ID, pp);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            returnPoint.setId(cursor.getInt(0));
+            returnPoint.setX_cord(cursor.getDouble(1));
+            returnPoint.setY_cord(cursor.getDouble(2));
+            returnPoint.setZ_cord(cursor.getDouble(3));
+        }
+        return returnPoint;
+    }
+
+
 
     public boolean doesTableExist(String tableName) {
         if (db == null || !db.isOpen()) {

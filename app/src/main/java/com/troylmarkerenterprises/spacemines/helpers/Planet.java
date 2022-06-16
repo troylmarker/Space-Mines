@@ -19,6 +19,8 @@
  *********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.helpers;
 
+import com.troylmarkerenterprises.spacemines.model.PointModel;
+
 import java.util.Random;
 
 @SuppressWarnings("unused")
@@ -95,5 +97,13 @@ public class Planet {
 
     public int getAngle() {
         return new Random().nextInt((360 - 1) + 1) + 1;
+    }
+
+    public double calcDistFromHome(PointModel planet1) {
+        return Math.sqrt(Math.pow(planet1.getX_cord(), 2) + Math.pow(planet1.getY_cord(), 2) + Math.pow(planet1.getZ_cord(), 2));
+    }
+
+    public double calcDistBetweenPlanets(PointModel planet1, PointModel planet2) {
+        return Math.sqrt(Math.pow((planet1.getX_cord() - planet2.getX_cord()), 2) + Math.pow((planet1.getY_cord() - planet2.getY_cord()), 2) + Math.pow((planet1.getZ_cord() - planet2.getZ_cord()), 2));
     }
 }

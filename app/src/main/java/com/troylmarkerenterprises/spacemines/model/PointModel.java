@@ -33,6 +33,10 @@ public class PointModel {
         this.z_cord = z_cord;
     }
 
+    public PointModel() {
+
+    }
+
     public int getId() {
         return id;
     }

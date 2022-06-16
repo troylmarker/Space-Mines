@@ -19,6 +19,7 @@
  *********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.fragments;
 
+import static com.troylmarkerenterprises.spacemines.constants.Db.DISTANCE_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.PLANETS_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.PRICING_TABLE;
 import static com.troylmarkerenterprises.spacemines.constants.Db.WORKER_TABLE;
