@@ -282,21 +282,45 @@ public class Database extends SQLiteOpenHelper {
     public void createDistances() {
         db = getWritableDatabase();
         db.delete(DISTANCE_TABLE, null, null);
-        for(int i=0; i < 20; i++) {
+        double[] distance = new double[20];
+        int i=0;
+        while (i < 20) {
             PointModel planet1 = getPlanetPoint(i);
-            for(int j = 0; j < 20; j++) {
+            int j=0;
+            while (j < 20) {
                 PointModel planet2 = getPlanetPoint(j);
-                double distance;
-                if (j == i) {
-                    distance = ph.calcDistFromHome(planet1);
+
+                if (i == j) {
+                    distance[j] = ph.calcDistFromHome(planet1);
                 } else {
-                    distance = ph.calcDistBetweenPlanets(planet1, planet2);
+                    distance[j] = ph.calcDistBetweenPlanets(planet1, planet2);
                 }
-                ContentValues values = new ContentValues();
-                values.put(COL_ID, i);
-                values.put("planet_" + j, distance);
-                db.insert(DISTANCE_TABLE,null, values);
+                j++;
             }
+            ContentValues values = new ContentValues();
+            values.put(COL_ID, i);
+            values.put(COL_PLANET0, distance[0]);
+            values.put(COL_PLANET1, distance[1]);
+            values.put(COL_PLANET2, distance[2]);
+            values.put(COL_PLANET3, distance[3]);
+            values.put(COL_PLANET4, distance[4]);
+            values.put(COL_PLANET5, distance[5]);
+            values.put(COL_PLANET6, distance[6]);
+            values.put(COL_PLANET7, distance[7]);
+            values.put(COL_PLANET8, distance[8]);
+            values.put(COL_PLANET9, distance[9]);
+            values.put(COL_PLANET10, distance[10]);
+            values.put(COL_PLANET11, distance[11]);
+            values.put(COL_PLANET12, distance[12]);
+            values.put(COL_PLANET13, distance[13]);
+            values.put(COL_PLANET14, distance[14]);
+            values.put(COL_PLANET15, distance[15]);
+            values.put(COL_PLANET16, distance[16]);
+            values.put(COL_PLANET17, distance[17]);
+            values.put(COL_PLANET18, distance[18]);
+            values.put(COL_PLANET19, distance[19]);
+            db.insert(DISTANCE_TABLE, null, values);
+            i++;
         }
         db.close();
     }
@@ -304,8 +328,7 @@ public class Database extends SQLiteOpenHelper {
     public ArrayList<PlanetModel> loadGalaxy() {
         ArrayList<PlanetModel> planets = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        String sql = String.format("SELECT * FROM %s ORDER BY %s",
-                PLANETS_TABLE, COL_ID);
+        String sql = String.format("SELECT * FROM %s ORDER BY %s", PLANETS_TABLE, COL_ID);
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql,
                 null);
         while (cursor.moveToNext()) {
