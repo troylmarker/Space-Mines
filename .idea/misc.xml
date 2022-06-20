@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout-land/fragment_mines.xml" value="0.15343915343915343" />
         <entry key="app/src/main/res/layout-land/fragment_planets.xml" value="0.15608465608465608" />
         <entry key="app/src/main/res/layout-land/fragment_shipping.xml" value="0.15343915343915343" />
+        <entry key="app/src/main/res/layout-land/list_planet.xml" value="0.15343915343915343" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20878623188405798" />
         <entry key="app/src/main/res/layout/fragment_entertainment.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/fragment_housing.xml" value="0.18125" />

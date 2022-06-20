@@ -442,6 +442,17 @@ public class Database extends SQLiteOpenHelper {
         return retValue;
     }
 
+    public boolean checkPref(String preference) {
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("SELECT %s FROM %s WHERE %s = '%s'", COL_VALUE, PREFS_TABLE, COL_PREF, preference);
+        @SuppressLint("Recycle") Cursor result = db.rawQuery(query, null);
+        if(result.getCount() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void setPref(String pref, String val) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
