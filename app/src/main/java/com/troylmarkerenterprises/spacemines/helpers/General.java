@@ -21,58 +21,58 @@
  ******************************************************************************/
 package com.troylmarkerenterprises.spacemines.helpers;
 
-import android.annotation.SuppressLint;
-
+import java.util.Locale;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class General {
-    @SuppressLint("DefaultLocale")
+
+
     public String getNamedNumber(double number) {
         AtomicReference<String> numberString;
         numberString = new AtomicReference<>("0 Mil");
         if (number > 1e+60) {
-            numberString.set(String.format("%.2f Novemdecillion", number / 1e+60));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Novemdecillion", number / 1e+60));
         }  else if (number >  1e+57 ) {
-            numberString.set(String.format("%.2f Octodecillion", number / 1e+57));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Octodecillion", number / 1e+57));
         }  else if (number >  1e+54 ) {
-            numberString.set(String.format("%.2f Septen-decillion", number / 1e+54));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Septen-decillion", number / 1e+54));
         }  else if (number >  1e+51 ) {
-            numberString.set(String.format("%.2f Sexdecillion", number / 1e+51));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Sexdecillion", number / 1e+51));
         }  else if (number >  1e+48 ) {
-            numberString.set(String.format("%.2f Quindecillion", number / 1e+48));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Quindecillion", number / 1e+48));
         }  else if (number >  1e+45 ) {
-            numberString.set(String.format("%.2f Quattuordecillion", number / 1e+45));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Quattuordecillion", number / 1e+45));
         }  else if (number >  1e+42 ) {
-            numberString.set(String.format("%.2f Tredecillion", number / 1e+42));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Tredecillion", number / 1e+42));
         }  else if (number >  1e+39 ) {
-            numberString.set(String.format("%.2f Duodecillion", number / 1e+39));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Duodecillion", number / 1e+39));
         }  else if (number >  1e+36 ) {
-            numberString.set(String.format("%.2f Undecillion", number / 1e+36));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Undecillion", number / 1e+36));
         }  else if (number >  1e+33 ) {
-            numberString.set(String.format("%.2f Decillion", number / 1e+33));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Decillion", number / 1e+33));
         }  else if (number >  1e+30 ) {
-            numberString.set(String.format("%.2f Nonillion", number / 1e+30));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Nonillion", number / 1e+30));
         }  else if (number >  1e+27 ) {
-            numberString.set(String.format("%.2f Octillion", number / 1e+27));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Octillion", number / 1e+27));
         }  else if (number >  1e+24 ) {
-            numberString.set(String.format("%.2f Septillion", number / 1e+24));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Septillion", number / 1e+24));
         }  else if (number >  1e+21 ) {
-            numberString.set(String.format("%.2f Sextillion", number / 1e+21));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Sextillion", number / 1e+21));
         }  else if (number >  1e+18 ) {
-            numberString.set(String.format("%.2f Quintillion", number / 1e+18));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Quintillion", number / 1e+18));
         }  else if (number >  1e+15 ) {
-            numberString.set(String.format("%.2f Quadrillion", number / 1e+15));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Quadrillion", number / 1e+15));
         }  else if (number >  1e+12 ) {
-            numberString.set(String.format("%.2f Trillion", number / 1e+12));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Trillion", number / 1e+12));
         }  else if (number >  1e+9 ) {
-            numberString.set(String.format("%.2f Billion", number / 1e+9));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Billion", number / 1e+9));
         }  else if (number >  1e+6 ) {
-            numberString.set(String.format("%.2f Million", number / 1e+6));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Million", number / 1e+6));
         }  else if (number >  1e+3 ) {
-            numberString.set(String.format("%.2f Thousand", number / 1e+3));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f Thousand", number / 1e+3));
         } else
-            numberString.set(String.format("%.2f", number));
+            numberString.set(String.format(Locale.ENGLISH, "%.2f", number));
         return numberString.get();
     }
 

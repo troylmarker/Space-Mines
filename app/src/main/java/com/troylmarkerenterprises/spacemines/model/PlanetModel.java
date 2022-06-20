@@ -1,25 +1,22 @@
-/******************************************************************************
- *   Project Name: Space Mines                                                *
- *   Class Name: com.troylmarkerenterprises.spacemines.model.Planet          *
- *   File Name: Planet.java                                                  *
- *   File Type: Interface file                                                *
- *   File Creation Date: 5/22/2022                                            *
- *   File Creator: tlmarker                                                   *
- *                                                                            *
- *   Copyright 2022  by Troy L Marker Enterprises                             *
- *                                                                            *
- *   Licensed under the Apache License, Version 2.0 (the "License");          *
- *   you may not use this file except in compliance with the License.         *
- *   You may obtain a copy of the License at                                  *
- *                                                                            *
- *       http://www.apache.org/licenses/LICENSE-2.0                           *
- *                                                                            *
- *   Unless required by applicable law or agreed to in writing, software      *
- *   distributed under the License is distributed on an "AS IS" BASIS,        *
- *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. *
- *   See the License for the specific language governing permissions and      *
- *   limitations under the License.                                           *
- ******************************************************************************/
+/*********************************************************************************************************************************************
+ *  Project Name: Space Mines                                                                                                                *
+ *  Class Name: com.troylmarkerenterprises.spacemines.model.PlanetModel                                                                      *
+ *  File Name: PlanetModel.java                                                                                                              *
+ *  File Creation Date: 6/19/2022                                                                                                            *
+ *  File Creation Time: 17:10:16                                                                                                             *
+ *  File Creator: troylmarker                                                                                                                *
+ *                                                                                                                                           *
+ *  Copyright 2022  by Troy L Marker Enterprises                                                                                             *
+ *                                                                                                                                           *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.         *
+ *  You may obtain a copy of the License at                                                                                                  *
+ *                                                                                                                                           *
+ *       http://www.apache.org/licenses/LICENSE-2.0                                                                                          *
+ *                                                                                                                                           *
+ *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,    *
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                 *
+ *  See the License for the specific language governing permissions and limitations under the License.                                       *
+ *********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.model;
 
 @SuppressWarnings("unused")
@@ -40,8 +37,8 @@ public class PlanetModel {
     private double m_PD;
     private int icon;
 
-    public PlanetModel(int id, String name, int size, int population, double t_CU, double t_AG, double t_AU, double t_PT,
-                       double t_PD, double m_CU, double m_AG, double m_AU, double m_PT, double m_PD, int icon) {
+    public PlanetModel(int id, String name, int size, int population, double t_CU, double t_AG, double t_AU, double t_PT, double t_PD,
+                       double m_CU, double m_AG, double m_AU, double m_PT, double m_PD, int icon) {
         this.id = id;
         this.name = name;
         this.size = size;

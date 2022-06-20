@@ -1,24 +1,22 @@
-/******************************************************************************
- *   Project Name: Space Mines                                                *
- *   Class Name: com.troylmarkerenterprises.spacemines.database.Database      *
- *   File Name: Database.java                                                 *
- *   File Creation Date: 6/13/2022                                            *
- *   File Creator: troylmarker                                                *
- *                                                                            *
- *   Copyright 2022  by Troy L Marker Enterprises                             *
- *                                                                            *
- *   Licensed under the Apache License, Version 2.0 (the "License");          *
- *   you may not use this file except in compliance with the License.         *
- *   You may obtain a copy of the License at                                  *
- *                                                                            *
- *       http://www.apache.org/licenses/LICENSE-2.0                           *
- *                                                                            *
- *   Unless required by applicable law or agreed to in writing, software      *
- *   distributed under the License is distributed on an "AS IS" BASIS,        *
- *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. *
- *   See the License for the specific language governing permissions and      *
- *   limitations under the License.                                           *
- ******************************************************************************/
+/*********************************************************************************************************************************************
+ *  Project Name: Space Mines                                                                                                                *
+ *  Class Name: com.troylmarkerenterprises.spacemines.database.Database                                                                      *
+ *  File Name: Database.java                                                                                                                 *
+ *  File Creation Date: 6/19/2022                                                                                                            *
+ *  File Creation Time: 10:35:26                                                                                                             *
+ *  File Creator: troylmarker                                                                                                                *
+ *                                                                                                                                           *
+ *  Copyright 2022  by Troy L Marker Enterprises                                                                                             *
+ *                                                                                                                                           *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.         *
+ *  You may obtain a copy of the License at                                                                                                  *
+ *                                                                                                                                           *
+ *       http://www.apache.org/licenses/LICENSE-2.0                                                                                          *
+ *                                                                                                                                           *
+ *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,    *
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                 *
+ *  See the License for the specific language governing permissions and limitations under the License.                                       *
+ *********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.database;
 
 import static com.troylmarkerenterprises.spacemines.constants.Db.COL_AG;
@@ -114,16 +112,15 @@ public class Database extends SQLiteOpenHelper {
     // SQL To create the Planet Table
 
     public final String PLANET_TABLE_SQL = String.format(
-        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT NOT NULL, %s INTEGER, %s INTEGER, %s REAL, %s REAL, %s REAL," +
-        " %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %S REAL, %s INTEGER)",
-        PLANETS_TABLE, COL_ID, COL_NAME, COL_SIZE, COL_POP, COL_CU, COL_AG, COL_AU, COL_PT, COL_PD, COL_M_CU, COL_M_AG,
-        COL_M_AU, COL_M_PT, COL_M_PD, COL_ICON);
+        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT NOT NULL, %s INTEGER, %s INTEGER, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL," +
+            " %s REAL, %s REAL, %s REAL, %s REAL, %S REAL, %s INTEGER)",
+        PLANETS_TABLE, COL_ID, COL_NAME, COL_SIZE, COL_POP, COL_CU, COL_AG, COL_AU, COL_PT, COL_PD, COL_M_CU, COL_M_AG, COL_M_AU, COL_M_PT
+            ,COL_M_PD, COL_ICON);
 
     //SQL To create the points table for planet location
 
     public final String POINTS_TABLE_SQL = String.format(
-        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s REAL, %s REAL, %s REAL)",
-        POINTS_TABLE, COL_ID, COL_XCORD, COL_YCORD, COL_ZCORD);
+        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s REAL, %s REAL, %s REAL)", POINTS_TABLE, COL_ID, COL_XCORD, COL_YCORD, COL_ZCORD);
 
     // SQL To create the Pricing Table
 
@@ -136,34 +133,31 @@ public class Database extends SQLiteOpenHelper {
     public final String WORKER_TABLE_SQL = String.format(
         "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER)",
         WORKER_TABLE, COL_ID, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE, COL_MAINTENANCE_SUPERVISOR, COL_ENTERTAIN,
-        COL_ENTERTAIN_SUPERVISOR);
+            COL_ENTERTAIN_SUPERVISOR);
 
     //SQL To create the In Transit Worker Table
 
     public final String TRANSIT_WORKER_TABLE_SQL = String.format(
-        "CREATE TABLE %s (%S INTEGER PRIMARY KEY, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER," +
-            " %s TEXT)",
-        IN_TRANSIT_WORKER_TABLE, COL_ID, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE, COL_MAINTENANCE_SUPERVISOR,
-        COL_ENTERTAIN, COL_ENTERTAIN_SUPERVISOR, COL_TIME);
+        "CREATE TABLE %s (%S INTEGER PRIMARY KEY, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s INTEGER, %s TEXT)",
+        IN_TRANSIT_WORKER_TABLE, COL_ID, COL_MINERS, COL_MINERS_SUPERVISOR, COL_MAINTENANCE, COL_MAINTENANCE_SUPERVISOR, COL_ENTERTAIN,
+            COL_ENTERTAIN_SUPERVISOR, COL_TIME);
 
     //SQL To create the Mines Table
 
     public final String MINE_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT, %s INTEGER, %S INTEGER)",
-            MINES_TABLE, COL_ID, COL_MINE, COL_LEVEL, COL_CURRENT);
+        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT, %s INTEGER, %S INTEGER)", MINES_TABLE, COL_ID, COL_MINE, COL_LEVEL, COL_CURRENT);
 
     //SQL To create the Prefs Table
 
     public final String PREFS_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%s TEXT UNIQUE ON CONFLICT REPLACE, %s TEXT)",
-            PREFS_TABLE, COL_PREF, COL_VALUE);
+        "CREATE TABLE %s (%s TEXT UNIQUE ON CONFLICT REPLACE, %s TEXT)", PREFS_TABLE, COL_PREF, COL_VALUE);
 
     //SQL To create the distance table
 
     public final String DISTANCE_TABLE_SQL = String.format(
-            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL," +
-                " %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL)",
-            DISTANCE_TABLE, COL_ID, COL_PLANET0, COL_PLANET1, COL_PLANET2, COL_PLANET3, COL_PLANET4, COL_PLANET5, COL_PLANET6,
+        "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL," +
+            " %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL)",
+        DISTANCE_TABLE, COL_ID, COL_PLANET0, COL_PLANET1, COL_PLANET2, COL_PLANET3, COL_PLANET4, COL_PLANET5, COL_PLANET6,
             COL_PLANET7, COL_PLANET8, COL_PLANET9, COL_PLANET10, COL_PLANET11, COL_PLANET12, COL_PLANET13, COL_PLANET14,
             COL_PLANET15, COL_PLANET16, COL_PLANET17, COL_PLANET18, COL_PLANET19);
 

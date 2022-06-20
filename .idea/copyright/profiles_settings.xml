@@ -8,6 +8,17 @@
       <option name="addBlankAfter" value="false" />
       <option name="separateBefore" value="true" />
       <option name="separateAfter" value="true" />
+      <option name="lenBefore" value="143" />
+      <option name="lenAfter" value="143" />
+      <option name="box" value="true" />
+    </LanguageOptions>
+    <LanguageOptions name="XML">
+      <option name="fileTypeOverride" value="3" />
+      <option name="addBlankAfter" value="false" />
+      <option name="separateBefore" value="true" />
+      <option name="separateAfter" value="true" />
+      <option name="lenBefore" value="143" />
+      <option name="lenAfter" value="143" />
       <option name="box" value="true" />
     </LanguageOptions>
   </settings>

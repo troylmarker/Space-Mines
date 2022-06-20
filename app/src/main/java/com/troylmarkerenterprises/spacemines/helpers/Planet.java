@@ -1,24 +1,22 @@
-/******************************************************************************
- *   Project Name: Space Mines                                                *
- *   Class Name: com.troylmarkerenterprises.spacemines.helpers.Planet         *
- *   File Name: Planet.java                                                   *
- *   File Creation Date: 6/14/2022                                            *
- *   File Creator: troylmarker                                                *
- *                                                                            *
- *   Copyright 2022  by Troy L Marker Enterprises                             *
- *                                                                            *
- *   Licensed under the Apache License, Version 2.0 (the "License");          *
- *   you may not use this file except in compliance with the License.         *
- *   You may obtain a copy of the License at                                  *
- *                                                                            *
- *       http://www.apache.org/licenses/LICENSE-2.0                           *
- *                                                                            *
- *   Unless required by applicable law or agreed to in writing, software      *
- *   distributed under the License is distributed on an "AS IS" BASIS,        *
- *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. *
- *   See the License for the specific language governing permissions and      *
- *   limitations under the License.                                           *
- ******************************************************************************/
+/*********************************************************************************************************************************************
+ *  Project Name: Space Mines                                                                                                                *
+ *  Class Name: com.troylmarkerenterprises.spacemines.helpers.Planet                                                                         *
+ *  File Name: Planet.java                                                                                                                   *
+ *  File Creation Date: 6/19/2022                                                                                                            *
+ *  File Creation Time: 16:50:44                                                                                                             *
+ *  File Creator: troylmarker                                                                                                                *
+ *                                                                                                                                           *
+ *  Copyright 2022  by Troy L Marker Enterprises                                                                                             *
+ *                                                                                                                                           *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.         *
+ *  You may obtain a copy of the License at                                                                                                  *
+ *                                                                                                                                           *
+ *       http://www.apache.org/licenses/LICENSE-2.0                                                                                          *
+ *                                                                                                                                           *
+ *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,    *
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                 *
+ *  See the License for the specific language governing permissions and limitations under the License.                                       *
+ *********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.helpers;
 
 import java.util.Random;
@@ -31,13 +29,13 @@ public class Planet {
 
     public String getName() {
         String retString;
-        String firstLetter = Character.toString((char) ((char) new Random().nextInt((77 - 65) + 1) + 65));
-        String secondLetter = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
-        String thirdLetter = Character.toString((char) ((char) new Random().nextInt((90 - 78) + 1) + 78));
-        String forthLetter = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
-        String fifthLetter = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
-        String sixthLetter = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
-        retString = firstLetter + secondLetter + thirdLetter + "-" + forthLetter + fifthLetter + sixthLetter;
+        String letter1 = Character.toString((char) ((char) new Random().nextInt((77 - 65) + 1) + 65));
+        String letter2 = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
+        String letter3 = Character.toString((char) ((char) new Random().nextInt((90 - 78) + 1) + 78));
+        String letter4 = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
+        String letter5 = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
+        String letter6 = Character.toString((char) ((char) new Random().nextInt((57 - 48) + 1) + 48));
+        retString = letter1 + letter2 + letter3 + "-" + letter4 + letter5 + letter6;
         return retString;
     }
 

@@ -7,12 +7,27 @@
         <entry key="..\:/Users/troylmarker/Documents/Troy L Marker Enterprises/SpaceMines/Space-Mines/app/src/main/res/layout-land/fragment_planets.xml" value="0.203125" />
         <entry key="..\:/Users/troylmarker/Documents/Troy L Marker Enterprises/SpaceMines/Space-Mines/app/src/main/res/layout/fragment_planets.xml" value="0.3569230769230769" />
         <entry key="app/src/main/res/drawable/bottomborder.xml" value="0.2155" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.15343915343915343" />
+        <entry key="app/src/main/res/layout-land/fragment_entertainment.xml" value="0.15343915343915343" />
+        <entry key="app/src/main/res/layout-land/fragment_housing.xml" value="0.15343915343915343" />
+        <entry key="app/src/main/res/layout-land/fragment_mines.xml" value="0.15343915343915343" />
         <entry key="app/src/main/res/layout-land/fragment_planets.xml" value="0.15608465608465608" />
+        <entry key="app/src/main/res/layout-land/fragment_shipping.xml" value="0.15343915343915343" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20878623188405798" />
+        <entry key="app/src/main/res/layout/fragment_entertainment.xml" value="0.18125" />
+        <entry key="app/src/main/res/layout/fragment_housing.xml" value="0.18125" />
+        <entry key="app/src/main/res/layout/fragment_mines.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/fragment_planets.xml" value="0.184375" />
+        <entry key="app/src/main/res/layout/fragment_shipping.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/fragment_workers.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/list_planet.xml" value="0.18125" />
       </map>
     </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="android.annotation.SuppressLint" />
+    </list>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
