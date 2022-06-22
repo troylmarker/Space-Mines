@@ -19,6 +19,7 @@
  *********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.adapters;
 
+import static com.troylmarkerenterprises.spacemines.constants.Pref.PREF_PLANETID;
 import static com.troylmarkerenterprises.spacemines.constants.Pref.PREF_PLANETNAME;
 
 import android.content.Context;
@@ -107,6 +108,7 @@ public class GalaxyRVA extends RecyclerView.Adapter<com.troylmarkerenterprises.s
         viewHolder.txtPlanetSize.setText(String.format("Planet Diameter: %s miles", size));
         viewHolder.imgPlanetIcon.setOnClickListener(v -> {
             db.setPref(PREF_PLANETNAME, name);
+            db.setPref(PREF_PLANETID, String.valueOf(id));
             listener.onPlanetChange(index);
         });
     }

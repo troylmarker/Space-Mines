@@ -40,6 +40,10 @@ public class WorkerModel {
         this.entertain_supervisor = entertain_supervisor;
     }
 
+    public WorkerModel() {
+
+    }
+
     public int getId() {
         return id;
     }

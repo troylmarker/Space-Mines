@@ -392,20 +392,36 @@ public class Database extends SQLiteOpenHelper {
         return workers;
     }
 
-    public PointModel getPlanetPoint(int pp) {
-        PointModel returnPoint = new PointModel();
+    public PointModel getPlanetPoint(int planetId) {
+        PointModel returnModel = new PointModel();
         SQLiteDatabase db = getReadableDatabase();
-        String sql = String.format("SELECT * FROM %s WHERE %s = %s", POINTS_TABLE, COL_ID, pp);
+        String sql = String.format("SELECT * FROM %s WHERE %s = %s", POINTS_TABLE, COL_ID, planetId);
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql, null);
         while (cursor.moveToNext()) {
-            returnPoint.setId(cursor.getInt(0));
-            returnPoint.setX_cord(cursor.getDouble(1));
-            returnPoint.setY_cord(cursor.getDouble(2));
-            returnPoint.setZ_cord(cursor.getDouble(3));
+            returnModel.setId(cursor.getInt(0));
+            returnModel.setX_cord(cursor.getDouble(1));
+            returnModel.setY_cord(cursor.getDouble(2));
+            returnModel.setZ_cord(cursor.getDouble(3));
         }
-        return returnPoint;
+        return returnModel;
     }
 
+    public WorkerModel getPlanetWorker(int planetId) {
+        WorkerModel returnModel = new WorkerModel();
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = String.format("SELECT * FROM %s WHERE %s = %s", WORKER_TABLE, COL_ID, planetId);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            returnModel.setId(cursor.getInt(0));
+            returnModel.setMiners(cursor.getInt(1));
+            returnModel.setMiners_supervisor(cursor.getInt(2));
+            returnModel.setMaintenance(cursor.getInt(3));
+            returnModel.setMaintenance_supervisor(cursor.getInt(4));
+            returnModel.setEntertain(cursor.getInt(5));
+            returnModel.setEntertain_supervisor(cursor.getInt(6));
+        }
+        return returnModel;
+    }
 
 
     public boolean doesTableExist(String tableName) {
@@ -446,11 +462,24 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String query = String.format("SELECT %s FROM %s WHERE %s = '%s'", COL_VALUE, PREFS_TABLE, COL_PREF, preference);
         @SuppressLint("Recycle") Cursor result = db.rawQuery(query, null);
-        if(result.getCount() == 1) {
-            return true;
+        return result.getCount() == 1;
+    }
+
+    @SuppressLint("Range")
+    public String checkPrefOrCreate(String preference, String baseValue) {
+        SQLiteDatabase db = getReadableDatabase();
+        String returnValue;
+        String query = String.format("SELECT %s FROM %s WHERE %s = '%s'", COL_VALUE, PREFS_TABLE, COL_PREF, preference);
+        @SuppressLint("Recycle") Cursor result = db.rawQuery(query, null);
+        if (result.getCount() == 1) {
+            result.moveToFirst();
+            returnValue = result.getString(result.getColumnIndex("value"));
+            db.close();
         } else {
-            return false;
+            setPref(preference, baseValue);
+            returnValue = baseValue;
         }
+        return returnValue;
     }
 
     public void setPref(String pref, String val) {

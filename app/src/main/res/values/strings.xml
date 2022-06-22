@@ -66,4 +66,7 @@
     <string name="entertainers">Entertainers</string>
     <string name="maintenance">Maintenance</string>
     <string name="shipping_fragment">Shipping Fragment</string>
+    <string name="in_transit_workers">Workers in transit to: %1$s</string>
+    <string name="recruitment">Recruitment for planet: %1$s</string>
+    <string name="max_recruitable">Maximum Recruitable per trip: %1$s</string>
 </resources>
