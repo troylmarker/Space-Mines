@@ -35,4 +35,7 @@
     <color name="blue">#FF0000FF</color>
     <color name="teal">#FF008080</color>
     <color name="aqua">#FF00FFFF</color>
+    <color name="trans">#00000000</color>
+    <color name="trans_black">#66000000</color>
+    <color name="trans_white">#66FFFFFF</color>
 </resources>

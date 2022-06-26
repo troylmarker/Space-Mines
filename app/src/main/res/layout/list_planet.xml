@@ -23,6 +23,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bottomborder">
+    <!--android:background="@android:color/transparent">-->
+
 
     <ImageView
         android:id="@+id/imgPlanetIcon"
@@ -31,6 +33,7 @@
         android:layout_marginBottom="2dp"
         android:layout_weight="0"
         android:contentDescription="@string/planet_icon"
+        android:background="@color/trans"
         tools:ignore="ImageContrastCheck"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -38,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@color/trans"
         android:orientation="vertical">
 
         <TextView
@@ -45,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:background="@color/trans"
             android:text="@string/planet_id"
             android:textColor="@color/white" />
 

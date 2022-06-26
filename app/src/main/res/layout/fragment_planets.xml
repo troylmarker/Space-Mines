@@ -22,6 +22,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/space01"
     android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -51,6 +52,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/fullborder"
                     android:text="@string/planet"
                     android:textAlignment="center" />
 
@@ -65,7 +67,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/ul_border"
+                    android:background="@drawable/ml_border"
                     android:text="@string/planet_id"
                     android:textAlignment="center" />
 
@@ -73,7 +75,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/um_border"
+                    android:background="@drawable/mm_border"
                     android:text="@string/planet_name"
                     android:textAlignment="center" />
 
@@ -81,7 +83,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/ur_border"
+                    android:background="@drawable/mr_border"
                     android:text="@string/planet_size"
                     android:textAlignment="center" />
 
@@ -129,6 +131,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/fullborder"
                     android:text="@string/workers"
                     android:textAlignment="center" />
 
@@ -143,7 +146,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/ul_border"
+                    android:background="@drawable/ml_border"
                     android:text="@string/department"
                     android:textAlignment="center" />
 
@@ -151,7 +154,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/um_border"
+                    android:background="@drawable/mm_border"
                     android:text="@string/workers"
                     android:textAlignment="center" />
 
@@ -159,7 +162,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/ur_border"
+                    android:background="@drawable/mr_border"
                     android:text="@string/supervisors"
                     android:textAlignment="center" />
 
@@ -207,7 +210,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/ml_border"
+                    android:background="@drawable/mm_border"
                     android:text="@string/maintenance"
                     android:textAlignment="center" />
 
@@ -273,6 +276,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/total_minerals"
+                    android:background="@drawable/fullborder"
                     android:textAlignment="center" />
 
             </LinearLayout>
@@ -482,6 +486,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/fullborder"
                     android:text="@string/mined_minerals"
                     android:textAlignment="center" />
 
@@ -496,7 +501,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/ul_border"
+                    android:background="@drawable/ml_border"
                     android:text="@string/mineral"
                     android:textAlignment="center"/>
 
@@ -504,7 +509,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/um_border"
+                    android:background="@drawable/mm_border"
                     android:text="@string/mass_t"
                     android:textAlignment="center" />
 
@@ -512,7 +517,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/ur_border"
+                    android:background="@drawable/mr_border"
                     android:text="@string/value"
                     android:textAlignment="center" />
             </LinearLayout>
@@ -692,6 +697,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/fullborder"
                     android:text="@string/remaining_minerals"
                     android:textAlignment="center" />
 
@@ -706,7 +712,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/ul_border"
+                    android:background="@drawable/ml_border"
                     android:text="@string/mineral"
                     android:textAlignment="center" />
 
@@ -714,7 +720,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/um_border"
+                    android:background="@drawable/mm_border"
                     android:text="@string/mass_t"
                     android:textAlignment="center" />
 
@@ -722,7 +728,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
-                    android:background="@drawable/ur_border"
+                    android:background="@drawable/mr_border"
                     android:text="@string/value"
                     android:textAlignment="center" />
             </LinearLayout>
