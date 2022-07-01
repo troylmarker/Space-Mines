@@ -18,7 +18,7 @@
   ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                ~
   ~  See the License for the specific language governing permissions and limitations under the License.                                      ~
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Space Mines</string>
     <string name="mines">Mines</string>
     <string name="planets">Planets</string>
@@ -36,15 +36,14 @@
     <string name="galaxy_fragment">Galaxy Fragment</string>
     <string name="galaxy_created">Galaxy Created</string>
     <string name="select">Select Button</string>
-    <string name="planet_id_value">----</string>
-    <string name="planet_name_value">----</string>
-    <string name="planet_size_value">----</string>
+
     <string name="total_minerals">Total Minerals</string>
     <string name="mineral">Mineral</string>
     <string name="mass_t">Mass (T)</string>
     <string name="value">Value($)</string>
     <string name="cu">Copper</string>
     <string name="empty">0</string>
+    <string name="empty1">----</string>
     <string name="au">Gold</string>
     <string name="ag">Silver</string>
     <string name="pt">Platinum</string>
@@ -70,4 +69,6 @@
     <string name="recruitment">Recruitment for planet: %1$s</string>
     <string name="max_recruitable">Maximum Recruitable per trip: %1$s</string>
     <string name="count">Count</string>
+    <string name="recruit" translatable="false">Recruit Workers</string>
+
 </resources>

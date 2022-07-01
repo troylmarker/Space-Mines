@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ll_border"
-                    android:text="@string/planet_id_value"
+                    android:text="@string/empty1"
                     android:textAlignment="center" />
 
                 <TextView
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/lm_border"
-                    android:text="@string/planet_name_value"
+                    android:text="@string/empty1"
                     android:textAlignment="center" />
 
                 <TextView
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/lr_border"
-                    android:text="@string/planet_size_value"
+                    android:text="@string/empty1"
                     android:textAlignment="center" />
 
             </LinearLayout>

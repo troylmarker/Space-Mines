@@ -1,68 +1,696 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~  Project Name: Space Mines                                                                                                               ~
-  ~  Class Name: /home/troylmarker/Documents/GitHub/SpaceMines/app/src/main/res/layout-land/fragment_workers.xml                             ~
-  ~  File Name: fragment_workers.xml                                                                                                         ~
-  ~  File Creation Date: 6/20/2022                                                                                                           ~
-  ~  File Creation Time: 18:54:18                                                                                                            ~
-  ~  File Creator: troylmarker                                                                                                               ~
-  ~                                                                                                                                          ~
-  ~  Copyright 2022  by Troy L Marker Enterprises                                                                                            ~
-  ~                                                                                                                                          ~
-  ~  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.        ~
-  ~  You may obtain a copy of the License at                                                                                                 ~
-  ~                                                                                                                                          ~
-  ~       http://www.apache.org/licenses/LICENSE-2.0                                                                                         ~
-  ~                                                                                                                                          ~
-  ~  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,   ~
-  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                ~
-  ~  See the License for the specific language governing permissions and limitations under the License.                                      ~
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~  Project Name: Space Mines                                                                                                                  ~
+  ~  Class Name: /home/troylmarker/Documents/GitHub/Space-Mines/app/src/main/res/layout-land/fragment_workers.xml                               ~
+  ~  File Name: fragment_workers.xml                                                                                                            ~
+  ~  File Creation Date: 6/30/2022                                                                                                              ~
+  ~  File Creation Time: 22:32:35                                                                                                               ~
+  ~  File Creator: troylmarker                                                                                                                  ~
+  ~                                                                                                                                             ~
+  ~  Copyright 2022  by Troy L Marker Enterprises                                                                                               ~
+  ~                                                                                                                                             ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.           ~
+  ~  You may obtain a copy of the License at                                                                                                    ~
+  ~                                                                                                                                             ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0                                                                                            ~
+  ~                                                                                                                                             ~
+  ~  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,      ~
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                   ~
+  ~  See the License for the specific language governing permissions and limitations under the License.                                         ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    android:orientation="vertical">
+    android:background="@drawable/space01"
+    android:orientation="horizontal"
+    android:baselineAligned="false">
 
-    <TextView
-        android:id="@+id/txtCurrentPlanet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/current_workers"
-        android:textColor="@color/white" />
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".50">
 
-    <TextView
-        android:id="@+id/txtCurrentMiners"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/miner_staff_count"
-        android:textColor="@color/white" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtCurrentMinerSupport"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/miner_supervisor_count"
-        android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/txtCurrentPlanet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/current_workers"
+                android:textColor="@color/worker_text"
+                tools:ignore="TextContrastCheck" />
 
-    <TextView
-        android:id="@+id/txtCurrentEntertainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/entertainer_staff_count"
-        android:textColor="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txtCurrentEntertainerSupport"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/entertainer_supervisor_count"
-        android:textColor="@color/white" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ul_border"
+                    android:text="@string/department"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/um_border"
+                    android:text="@string/workers"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ur_border"
+                    android:text="@string/supervisors"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/miners"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/d_w_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/miner_staff_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/d_s_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/miner_supervisor_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/maintenance"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/m_w_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/maintenance_staff_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/m_s_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/maintenance_supervisor_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ll_border"
+                    android:text="@string/entertainers"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/e_w_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/lm_border"
+                    android:text="@string/entertainer_staff_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/e_s_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/lr_border"
+                    android:text="@string/entertainer_supervisor_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtIntTransit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/in_transit_workers"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ul_border"
+                    android:text="@string/department"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/um_border"
+                    android:text="@string/workers"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ur_border"
+                    android:text="@string/supervisors"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/miners"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/t_d_w_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/miner_staff_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/t_d_s_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/miner_supervisor_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ml_border"
+                    android:text="@string/maintenance"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/t_m_w_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mm_border"
+                    android:text="@string/maintenance_staff_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/t_m_s_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/maintenance_supervisor_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/ll_border"
+                    android:text="@string/entertainers"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/t_e_w_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/lm_border"
+                    android:text="@string/entertainer_staff_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/t_e_s_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:background="@drawable/lr_border"
+                    android:text="@string/entertainer_supervisor_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".50">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtRecruitment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/recruitment"
+                android:textColor="@color/worker_text"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/txtMaxRec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/max_recruitable"
+                android:textColor="@color/worker_text"
+                tools:ignore="TextContrastCheck" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/trans_black"
+                    android:gravity="center"
+                    android:text="@string/miners"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:background="@drawable/ul_border"
+                    android:text="@string/count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/um_border"
+                    android:text="@string/workers"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/ur_border"
+                    android:text="@string/supervisors"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <SeekBar
+                    android:id="@+id/sbMiner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".50"
+                    android:background="@drawable/ll_border" />
+
+                <TextView
+                    android:id="@+id/txtMinerW"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/txtMinerS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/trans_black"
+                    android:gravity="center"
+                    android:text="@string/maintenance"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:background="@drawable/ul_border"
+                    android:text="@string/count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/um_border"
+                    android:text="@string/workers"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/ur_border"
+                    android:text="@string/supervisors"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <SeekBar
+                    android:id="@+id/sbMaint"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".50"
+                    android:background="@drawable/ll_border" />
+
+                <TextView
+                    android:id="@+id/txtMaintW"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/txtMaintS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/trans_black"
+                    android:gravity="center"
+                    android:text="@string/entertainers"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:background="@drawable/ul_border"
+                    android:text="@string/count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/um_border"
+                    android:text="@string/workers"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/ur_border"
+                    android:text="@string/supervisors"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <SeekBar
+                    android:id="@+id/sbEnter"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".50"
+                    android:background="@drawable/ll_border" />
+
+                <TextView
+                    android:id="@+id/txtEnterW"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lm_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/txtEnterS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lr_border"
+                    android:text="@string/empty"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnRecruit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/trans_black"
+                    android:layout_marginTop="25dp"
+                    android:text = "@string/recruit"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
