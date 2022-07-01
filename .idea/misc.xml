@@ -30,7 +30,7 @@
         <entry key="app/src/main/res/layout/fragment_mines.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/fragment_planets.xml" value="0.12033195020746888" />
         <entry key="app/src/main/res/layout/fragment_shipping.xml" value="0.18125" />
-        <entry key="app/src/main/res/layout/fragment_workers.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/fragment_workers.xml" value="0.5" />
         <entry key="app/src/main/res/layout/list_planet.xml" value="0.18125" />
       </map>
     </option>

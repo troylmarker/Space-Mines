@@ -1,29 +1,26 @@
-/*********************************************************************************************************************************************
- *  Project Name: Space Mines                                                                                                                *
- *  Class Name: com.troylmarkerenterprises.spacemines.fragments.Planets                                                                      *
- *  File Name: Planets.java                                                                                                                  *
- *  File Creation Date: 6/19/2022                                                                                                            *
- *  File Creation Time: 15:53:48                                                                                                             *
- *  File Creator: troylmarker                                                                                                                *
- *                                                                                                                                           *
- *  Copyright 2022  by Troy L Marker Enterprises                                                                                             *
- *                                                                                                                                           *
- *  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.         *
- *  You may obtain a copy of the License at                                                                                                  *
- *                                                                                                                                           *
- *       http://www.apache.org/licenses/LICENSE-2.0                                                                                          *
- *                                                                                                                                           *
- *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,    *
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                 *
- *  See the License for the specific language governing permissions and limitations under the License.                                       *
- *********************************************************************************************************************************************/
+/************************************************************************************************************************************************
+ *  Project Name: Space Mines                                                                                                                   *
+ *  Class Name: com.troylmarkerenterprises.spacemines.fragments.Planets                                                                         *
+ *  File Name: Planets.java                                                                                                                     *
+ *  File Creation Date: 6/30/2022                                                                                                               *
+ *  File Creation Time: 20:13:31                                                                                                                *
+ *  File Creator: troylmarker                                                                                                                   *
+ *                                                                                                                                              *
+ *  Copyright 2022  by Troy L Marker Enterprises                                                                                                *
+ *                                                                                                                                              *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.            *
+ *  You may obtain a copy of the License at                                                                                                     *
+ *                                                                                                                                              *
+ *       http://www.apache.org/licenses/LICENSE-2.0                                                                                             *
+ *                                                                                                                                              *
+ *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,       *
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                    *
+ *  See the License for the specific language governing permissions and limitations under the License.                                          *
+ ************************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.fragments;
 
-import static com.troylmarkerenterprises.spacemines.constants.Db.DISTANCE_TABLE;
-import static com.troylmarkerenterprises.spacemines.constants.Db.PLANETS_TABLE;
-import static com.troylmarkerenterprises.spacemines.constants.Db.PRICING_TABLE;
-import static com.troylmarkerenterprises.spacemines.constants.Db.WORKER_TABLE;
-import static com.troylmarkerenterprises.spacemines.constants.Pref.PREF_PLANETID;
+import static com.troylmarkerenterprises.spacemines.constants.Db.*;
+import static com.troylmarkerenterprises.spacemines.constants.Pref.*;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -81,7 +78,7 @@ public class Planets extends Fragment {
         View view = inflater.inflate(R.layout.fragment_planets, container, false);
         planets = view.findViewById(R.id.rvGalaxy);
         if (savedInstanceState != null) {
-            Index = savedInstanceState.getInt(PREF_PLANETID);
+            Index = savedInstanceState.getInt(PREFERENCE_PLANET_ID);
             Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index), mWorker.get(Index));
         }
 
@@ -100,22 +97,22 @@ public class Planets extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putInt(PREF_PLANETID, Index);
+        savedInstanceState.putInt(PREFERENCE_PLANET_ID, Index);
     }
 
     private void loadDatabase() {
         Database db = new Database(requireActivity().getApplicationContext());
-        if (db.doesTableExist(PLANETS_TABLE)) {
+        if (db.doesTableExist(TABLE_NAME_PLANETS)) {
             mGalaxy = db.loadGalaxy();
         } else {
             mGalaxy = null;
         }
-        if (db.doesTableExist (PRICING_TABLE)) {
+        if (db.doesTableExist (TABLE_NAME_PRICING)) {
             mPricing = db.loadPricing ();
         } else {
             mPricing = null;
         }
-        if (db.doesTableExist(WORKER_TABLE)) {
+        if (db.doesTableExist(TABLE_NAME_WORKERS)) {
             mWorker = db.loadWorkers();
         } else {
             mWorker = null;

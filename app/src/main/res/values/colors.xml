@@ -38,4 +38,5 @@
     <color name="trans">#00000000</color>
     <color name="trans_black">#66000000</color>
     <color name="trans_white">#66FFFFFF</color>
+    <color name="worker_text">#FF9FA8DA</color>
 </resources>

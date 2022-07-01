@@ -44,7 +44,7 @@
     <string name="mass_t">Mass (T)</string>
     <string name="value">Value($)</string>
     <string name="cu">Copper</string>
-    <string name="empty">----</string>
+    <string name="empty">0</string>
     <string name="au">Gold</string>
     <string name="ag">Silver</string>
     <string name="pt">Platinum</string>
@@ -52,12 +52,12 @@
     <string name="mined_minerals">Mined Minerals</string>
     <string name="remaining_minerals">Remaining Minerals</string>
     <string name="current_workers">Current Workers On: %1$s</string>
-    <string name="miner_staff_count">----</string>
-    <string name="miner_supervisor_count">----</string>
-    <string name="maintenance_staff_count">----</string>
-    <string name="maintenance_supervisor_count">----</string>
-    <string name="entertainer_staff_count">----</string>
-    <string name="entertainer_supervisor_count">----</string>
+    <string name="miner_staff_count">0</string>
+    <string name="miner_supervisor_count">0</string>
+    <string name="maintenance_staff_count">0</string>
+    <string name="maintenance_supervisor_count">0</string>
+    <string name="entertainer_staff_count">0</string>
+    <string name="entertainer_supervisor_count">0</string>
     <string name="workers">Workers</string>
     <string name="department">Department</string>
     <string name="supervisors">Supervisors</string>
@@ -69,4 +69,5 @@
     <string name="in_transit_workers">Workers in transit to: %1$s</string>
     <string name="recruitment">Recruitment for planet: %1$s</string>
     <string name="max_recruitable">Maximum Recruitable per trip: %1$s</string>
+    <string name="count">Count</string>
 </resources>
