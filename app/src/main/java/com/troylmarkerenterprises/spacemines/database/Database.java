@@ -374,12 +374,12 @@ public class Database extends SQLiteOpenHelper {
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql, null);
         while (cursor.moveToNext()) {
             returnModel.setId(cursor.getInt(0));
-            returnModel.setMiners(cursor.getInt(1));
-            returnModel.setMiners_supervisor(cursor.getInt(2));
-            returnModel.setMaintenance(cursor.getInt(3));
-            returnModel.setMaintenance_supervisor(cursor.getInt(4));
-            returnModel.setEntertain(cursor.getInt(5));
-            returnModel.setEntertain_supervisor(cursor.getInt(6));
+            returnModel.setMinerw(cursor.getInt(1));
+            returnModel.setMiners(cursor.getInt(2));
+            returnModel.setMaintw(cursor.getInt(3));
+            returnModel.setMaints(cursor.getInt(4));
+            returnModel.setEnterw(cursor.getInt(5));
+            returnModel.setEnters(cursor.getInt(6));
         }
         return returnModel;
     }

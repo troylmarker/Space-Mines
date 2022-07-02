@@ -20,18 +20,14 @@
 package com.troylmarkerenterprises.spacemines.activities;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.widget.ViewPager2;
-
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-
 import com.troylmarkerenterprises.spacemines.database.Database;
 import com.troylmarkerenterprises.spacemines.R;
 
 public class Main extends FragmentActivity {
-
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -41,7 +37,6 @@ public class Main extends FragmentActivity {
         ViewPager2 viewPager = findViewById (R.id.pager);
         viewPager.setAdapter (new com.troylmarkerenterprises.spacemines.adapters.Main(this));
         db.createDatabase ();
-
         TabLayout tabLayout = findViewById (R.id.sliding_tabs);
         new TabLayoutMediator (tabLayout, viewPager, (tab, position) -> {
             switch (position) {

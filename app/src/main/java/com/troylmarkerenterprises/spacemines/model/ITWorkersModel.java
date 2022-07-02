@@ -1,9 +1,9 @@
 /************************************************************************************************************************************************
  *  Project Name: Space Mines                                                                                                                   *
- *  Class Name: com.troylmarkerenterprises.spacemines.model.WorkerModel                                                                         *
- *  File Name: WorkerModel.java                                                                                                                 *
- *  File Creation Date: 6/19/2022                                                                                                               *
- *  File Creation Time: 18:6:43                                                                                                                 *
+ *  Class Name: com.troylmarkerenterprises.spacemines.model.ITWorkersModel                                                                      *
+ *  File Name: ITWorkersModel.java                                                                                                              *
+ *  File Creation Date: 7/1/2022                                                                                                                *
+ *  File Creation Time: 22:1:52                                                                                                                 *
  *  File Creator: troylmarker                                                                                                                   *
  *                                                                                                                                              *
  *  Copyright 2022  by Troy L Marker Enterprises                                                                                                *
@@ -20,8 +20,9 @@
 package com.troylmarkerenterprises.spacemines.model;
 
 @SuppressWarnings("unused")
-public class WorkerModel {
+public class ITWorkersModel {
     private int id;
+    private int pid;
     private int minerw;
     private int miners;
     private int maintw;
@@ -29,8 +30,9 @@ public class WorkerModel {
     private int enterw;
     private int enters;
 
-    public WorkerModel(int id, int minerw, int miners, int maintw, int maints, int enterw, int enters) {
+    public ITWorkersModel(int id, int pid, int minerw, int miners, int maintw, int maints, int enterw, int enters) {
         this.id = id;
+        this.pid = pid;
         this.minerw = minerw;
         this.miners = miners;
         this.maintw = maintw;
@@ -39,7 +41,7 @@ public class WorkerModel {
         this.enters = enters;
     }
 
-    public WorkerModel() {
+    public ITWorkersModel() {
     }
 
     public int getId() {
@@ -49,6 +51,10 @@ public class WorkerModel {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getPid() { return pid; }
+
+    public void setPid(int pid) { this.pid = pid; }
 
     public int getMinerw() {
         return minerw;
@@ -94,7 +100,7 @@ public class WorkerModel {
         return enters;
     }
 
-    public void setEnters(int entertain_supervisor) {
+    public void setEnters(int enters) {
         this.enters = enters;
     }
 }

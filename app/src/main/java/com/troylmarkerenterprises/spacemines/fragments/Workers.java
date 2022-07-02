@@ -140,12 +140,12 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         mId = Integer.parseInt(db.getPref(PREFERENCE_PLANET_ID));
         planetWorkers = db.getPlanetWorker(mId);
         currentPlanet.setText(getString(R.string.current_workers, mPlanet));
-        dwc.setText(String.valueOf(planetWorkers.getMiners()));
-        dsc.setText(String.valueOf(planetWorkers.getMiners_supervisor()));
-        mwc.setText(String.valueOf(planetWorkers.getMaintenance()));
-        msc.setText(String.valueOf(planetWorkers.getMaintenance_supervisor()));
-        ewc.setText(String.valueOf(planetWorkers.getEntertain()));
-        esc.setText(String.valueOf(planetWorkers.getEntertain_supervisor()));
+        dwc.setText(String.valueOf(planetWorkers.getMinerw()));
+        dsc.setText(String.valueOf(planetWorkers.getMiners()));
+        mwc.setText(String.valueOf(planetWorkers.getMaintw()));
+        msc.setText(String.valueOf(planetWorkers.getMaints()));
+        ewc.setText(String.valueOf(planetWorkers.getEnterw()));
+        esc.setText(String.valueOf(planetWorkers.getEnters()));
     }
 
     private void displayTransitCounts () {

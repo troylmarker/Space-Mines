@@ -163,12 +163,12 @@ public class Planets extends Fragment {
         planetId.setText(String.format("%s", planet.getId()));
         planetName.setText(String.format("%s", planet.getName()));
         planetSize.setText(String.format("%s miles", planet.getSize()));
-        minerWC.setText(String.valueOf(workers.getMiners()));
-        minerSC.setText(String.valueOf(workers.getMiners_supervisor()));
-        maintWC.setText(String.valueOf(workers.getMaintenance()));
-        maintSC.setText(String.valueOf(workers.getMaintenance_supervisor()));
-        enterWC.setText(String.valueOf(workers.getEntertain()));
-        enterSC.setText(String.valueOf(workers.getEntertain_supervisor()));
+        minerWC.setText(String.valueOf(workers.getMinerw()));
+        minerSC.setText(String.valueOf(workers.getMiners()));
+        maintWC.setText(String.valueOf(workers.getMaintw()));
+        maintSC.setText(String.valueOf(workers.getMaints()));
+        enterWC.setText(String.valueOf(workers.getEnterw()));
+        enterSC.setText(String.valueOf(workers.getEnters()));
         cuMass.setText(gh.getNamedNumber(planet.getT_CU()));
         cuValue.setText(String.format("$%s", gh.getNamedNumber(planet.getT_CU() * (pricing.getCu () * 36000d))));
         agMass.setText(gh.getNamedNumber(planet.getT_AG()));
