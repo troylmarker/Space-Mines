@@ -32,6 +32,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.troylmarkerenterprises.spacemines.helpers.General;
 import com.troylmarkerenterprises.spacemines.helpers.Planet;
+import com.troylmarkerenterprises.spacemines.model.ITWorkersModel;
 import com.troylmarkerenterprises.spacemines.model.PlanetModel;
 import com.troylmarkerenterprises.spacemines.model.PointModel;
 import com.troylmarkerenterprises.spacemines.model.PricingModel;
@@ -367,10 +368,10 @@ public class Database extends SQLiteOpenHelper {
         return returnModel;
     }
 
-    public WorkerModel getPlanetWorker(int planetId) {
+    public WorkerModel getPlanetWorker(int pId) {
         WorkerModel returnModel = new WorkerModel();
         SQLiteDatabase db = getReadableDatabase();
-        String sql = String.format("SELECT * FROM %s WHERE %s = %s", TABLE_NAME_WORKERS, COLUMN_NAME_ID, planetId);
+        String sql = String.format("SELECT * FROM %s WHERE %s = %s", TABLE_NAME_WORKERS, COLUMN_NAME_ID, pId);
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql, null);
         while (cursor.moveToNext()) {
             returnModel.setId(cursor.getInt(0));
@@ -380,6 +381,23 @@ public class Database extends SQLiteOpenHelper {
             returnModel.setMaints(cursor.getInt(4));
             returnModel.setEnterw(cursor.getInt(5));
             returnModel.setEnters(cursor.getInt(6));
+        }
+        return returnModel;
+    }
+
+    public ITWorkersModel getITWorkers(int pId) {
+        ITWorkersModel returnModel = new ITWorkersModel();
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = String.format("SELECT * FROM %s WHERE %s = %s", TABLE_NAME_ITWORKERS, COLUMN_NAME_PLANET_ID, pId);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql, null);
+        returnModel.clear();
+        while (cursor.moveToNext()) {
+            returnModel.setMinerw(returnModel.getMinerw() + cursor.getInt(3));
+            returnModel.setMiners(returnModel.getMiners() + cursor.getInt(4));
+            returnModel.setMaintw(returnModel.getMaintw() + cursor.getInt(5));
+            returnModel.setMaints(returnModel.getMaints() + cursor.getInt(6));
+            returnModel.setEnterw(returnModel.getEnterw() + cursor.getInt(7));
+            returnModel.setEnters(returnModel.getEnters() + cursor.getInt(8));
         }
         return returnModel;
     }

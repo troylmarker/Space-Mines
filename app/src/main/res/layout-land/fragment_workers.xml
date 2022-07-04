@@ -92,13 +92,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ml_border"
-                    android:text="@string/miners"
+                    android:text="@string/miner"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/d_w_c"
+                    android:id="@+id/txtCurrentMinerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -109,7 +109,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/d_s_c"
+                    android:id="@+id/txtCurrentMinerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -137,7 +137,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/m_w_c"
+                    android:id="@+id/txtCurrentMaintenanceWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -148,7 +148,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/m_s_c"
+                    android:id="@+id/txtCurrentMaintenanceSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -176,7 +176,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/e_w_c"
+                    android:id="@+id/txtCurrentEntertainerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -187,7 +187,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/e_s_c"
+                    android:id="@+id/txtCurrentEntertainerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -263,13 +263,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ml_border"
-                    android:text="@string/miners"
+                    android:text="@string/miner"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/t_d_w_c"
+                    android:id="@+id/txtTransitMinerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -280,7 +280,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/t_d_s_c"
+                    android:id="@+id/txtTransitMinerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -308,7 +308,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/t_m_w_c"
+                    android:id="@+id/txtTransitMaintenanceWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -319,7 +319,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/t_m_s_c"
+                    android:id="@+id/txtTransitMaintenanceSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -347,7 +347,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/t_e_w_c"
+                    android:id="@+id/txtTransitEntertainerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -358,7 +358,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/t_e_s_c"
+                    android:id="@+id/txtTransitEntertainerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -411,7 +411,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/trans_black"
                     android:gravity="center"
-                    android:text="@string/miners"
+                    android:text="@string/miner"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
 
@@ -468,7 +468,7 @@
                     android:background="@drawable/ll_border" />
 
                 <TextView
-                    android:id="@+id/txtMinerW"
+                    android:id="@+id/txtRecruitMinerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
@@ -479,7 +479,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/txtMinerS"
+                    android:id="@+id/txtRecruitMinerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
@@ -559,7 +559,7 @@
                     android:background="@drawable/ll_border" />
 
                 <TextView
-                    android:id="@+id/txtMaintW"
+                    android:id="@+id/txtRecruitMaintenanceWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
@@ -570,7 +570,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/txtMaintS"
+                    android:id="@+id/txtRecruitMaintenanceSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
@@ -650,7 +650,7 @@
                     android:background="@drawable/ll_border" />
 
                 <TextView
-                    android:id="@+id/txtEnterW"
+                    android:id="@+id/txtRecruitEntertainerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"

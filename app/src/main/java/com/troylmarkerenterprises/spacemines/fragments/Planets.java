@@ -154,12 +154,12 @@ public class Planets extends Fragment {
         TextView ptRValue = view.findViewById(R.id.ptRValue);
         TextView pdRMass = view.findViewById(R.id.pdRMass);
         TextView pdRValue = view.findViewById(R.id.pdRValue);
-        TextView minerWC = view.findViewById(R.id.d_w_c);
-        TextView minerSC = view.findViewById(R.id.d_s_c);
-        TextView maintWC = view.findViewById(R.id.m_w_c);
-        TextView maintSC = view.findViewById(R.id.m_s_c);
-        TextView enterWC = view.findViewById(R.id.e_w_c);
-        TextView enterSC = view.findViewById(R.id.e_s_c);
+        TextView minerWC = view.findViewById(R.id.txtCurrentMinerWorker);
+        TextView minerSC = view.findViewById(R.id.txtCurrentMinerSupervisor);
+        TextView maintWC = view.findViewById(R.id.txtCurrentMaintenanceWorker);
+        TextView maintSC = view.findViewById(R.id.txtCurrentMaintenanceSupervisor);
+        TextView enterWC = view.findViewById(R.id.txtCurrentEntertainerWorker);
+        TextView enterSC = view.findViewById(R.id.txtCurrentEntertainerSupervisor);
         planetId.setText(String.format("%s", planet.getId()));
         planetName.setText(String.format("%s", planet.getName()));
         planetSize.setText(String.format("%s miles", planet.getSize()));

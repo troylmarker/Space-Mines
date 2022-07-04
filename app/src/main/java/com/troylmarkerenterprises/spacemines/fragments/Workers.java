@@ -37,6 +37,7 @@ import androidx.fragment.app.Fragment;
 
 import com.troylmarkerenterprises.spacemines.R;
 import com.troylmarkerenterprises.spacemines.database.Database;
+import com.troylmarkerenterprises.spacemines.model.ITWorkersModel;
 import com.troylmarkerenterprises.spacemines.model.WorkerModel;
 
 public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
@@ -51,18 +52,18 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     TextView inTransitWorkers;
     TextView recruitment;
     TextView maxRecruit;
-    TextView dwc;
-    TextView dsc;
-    TextView mwc;
-    TextView msc;
-    TextView ewc;
-    TextView esc;
-    TextView txtMinerW;
-    TextView txtMinerS;
-    TextView txtMaintW;
-    TextView txtMaintS;
-    TextView txtEnterW;
-    TextView txtEnterS;
+    TextView txtCurrentMinerWorker;
+    TextView txtCurrentMinerSupervisor;
+    TextView txtCurrentMaintenanceWorker;
+    TextView txtCurrentMaintenanceSupervisor;
+    TextView txtCurrentEntertainerWorker;
+    TextView txtCurrentEntertainerSupervisor;
+    TextView txtRecruitMinerWorker;
+    TextView txtRecruitMinerSupervisor;
+    TextView txtRecruitMaintenanceWorker;
+    TextView txtRecruitMaintenanceSupervisor;
+    TextView txtRecruitEntertainerWorker;
+    TextView txtRecruitEntertainerSupervisor;
     int shipLevel;
     int maxRecruitCount;
     WorkerModel planetWorkers;
@@ -96,18 +97,18 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         sbMaint.setOnSeekBarChangeListener(this);
         sbEnter.setOnSeekBarChangeListener(this);
         btnRecruit.setOnClickListener(this);
-        txtMinerW = view.findViewById(R.id.txtMinerW);
-        txtMinerS = view.findViewById(R.id.txtMinerS);
-        txtMaintW = view.findViewById(R.id.txtMaintW);
-        txtMaintS = view.findViewById(R.id.txtMaintS);
-        txtEnterW = view.findViewById(R.id.txtEnterW);
-        txtEnterS = view.findViewById(R.id.txtEnterS);
-        dwc = view.findViewById(R.id.d_w_c);
-        dsc = view.findViewById(R.id.d_s_c);
-        mwc = view.findViewById(R.id.m_w_c);
-        msc = view.findViewById(R.id.m_s_c);
-        ewc = view.findViewById(R.id.e_w_c);
-        esc = view.findViewById(R.id.e_s_c);
+        txtRecruitMinerWorker = view.findViewById(R.id.txtRecruitMinerWorker);
+        txtRecruitMinerSupervisor = view.findViewById(R.id.txtRecruitMinerSupervisor);
+        txtRecruitMaintenanceWorker = view.findViewById(R.id.txtRecruitMaintenanceWorker);
+        txtRecruitMaintenanceSupervisor = view.findViewById(R.id.txtRecruitMaintenanceSupervisor);
+        txtRecruitEntertainerWorker = view.findViewById(R.id.txtRecruitEntertainerWorker);
+        txtRecruitEntertainerSupervisor = view.findViewById(R.id.txtRecruitEntertainerSupervisor);
+        txtCurrentMinerWorker = view.findViewById(R.id.txtCurrentMinerWorker);
+        txtCurrentMinerSupervisor = view.findViewById(R.id.txtCurrentMinerSupervisor);
+        txtCurrentMaintenanceWorker = view.findViewById(R.id.txtCurrentMaintenanceWorker);
+        txtCurrentMaintenanceSupervisor = view.findViewById(R.id.txtCurrentMaintenanceSupervisor);
+        txtCurrentEntertainerWorker = view.findViewById(R.id.txtCurrentEntertainerWorker);
+        txtCurrentEntertainerSupervisor = view.findViewById(R.id.txtCurrentEntertainerSupervisor);
         sbMiner.setMin(0);
         sbMiner.setMax(maxRecruitCount-(shipLevel * 10));
         sbMaint.setMin(0);
@@ -140,12 +141,12 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         mId = Integer.parseInt(db.getPref(PREFERENCE_PLANET_ID));
         planetWorkers = db.getPlanetWorker(mId);
         currentPlanet.setText(getString(R.string.current_workers, mPlanet));
-        dwc.setText(String.valueOf(planetWorkers.getMinerw()));
-        dsc.setText(String.valueOf(planetWorkers.getMiners()));
-        mwc.setText(String.valueOf(planetWorkers.getMaintw()));
-        msc.setText(String.valueOf(planetWorkers.getMaints()));
-        ewc.setText(String.valueOf(planetWorkers.getEnterw()));
-        esc.setText(String.valueOf(planetWorkers.getEnters()));
+        txtCurrentMinerWorker.setText(String.valueOf(planetWorkers.getMinerw()));
+        txtCurrentMinerSupervisor.setText(String.valueOf(planetWorkers.getMiners()));
+        txtCurrentMaintenanceWorker.setText(String.valueOf(planetWorkers.getMaintw()));
+        txtCurrentMaintenanceSupervisor.setText(String.valueOf(planetWorkers.getMaints()));
+        txtCurrentEntertainerWorker.setText(String.valueOf(planetWorkers.getEnterw()));
+        txtCurrentEntertainerSupervisor.setText(String.valueOf(planetWorkers.getEnters()));
     }
 
     private void displayTransitCounts () {
@@ -155,24 +156,25 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     private void displayRecruitment () {
         recruitment.setText(getString(R.string.recruitment, mPlanet));
         maxRecruit.setText(getString(R.string.max_recruitable, String.valueOf(maxRecruitCount)));
+        ITWorkersModel itworkers = db.getITWorkers(mId);
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
         if(seekBar == sbMiner) {
-            txtMinerW.setText(String.valueOf(progress));
-            txtMinerS.setText(String.valueOf((int) Math.ceil(progress/10.0)));
+            txtRecruitMinerWorker.setText(String.valueOf(progress));
+            txtRecruitMinerSupervisor.setText(String.valueOf((int) Math.ceil(progress/10.0)));
             sbMaint.setMax(100-sbMiner.getProgress());
         }
         if(seekBar == sbMaint) {
-            txtMaintW.setText(String.valueOf(progress));
-            txtMaintS.setText(String.valueOf((int) Math.ceil(progress/10.0)));
+            txtRecruitMaintenanceWorker.setText(String.valueOf(progress));
+            txtRecruitMaintenanceSupervisor.setText(String.valueOf((int) Math.ceil(progress/10.0)));
             sbEnter.setMax(100-sbMiner.getProgress()-sbMaint.getProgress());
         }
         if(seekBar == sbEnter) {
-            txtEnterW.setText(String.valueOf(progress));
-            txtEnterS.setText(String.valueOf((int) Math.ceil(progress/10.0)));
+            txtRecruitEntertainerWorker.setText(String.valueOf(progress));
+            txtRecruitEntertainerSupervisor.setText(String.valueOf((int) Math.ceil(progress/10.0)));
         }
     }
 
@@ -191,9 +193,12 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
                 Toast.makeText(getContext(), "No Workers Selected", Toast.LENGTH_LONG).show();
             } else {
                 db.setTransitWorkers(mId,
-                                     Integer.parseInt(txtMinerW.getText().toString()), Integer.parseInt(txtMinerS.getText().toString()),
-                                     Integer.parseInt(txtMaintW.getText().toString()), Integer.parseInt(txtMaintS.getText().toString()),
-                                     Integer.parseInt(txtEnterW.getText().toString()), Integer.parseInt(txtEnterS.getText().toString()));
+                                     Integer.parseInt(txtRecruitMinerWorker.getText().toString()),
+                                     Integer.parseInt(txtRecruitMinerSupervisor.getText().toString()),
+                                     Integer.parseInt(txtRecruitMaintenanceWorker.getText().toString()),
+                                     Integer.parseInt(txtRecruitMaintenanceSupervisor.getText().toString()),
+                                     Integer.parseInt(txtRecruitEntertainerWorker.getText().toString()),
+                                     Integer.parseInt(txtRecruitEntertainerSupervisor.getText().toString()));
                 sbMiner.setProgress(0);
                 sbMaint.setProgress(0);
                 sbEnter.setProgress(0);

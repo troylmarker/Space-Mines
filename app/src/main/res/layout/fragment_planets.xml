@@ -178,11 +178,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
                     android:background="@drawable/ml_border"
-                    android:text="@string/miners"
+                    android:text="miner_supervisor"
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/d_w_c"
+                    android:id="@+id/txtCurrentMinerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -191,7 +191,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/d_s_c"
+                    android:id="@+id/txtCurrentMinerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -215,7 +215,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/m_w_c"
+                    android:id="@+id/txtCurrentMaintenanceWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -224,7 +224,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/m_s_c"
+                    android:id="@+id/txtCurrentMaintenanceSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -248,7 +248,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/e_w_c"
+                    android:id="@+id/txtCurrentEntertainerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
@@ -257,7 +257,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/e_s_c"
+                    android:id="@+id/txtCurrentEntertainerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"

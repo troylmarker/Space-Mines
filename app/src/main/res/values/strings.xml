@@ -61,7 +61,7 @@
     <string name="department">Department</string>
     <string name="supervisors">Supervisors</string>
     <string name="planet">Planet</string>
-    <string name="miners">Miners</string>
+    <string name="intMinerSupervisor">intMinerSupervisor</string>
     <string name="entertainers">Entertainers</string>
     <string name="maintenance">Maintenance</string>
     <string name="shipping_fragment">Shipping Fragment</string>
@@ -70,5 +70,6 @@
     <string name="max_recruitable">Maximum Recruitable per trip: %1$s</string>
     <string name="count">Count</string>
     <string name="recruit" translatable="false">Recruit Workers</string>
+    <string name="miner">Miner</string>
 
 </resources>

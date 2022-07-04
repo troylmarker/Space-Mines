@@ -22,21 +22,22 @@ package com.troylmarkerenterprises.spacemines.model;
 @SuppressWarnings("unused")
 public class WorkerModel {
     private int id;
-    private int minerw;
-    private int miners;
-    private int maintw;
-    private int maints;
-    private int enterw;
-    private int enters;
+    private int intMinerWorker;
+    private int intMinerSupervisor;
+    private int maintenance_worker;
+    private int maintenance_supervisor;
+    private int entertain_worker;
+    private int entertain_supervisor;
 
-    public WorkerModel(int id, int minerw, int miners, int maintw, int maints, int enterw, int enters) {
+    public WorkerModel(int id, int intMinerWorker, int intMinerSupervisor, int maintenance_worker, int maintenance_supervisor,
+                       int entertain_worker, int entertain_supervisor) {
         this.id = id;
-        this.minerw = minerw;
-        this.miners = miners;
-        this.maintw = maintw;
-        this.maints = maints;
-        this.enterw = enterw;
-        this.enters = enters;
+        this.intMinerWorker = intMinerWorker;
+        this.intMinerSupervisor = intMinerSupervisor;
+        this.maintenance_worker = maintenance_worker;
+        this.maintenance_supervisor = maintenance_supervisor;
+        this.entertain_worker = entertain_worker;
+        this.entertain_supervisor = entertain_supervisor;
     }
 
     public WorkerModel() {
@@ -51,50 +52,50 @@ public class WorkerModel {
     }
 
     public int getMinerw() {
-        return minerw;
+        return intMinerWorker;
     }
 
-    public void setMinerw(int minerw) {
-        this.minerw = minerw;
+    public void setMinerw(int intMinerWorker) {
+        this.intMinerWorker = intMinerWorker;
     }
 
     public int getMiners() {
-        return miners;
+        return intMinerSupervisor;
     }
 
-    public void setMiners(int miners) {
-        this.miners = miners;
+    public void setMiners(int intMinerSupervisor) {
+        this.intMinerSupervisor = intMinerSupervisor;
     }
 
     public int getMaintw() {
-        return maintw;
+        return maintenance_worker;
     }
 
-    public void setMaintw(int maintw) {
-        this.maintw = maintw;
+    public void setMaintw(int maintenance_worker) {
+        this.maintenance_worker = maintenance_worker;
     }
 
     public int getMaints() {
-        return maints;
+        return maintenance_supervisor;
     }
 
-    public void setMaints(int maints) {
-        this.maints = maints;
+    public void setMaints(int maintenance_supervisor) {
+        this.maintenance_supervisor = maintenance_supervisor;
     }
 
     public int getEnterw() {
-        return enterw;
+        return entertain_worker;
     }
 
-    public void setEnterw(int enterw) {
-        this.enterw = enterw;
+    public void setEnterw(int entertain_worker) {
+        this.entertain_worker = entertain_worker;
     }
 
     public int getEnters() {
-        return enters;
+        return entertain_supervisor;
     }
 
     public void setEnters(int entertain_supervisor) {
-        this.enters = enters;
+        this.entertain_supervisor = entertain_supervisor;
     }
 }
