@@ -29,10 +29,10 @@ import com.troylmarkerenterprises.spacemines.R;
 
 @SuppressWarnings("unused")
 public class Galaxy extends RecyclerView.ViewHolder {
-    public ImageView imgPlanetIcon;
-    public TextView txtPlanetId;
-    public TextView txtPlanetName;
-    public TextView txtPlanetSize;
+    public final ImageView imgPlanetIcon;
+    public final TextView txtPlanetId;
+    public final TextView txtPlanetName;
+    public final TextView txtPlanetSize;
     public ImageView imgSelect;
 
     public Galaxy(View itemView) {

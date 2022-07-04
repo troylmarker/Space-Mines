@@ -23,7 +23,6 @@ import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_PL
 import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_PLANET_NAME;
 import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_SHIP_LEVEL;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

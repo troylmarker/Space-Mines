@@ -45,9 +45,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Database extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
-    Planet ph = new Planet();
-    General gh = new General();
-    Context context;
+    final Planet ph = new Planet();
+    final General gh = new General();
+    final Context context;
 
     // SQL To create the Planet Table
 

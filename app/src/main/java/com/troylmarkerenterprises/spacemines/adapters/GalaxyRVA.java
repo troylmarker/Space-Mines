@@ -39,13 +39,14 @@ import com.troylmarkerenterprises.spacemines.model.PlanetModel;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class GalaxyRVA extends RecyclerView.Adapter<com.troylmarkerenterprises.spacemines.viewholder.Galaxy> {
-    List<PlanetModel> galaxy;
+    final List<PlanetModel> galaxy;
 
     Database db;
-    Context context;
-    Planet listener;
-    Galaxy selectedPlanet;
+    final Context context;
+    final Planet listener;
+    final Galaxy selectedPlanet;
 
     public GalaxyRVA (List<PlanetModel> galaxy, Context context, Planet listener, Galaxy mCallback) {
         this.galaxy = galaxy;

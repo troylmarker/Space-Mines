@@ -68,7 +68,6 @@ public class Planets extends Fragment {
 
 
         getParentFragmentManager ().setFragmentResultListener ("requestKey", this, (requestKey, result) -> {
-            Bundle results = result;
         });
         loadDatabase();
     }
@@ -82,12 +81,9 @@ public class Planets extends Fragment {
             Planets.this.displayPlanet (view, mGalaxy.get (Index), mPricing.get (Index), mWorker.get(Index));
         }
 
-        planet = new Planet() {
-            @Override
-            public void onPlanetChange(int index) {
-                Index = index;
-                Planets.this.displayPlanet(view, mGalaxy.get(Index), mPricing.get(Index), mWorker.get(Index));
-            }
+        planet = index -> {
+            Index = index;
+            Planets.this.displayPlanet(view, mGalaxy.get(Index), mPricing.get(Index), mWorker.get(Index));
         };
         gAdapter = new GalaxyRVA(mGalaxy, requireActivity(), planet, galaxyInterface);
         planets.setAdapter(gAdapter);
