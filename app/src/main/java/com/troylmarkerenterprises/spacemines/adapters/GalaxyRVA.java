@@ -32,7 +32,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.troylmarkerenterprises.spacemines.R;
-import com.troylmarkerenterprises.spacemines.database.Database;
+import com.troylmarkerenterprises.spacemines.database.Prefs;
 import com.troylmarkerenterprises.spacemines.interfaces.Galaxy;
 import com.troylmarkerenterprises.spacemines.interfaces.Planet;
 import com.troylmarkerenterprises.spacemines.model.PlanetModel;
@@ -43,10 +43,10 @@ import java.util.List;
 public class GalaxyRVA extends RecyclerView.Adapter<com.troylmarkerenterprises.spacemines.viewholder.Galaxy> {
     final List<PlanetModel> galaxy;
 
-    Database db;
     final Context context;
     final Planet listener;
     final Galaxy selectedPlanet;
+    Prefs prefs;
 
     public GalaxyRVA (List<PlanetModel> galaxy, Context context, Planet listener, Galaxy mCallback) {
         this.galaxy = galaxy;
@@ -71,7 +71,7 @@ public class GalaxyRVA extends RecyclerView.Adapter<com.troylmarkerenterprises.s
         int id = galaxy.get(position).getId();
         String name = galaxy.get(position).getName();
         int size = galaxy.get(position).getSize();
-        db = new Database(context.getApplicationContext());
+        prefs = new Prefs(context.getApplicationContext());
 
         switch(icon) {
             case 1:
@@ -108,8 +108,8 @@ public class GalaxyRVA extends RecyclerView.Adapter<com.troylmarkerenterprises.s
         viewHolder.txtPlanetName.setText(String.format("Planet Name: %s",name));
         viewHolder.txtPlanetSize.setText(String.format("Planet Diameter: %s miles", size));
         viewHolder.imgPlanetIcon.setOnClickListener(v -> {
-            db.setPref(PREFERENCE_PLANET_NAME, name);
-            db.setPref(PREFERENCE_PLANET_ID, String.valueOf(id));
+            prefs.setPref(PREFERENCE_PLANET_NAME, name);
+            prefs.setPref(PREFERENCE_PLANET_ID, String.valueOf(id));
             listener.onPlanetChange(index);
         });
     }

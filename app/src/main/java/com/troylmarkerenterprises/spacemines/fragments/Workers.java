@@ -23,6 +23,7 @@ import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_PL
 import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_PLANET_NAME;
 import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_SHIP_LEVEL;
 
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,9 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.troylmarkerenterprises.spacemines.R;
-import com.troylmarkerenterprises.spacemines.database.Database;
+import com.troylmarkerenterprises.spacemines.database.Update;
+import com.troylmarkerenterprises.spacemines.database.Read;
+import com.troylmarkerenterprises.spacemines.database.Prefs;
 import com.troylmarkerenterprises.spacemines.model.ITWorkersModel;
 import com.troylmarkerenterprises.spacemines.model.WorkerModel;
 
@@ -47,6 +50,7 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     SeekBar sbMaint;
     SeekBar sbEnter;
     Button btnRecruit;
+    Button btnRecall;
     TextView currentPlanet;
     TextView inTransitWorkers;
     TextView recruitment;
@@ -63,10 +67,18 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     TextView txtRecruitMaintenanceSupervisor;
     TextView txtRecruitEntertainerWorker;
     TextView txtRecruitEntertainerSupervisor;
+    TextView txtTransitMinerWorker;
+    TextView txtTransitMinerSupervisor;
+    TextView txtTransitMaintenanceWorker;
+    TextView txtTransitMaintenanceSupervisor;
+    TextView txtTransitEntertainerWorker;
+    TextView txtTransitEntertainerSupervisor;
     int shipLevel;
     int maxRecruitCount;
     WorkerModel planetWorkers;
-    Database db;
+    Prefs prefs;
+    Read read;
+    Update update;
 
 
     public static Workers newInstance() {
@@ -81,8 +93,10 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_workers, container, false);
-        db = new Database(requireContext().getApplicationContext());
-        shipLevel = Integer.parseInt(db.checkPrefOrCreate(PREFERENCE_SHIP_LEVEL,"1"));
+        prefs = new Prefs(requireContext().getApplicationContext());
+        read = new Read(requireContext().getApplicationContext());
+        update = new Update(requireContext().getApplicationContext());
+        shipLevel = Integer.parseInt(prefs.checkPrefOrCreate(PREFERENCE_SHIP_LEVEL,"1"));
         maxRecruitCount = shipLevel * 110;
         currentPlanet = view.findViewById (R.id.txtCurrentPlanet);
         inTransitWorkers = view.findViewById (R.id.txtIntTransit);
@@ -92,10 +106,12 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         sbMaint = view.findViewById(R.id.sbMaint);
         sbEnter = view.findViewById(R.id.sbEnter);
         btnRecruit = view.findViewById(R.id.btnRecruit);
+        btnRecall = view.findViewById(R.id.btnRecall);
         sbMiner.setOnSeekBarChangeListener(this);
         sbMaint.setOnSeekBarChangeListener(this);
         sbEnter.setOnSeekBarChangeListener(this);
         btnRecruit.setOnClickListener(this);
+        btnRecall.setOnClickListener(this);
         txtRecruitMinerWorker = view.findViewById(R.id.txtRecruitMinerWorker);
         txtRecruitMinerSupervisor = view.findViewById(R.id.txtRecruitMinerSupervisor);
         txtRecruitMaintenanceWorker = view.findViewById(R.id.txtRecruitMaintenanceWorker);
@@ -108,6 +124,12 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         txtCurrentMaintenanceSupervisor = view.findViewById(R.id.txtCurrentMaintenanceSupervisor);
         txtCurrentEntertainerWorker = view.findViewById(R.id.txtCurrentEntertainerWorker);
         txtCurrentEntertainerSupervisor = view.findViewById(R.id.txtCurrentEntertainerSupervisor);
+        txtTransitMinerWorker = view.findViewById(R.id.txtTransitMinerWorker);
+        txtTransitMinerSupervisor = view.findViewById(R.id.txtTransitMinerSupervisor);
+        txtTransitMaintenanceWorker = view.findViewById(R.id.txtTransitMaintenanceWorker);
+        txtTransitMaintenanceSupervisor = view.findViewById(R.id.txtTransitMaintenanceSupervisor);
+        txtTransitEntertainerWorker = view.findViewById(R.id.txtTransitEntertainerWorker);
+        txtTransitEntertainerSupervisor = view.findViewById(R.id.txtTransitEntertainerSupervisor);
         sbMiner.setMin(0);
         sbMiner.setMax(maxRecruitCount-(shipLevel * 10));
         sbMaint.setMin(0);
@@ -122,7 +144,7 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         if (!visible) {
             currentPlanet.setText(getString(R.string.current_workers, "-------"));
         }else{
-            if(db.checkPref(PREFERENCE_PLANET_NAME)) {
+            if(prefs.checkPref(PREFERENCE_PLANET_NAME)) {
                 displayCurrentCounts();
                 displayTransitCounts();
                 displayRecruitment();
@@ -136,9 +158,9 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     }
 
     private void displayCurrentCounts () {
-        mPlanet = db.getPref(PREFERENCE_PLANET_NAME);
-        mId = Integer.parseInt(db.getPref(PREFERENCE_PLANET_ID));
-        planetWorkers = db.getPlanetWorker(mId);
+        mPlanet = prefs.getPref(PREFERENCE_PLANET_NAME);
+        mId = Integer.parseInt(prefs.getPref(PREFERENCE_PLANET_ID));
+        planetWorkers = read.readPlanetWorker(mId);
         currentPlanet.setText(getString(R.string.current_workers, mPlanet));
         txtCurrentMinerWorker.setText(String.valueOf(planetWorkers.getMinerw()));
         txtCurrentMinerSupervisor.setText(String.valueOf(planetWorkers.getMiners()));
@@ -149,13 +171,21 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     }
 
     private void displayTransitCounts () {
-        inTransitWorkers.setText(getString(R.string.in_transit_workers, "--------"));
+        inTransitWorkers.setText(getString(R.string.in_transit_workers, mPlanet));
+        ITWorkersModel itworkers = read.readITWorkers(mId);
+        txtTransitMinerWorker.setText(String.valueOf(itworkers.getMinerw()));
+        txtTransitMinerSupervisor.setText(String.valueOf(itworkers.getMiners()));
+        txtTransitMaintenanceWorker.setText(String.valueOf(itworkers.getMaintw()));
+        txtTransitMaintenanceSupervisor.setText(String.valueOf(itworkers.getMaints()));
+        txtTransitEntertainerWorker.setText(String.valueOf(itworkers.getEnterw()));
+        txtTransitEntertainerSupervisor.setText(String.valueOf(itworkers.getEnters()));
     }
 
     private void displayRecruitment () {
         recruitment.setText(getString(R.string.recruitment, mPlanet));
         maxRecruit.setText(getString(R.string.max_recruitable, String.valueOf(maxRecruitCount)));
-        ITWorkersModel itworkers = db.getITWorkers(mId);
+
+
     }
 
     @Override
@@ -191,7 +221,7 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
             if(sbMiner.getProgress() == 0 && sbMaint.getProgress() == 0 && sbEnter.getProgress() == 0) {
                 Toast.makeText(getContext(), "No Workers Selected", Toast.LENGTH_LONG).show();
             } else {
-                db.setTransitWorkers(mId,
+                update.updateTransitWorkers(mId,
                                      Integer.parseInt(txtRecruitMinerWorker.getText().toString()),
                                      Integer.parseInt(txtRecruitMinerSupervisor.getText().toString()),
                                      Integer.parseInt(txtRecruitMaintenanceWorker.getText().toString()),
@@ -201,7 +231,12 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
                 sbMiner.setProgress(0);
                 sbMaint.setProgress(0);
                 sbEnter.setProgress(0);
+                displayTransitCounts();
             }
+        }
+        if(v == btnRecall) {
+            update.recallWorkers(mId);
+            displayTransitCounts();
         }
     }
 }

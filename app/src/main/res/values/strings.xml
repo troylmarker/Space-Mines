@@ -70,6 +70,10 @@
     <string name="max_recruitable">Maximum Recruitable per trip: %1$s</string>
     <string name="count">Count</string>
     <string name="recruit" translatable="false">Recruit Workers</string>
+
     <string name="miner">Miner</string>
+    <string name="worker_recall" translatable="false">Recall Workers</string>
+
+
 
 </resources>

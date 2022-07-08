@@ -35,7 +35,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.troylmarkerenterprises.spacemines.R;
 import com.troylmarkerenterprises.spacemines.adapters.GalaxyRVA;
-import com.troylmarkerenterprises.spacemines.database.Database;
+import com.troylmarkerenterprises.spacemines.database.Utilities;
+import com.troylmarkerenterprises.spacemines.database.Read;
 import com.troylmarkerenterprises.spacemines.helpers.General;
 import com.troylmarkerenterprises.spacemines.interfaces.Planet;
 import com.troylmarkerenterprises.spacemines.interfaces.Galaxy;
@@ -57,6 +58,7 @@ public class Planets extends Fragment {
     Galaxy galaxyInterface;
     Planet planet;
     int Index;
+    Read read;
 
     public static Planets newInstance() {
         return new Planets();
@@ -65,8 +67,6 @@ public class Planets extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         getParentFragmentManager ().setFragmentResultListener ("requestKey", this, (requestKey, result) -> {
         });
         loadDatabase();
@@ -97,19 +97,20 @@ public class Planets extends Fragment {
     }
 
     private void loadDatabase() {
-        Database db = new Database(requireActivity().getApplicationContext());
-        if (db.doesTableExist(TABLE_NAME_PLANETS)) {
-            mGalaxy = db.loadGalaxy();
+        Utilities dbUtils = new Utilities(requireActivity().getApplicationContext());
+        Read read = new Read(requireActivity().getApplicationContext());
+        if (dbUtils.doesTableExist(TABLE_NAME_PLANETS)) {
+            mGalaxy = read.readGalaxy();
         } else {
             mGalaxy = null;
         }
-        if (db.doesTableExist (TABLE_NAME_PRICING)) {
-            mPricing = db.loadPricing ();
+        if (dbUtils.doesTableExist (TABLE_NAME_PRICING)) {
+            mPricing = read.readPricing ();
         } else {
             mPricing = null;
         }
-        if (db.doesTableExist(TABLE_NAME_WORKERS)) {
-            mWorker = db.loadWorkers();
+        if (dbUtils.doesTableExist(TABLE_NAME_WORKERS)) {
+            mWorker = read.readWorkers();
         } else {
             mWorker = null;
         }
