@@ -267,8 +267,6 @@ public class Create extends SQLiteOpenHelper {
         db.close();
     }
 
-
-
     public PointModel getPlanetPoint(int planetId) {
         PointModel returnModel = new PointModel();
         SQLiteDatabase db = getReadableDatabase();

@@ -92,7 +92,6 @@ public class Utilities extends SQLiteOpenHelper {
             ex.printStackTrace();
             returnValue.set(0);
         }
-
         return returnValue.get();
     }
 }

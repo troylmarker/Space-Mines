@@ -19,10 +19,7 @@
  ************************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.fragments;
 
-import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_PLANET_ID;
-import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_PLANET_NAME;
-import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_SHIP_LEVEL;
-
+import static com.troylmarkerenterprises.spacemines.constants.Pref.*;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -73,7 +70,7 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     TextView txtTransitMaintenanceSupervisor;
     TextView txtTransitEntertainerWorker;
     TextView txtTransitEntertainerSupervisor;
-    int shipLevel;
+    int shipPassenger;
     int maxRecruitCount;
     WorkerModel planetWorkers;
     Prefs prefs;
@@ -96,8 +93,8 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         prefs = new Prefs(requireContext().getApplicationContext());
         read = new Read(requireContext().getApplicationContext());
         update = new Update(requireContext().getApplicationContext());
-        shipLevel = Integer.parseInt(prefs.checkPrefOrCreate(PREFERENCE_SHIP_LEVEL,"1"));
-        maxRecruitCount = shipLevel * 110;
+        shipPassenger = Integer.parseInt(prefs.checkPrefOrCreate(PREFERENCE_SHIP_PASSENGER,"1"));
+        maxRecruitCount = shipPassenger * 110;
         currentPlanet = view.findViewById (R.id.txtCurrentPlanet);
         inTransitWorkers = view.findViewById (R.id.txtIntTransit);
         recruitment = view.findViewById(R.id.txtRecruitment);
