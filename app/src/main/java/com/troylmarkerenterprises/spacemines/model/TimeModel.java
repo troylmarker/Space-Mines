@@ -1,9 +1,9 @@
 /************************************************************************************************************************************************
  *  Project Name: Space Mines                                                                                                                   *
- *  Class Name: com.troylmarkerenterprises.spacemines.activities.Main                                                                           *
- *  File Name: Main.java                                                                                                                        *
- *  File Creation Date: 6/30/2022                                                                                                               *
- *  File Creation Time: 19:58:25                                                                                                                *
+ *  Class Name: com.troylmarkerenterprises.spacemines.model.TimeModel                                                                           *
+ *  File Name: TimeModel.java                                                                                                                   *
+ *  File Creation Date: 7/13/2022                                                                                                               *
+ *  File Creation Time: 19:51:29                                                                                                                *
  *  File Creator: troylmarker                                                                                                                   *
  *                                                                                                                                              *
  *  Copyright 2022  by Troy L Marker Enterprises                                                                                                *
@@ -17,48 +17,25 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                    *
  *  See the License for the specific language governing permissions and limitations under the License.                                          *
  ************************************************************************************************************************************************/
-package com.troylmarkerenterprises.spacemines.activities;
+package com.troylmarkerenterprises.spacemines.model;
 
-import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
-import androidx.viewpager2.widget.ViewPager2;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
-import com.troylmarkerenterprises.spacemines.database.Create;
-import com.troylmarkerenterprises.spacemines.R;
+public class TimeModel {
 
-public class Main extends FragmentActivity {
+    int hour;
+    int minute;
+    int sec;
+
+    public TimeModel(int time) {
+        hour = (int)(11545 / 3600);
+        int temp1 = hour * 3600;
+        int temp2 = time - temp1;
+        minute = temp2 / 60;
+        int temp3 = (hour *3600) + (minute * 60);
+        sec = time - temp3;
+    }
 
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
-        setContentView (R.layout.activity_main);
-        Create create = new Create(this.getApplicationContext());
-        ViewPager2 viewPager = findViewById (R.id.pager);
-        viewPager.setAdapter (new com.troylmarkerenterprises.spacemines.adapters.Main(this));
-        create.database();
-        TabLayout tabLayout = findViewById (R.id.sliding_tabs);
-        new TabLayoutMediator (tabLayout, viewPager, (tab, position) -> {
-            switch (position) {
-                case 0:
-                    tab.setText ("Planets");
-                    break;
-                case 1:
-                    tab.setText ("Workers");
-                    break;
-                case 2:
-                    tab.setText ("Mines");
-                    break;
-                case 3:
-                    tab.setText ("Shipping");
-                    break;
-                case 4:
-                    tab.setText ("Housing");
-                    break;
-                case 5:
-                    tab.setText ("Entertainment");
-                    break;
-            }
-        }).attach ();
+    public String toString() {
+        return hour + ":" + minute + ":" + sec;
     }
 }

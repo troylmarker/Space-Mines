@@ -36,6 +36,7 @@ import com.troylmarkerenterprises.spacemines.R;
 import com.troylmarkerenterprises.spacemines.database.Update;
 import com.troylmarkerenterprises.spacemines.database.Read;
 import com.troylmarkerenterprises.spacemines.database.Prefs;
+import com.troylmarkerenterprises.spacemines.database.Utilities;
 import com.troylmarkerenterprises.spacemines.model.ITWorkersModel;
 import com.troylmarkerenterprises.spacemines.model.WorkerModel;
 
@@ -70,12 +71,18 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     TextView txtTransitMaintenanceSupervisor;
     TextView txtTransitEntertainerWorker;
     TextView txtTransitEntertainerSupervisor;
+    TextView txtMinerTransitTime;
+    TextView txtMaintenanceTransitTime;
+    TextView txtEntertainerTransitTime;
+
     int shipPassenger;
+    int shipSpeed;
     int maxRecruitCount;
     WorkerModel planetWorkers;
     Prefs prefs;
     Read read;
     Update update;
+    Utilities utilities;
 
 
     public static Workers newInstance() {
@@ -93,7 +100,9 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         prefs = new Prefs(requireContext().getApplicationContext());
         read = new Read(requireContext().getApplicationContext());
         update = new Update(requireContext().getApplicationContext());
-        shipPassenger = Integer.parseInt(prefs.checkPrefOrCreate(PREFERENCE_SHIP_PASSENGER,"1"));
+        utilities = new Utilities(requireContext().getApplicationContext());
+        shipPassenger = Integer.parseInt(prefs.getPrefOrCreate(PREFERENCE_SHIP_PASSENGER, "1"));
+        shipSpeed = Integer.parseInt(prefs.getPrefOrCreate(PREFERENCE_SHIP_SPEED, "1"));
         maxRecruitCount = shipPassenger * 110;
         currentPlanet = view.findViewById (R.id.txtCurrentPlanet);
         inTransitWorkers = view.findViewById (R.id.txtIntTransit);
@@ -127,11 +136,16 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         txtTransitMaintenanceSupervisor = view.findViewById(R.id.txtTransitMaintenanceSupervisor);
         txtTransitEntertainerWorker = view.findViewById(R.id.txtTransitEntertainerWorker);
         txtTransitEntertainerSupervisor = view.findViewById(R.id.txtTransitEntertainerSupervisor);
+        txtMinerTransitTime = view.findViewById(R.id.txtMinerTransitTime);
+        txtMaintenanceTransitTime = view.findViewById(R.id.txtMaintenanceTransitTime);
+        txtEntertainerTransitTime = view.findViewById(R.id.txtEntertainerTransitTime);
         sbMiner.setMin(0);
-        sbMiner.setMax(maxRecruitCount-(shipLevel * 10));
+        sbMiner.setMax(maxRecruitCount-(shipPassenger * 10));
         sbMaint.setMin(0);
-        sbMaint.setMax(maxRecruitCount-(shipLevel * 10));
-
+        sbMaint.setMax(maxRecruitCount-(shipPassenger * 10));
+        txtMinerTransitTime.setText(getString(R.string.blank_transit_time, "0"));
+        txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, "0"));
+        txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, "0"));
         return view;
     }
 
@@ -170,6 +184,16 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     private void displayTransitCounts () {
         inTransitWorkers.setText(getString(R.string.in_transit_workers, mPlanet));
         ITWorkersModel itworkers = read.readITWorkers(mId);
+        String transit = utilities.getTransitTime(mId,mId);
+        if(itworkers.getMinerw() > 0) {
+            txtMinerTransitTime.setText(getString(R.string.blank_transit_time, transit));
+        }
+        if(itworkers.getMaintw() > 0) {
+            txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, transit));
+        }
+        if(itworkers.getEnterw() > 0) {
+            txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, transit));
+        }
         txtTransitMinerWorker.setText(String.valueOf(itworkers.getMinerw()));
         txtTransitMinerSupervisor.setText(String.valueOf(itworkers.getMiners()));
         txtTransitMaintenanceWorker.setText(String.valueOf(itworkers.getMaintw()));

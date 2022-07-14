@@ -97,8 +97,7 @@ public class Read extends SQLiteOpenHelper {
         ArrayList<PlanetModel> planets = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         String sql = String.format("SELECT * FROM %s ORDER BY %s", TABLE_NAME_PLANETS, COLUMN_NAME_ID);
-        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql,
-                null);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql,null);
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
             String name = cursor.getString(1);
@@ -126,8 +125,7 @@ public class Read extends SQLiteOpenHelper {
         ArrayList<PricingModel> pricing = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         String sql = String.format("SELECT * FROM %s ORDER BY %s", TABLE_NAME_PRICING, COLUMN_NAME_ID);
-        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql,
-                null);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql,null);
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
             double p_cu = cursor.getDouble(1);

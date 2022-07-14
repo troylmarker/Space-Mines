@@ -46,7 +46,7 @@ public class Create extends SQLiteOpenHelper {
 
     // SQL To create the Planet Table
 
-    public final String PLANET_TABLE_SQL = String.format(
+    public final String TABLE_NAME_PLANET_SQL = String.format(
             "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT NOT NULL, %s INTEGER, %s INTEGER, %s REAL, %s REAL, %s REAL, %s REAL, %s REAL," +
                     " %s REAL, %s REAL, %s REAL, %s REAL, %S REAL, %s INTEGER)",
             TABLE_NAME_PLANETS, COLUMN_NAME_ID, COLUMN_NAME_NAME, COLUMN_NAME_SIZE, COLUMN_NAME_POPULATION, COLUMN_NAME_TOTAL_COPPER,
@@ -84,7 +84,7 @@ public class Create extends SQLiteOpenHelper {
 
     //SQL To create the Mines Table
 
-    public final String MINE_TABLE_SQL = String.format(
+    public final String TABLE_NAME_MINE_SQL = String.format(
             "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT, %s INTEGER, %S INTEGER)", TABLE_NAME_MINES, COLUMN_NAME_ID, COLUMN_NAME_MINE,
             COLUMN_NAME_LEVEL, COLUMN_NAME_CURRENT);
 
@@ -111,14 +111,8 @@ public class Create extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(PLANET_TABLE_SQL);
-        db.execSQL(TABLE_NAME_POINTS_SQL);
-        db.execSQL(TABLE_NAME_PRICING_SQL);
-        db.execSQL(TABLE_NAME_WORKERS_SQL);
-        db.execSQL(TABLE_NAME_ITWORKERS_SQL);
-        db.execSQL(MINE_TABLE_SQL);
-        db.execSQL(TABLE_NAME_PREFERENCES_SQL);
-        db.execSQL(TABLE_NAME_DISTANCE_SQL);
+        db = getWritableDatabase();
+        this.db = db;
     }
 
     @Override
@@ -128,6 +122,7 @@ public class Create extends SQLiteOpenHelper {
     public void database() {
         if (!dbUtil.doesTableExist(TABLE_NAME_PLANETS)) {
             createGalaxy();
+            createPreferences();
             createPoints();
             createPricing();
             createWorkerCount();
@@ -138,7 +133,9 @@ public class Create extends SQLiteOpenHelper {
     @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     public void createGalaxy() {
         db = getWritableDatabase();
-        db.delete(TABLE_NAME_PLANETS, null, null);
+        db.execSQL(TABLE_NAME_PLANET_SQL);
+        db.execSQL(TABLE_NAME_MINE_SQL);
+
         AtomicInteger i = new AtomicInteger();
         while (i.get() < 20) {
             int size = ph.getSize();
@@ -168,9 +165,15 @@ public class Create extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void createPreferences() {
+        db = getWritableDatabase();
+        db.execSQL(TABLE_NAME_PREFERENCES_SQL);
+        db.close();
+    }
+
     public void createPoints() {
         db = getWritableDatabase();
-        db.delete(TABLE_NAME_POINTS, null, null);
+        db.execSQL(TABLE_NAME_POINTS_SQL);
         AtomicInteger i = new AtomicInteger();
         while (i.get() <20) {
             ContentValues values = new ContentValues();
@@ -186,7 +189,7 @@ public class Create extends SQLiteOpenHelper {
 
     public void createPricing() {
         db = getWritableDatabase();
-        db.delete(TABLE_NAME_PRICING, null, null);
+        db.execSQL(TABLE_NAME_PRICING_SQL);
         AtomicInteger i = new AtomicInteger();
         while (i.get() < 20) {
             ContentValues values = new ContentValues();
@@ -204,7 +207,8 @@ public class Create extends SQLiteOpenHelper {
 
     public void createWorkerCount() {
         db = getWritableDatabase();
-        db.delete(TABLE_NAME_WORKERS, null, null);
+        db.execSQL(TABLE_NAME_WORKERS_SQL);
+        db.execSQL(TABLE_NAME_ITWORKERS_SQL);
         AtomicInteger i = new AtomicInteger();
         while (i.get() < 20) {
             ContentValues values = new ContentValues();
@@ -223,7 +227,7 @@ public class Create extends SQLiteOpenHelper {
 
     public void createDistances() {
         db = getWritableDatabase();
-        db.delete(TABLE_NAME_DISTANCE, null, null);
+        db.execSQL(TABLE_NAME_DISTANCE_SQL);
         double[] distance = new double[20];
         AtomicInteger i= new AtomicInteger();
         while (i.get() < 20) {

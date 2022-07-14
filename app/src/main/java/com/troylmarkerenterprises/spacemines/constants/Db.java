@@ -23,8 +23,6 @@ import android.annotation.SuppressLint;
 
 public class Db {
     public static final String DB_NAME = "spacemines.db";
-    @SuppressLint("SdCardPath")
-    public static final String DB_PATH = "/data/data/com.troylmarkerenterprises.spacemines/databases/";
     public static final int DB_VERSION = 1;
     public static final String TABLE_NAME_PLANETS   = "planets";
     public static final String TABLE_NAME_PRICING   = "pricing";

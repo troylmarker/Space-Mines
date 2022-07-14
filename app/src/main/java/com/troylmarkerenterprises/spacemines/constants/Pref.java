@@ -24,7 +24,7 @@ public class Pref {
     public static final String PREFERENCE_PLANET_NAME = "PlanetName";
     public static final String PREFERENCE_PLANET_ID   = "PlanetId";
     public static final String PREFERENCE_SHIP_PASSENGER  = "ShipPassenger";
-    public static final String PREFERENCE_SHIP_ENGINE = "ShipEngine";
+    public static final String PREFERENCE_SHIP_SPEED = "ShipSpeed";
     public static final String COLUMN_NAME_PREFERENCE = "preference";
     public static final String COLUMN_NAME_VALUE      = "value";
 }

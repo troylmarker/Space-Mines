@@ -85,7 +85,7 @@ public class Planet {
         Random random = new Random();
         double range = 45000000000d - 60000000d;
         double scaled = random.nextDouble() * range;
-        return scaled + 60000000d;
+        return (scaled + 60000000d) * 5.879e+12;
     }
 
     public double getCord() {

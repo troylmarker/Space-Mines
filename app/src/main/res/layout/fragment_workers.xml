@@ -223,7 +223,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/ul_border"
                     android:text="@string/department"
                     android:textAlignment="center"
@@ -233,7 +233,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/um_border"
                     android:text="@string/workers"
                     android:textAlignment="center"
@@ -243,12 +243,24 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
-                    android:background="@drawable/ur_border"
+                    android:layout_weight=".25"
+                    android:background="@drawable/um_border"
                     android:text="@string/supervisors"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/ur_border"
+                    android:text="@string/transit_time"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+
 
             </LinearLayout>
 
@@ -260,7 +272,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/ml_border"
                     android:text="@string/miner"
                     android:textAlignment="center"
@@ -271,7 +283,7 @@
                     android:id="@+id/txtTransitMinerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/mm_border"
                     android:text="@string/miner_staff_count"
                     android:textAlignment="center"
@@ -282,9 +294,20 @@
                     android:id="@+id/txtTransitMinerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
-                    android:background="@drawable/mr_border"
+                    android:layout_weight=".25"
+                    android:background="@drawable/mm_border"
                     android:text="@string/miner_supervisor_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/txtMinerTransitTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/blank_transit_time"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
@@ -299,7 +322,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/ml_border"
                     android:text="@string/maintenance"
                     android:textAlignment="center"
@@ -310,7 +333,7 @@
                     android:id="@+id/txtTransitMaintenanceWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/mm_border"
                     android:text="@string/maintenance_staff_count"
                     android:textAlignment="center"
@@ -321,12 +344,24 @@
                     android:id="@+id/txtTransitMaintenanceSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
-                    android:background="@drawable/mr_border"
+                    android:layout_weight=".25"
+                    android:background="@drawable/mm_border"
                     android:text="@string/maintenance_supervisor_count"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/txtMaintenanceTransitTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/blank_transit_time"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
 
             </LinearLayout>
 
@@ -338,7 +373,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/ll_border"
                     android:text="@string/entertainers"
                     android:textAlignment="center"
@@ -349,7 +384,7 @@
                     android:id="@+id/txtTransitEntertainerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/lm_border"
                     android:text="@string/entertainer_staff_count"
                     android:textAlignment="center"
@@ -360,14 +395,26 @@
                     android:id="@+id/txtTransitEntertainerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
-                    android:background="@drawable/lr_border"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lm_border"
                     android:text="@string/entertainer_supervisor_count"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
 
+                <TextView
+                    android:id="@+id/txtEntertainerTransitTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lr_border"
+                    android:text="@string/blank_transit_time"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -386,9 +433,8 @@
 
         </LinearLayout>
 
-
-
     </ScrollView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

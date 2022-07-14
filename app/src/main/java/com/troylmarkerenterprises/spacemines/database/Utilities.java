@@ -27,6 +27,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.troylmarkerenterprises.spacemines.model.TimeModel;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Utilities extends SQLiteOpenHelper {
@@ -93,5 +95,17 @@ public class Utilities extends SQLiteOpenHelper {
             returnValue.set(0);
         }
         return returnValue.get();
+    }
+
+    public String getTransitTime(int p1Id, int p2Id) {
+        double distance = 0d;
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = String.format("SELECT * FROM %s WHERE %s = %s", TABLE_NAME_DISTANCE, COLUMN_NAME_ID, p1Id);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        distance = cursor.getDouble(p2Id + 1);
+        int time1 = (int)(distance * 5.879e12) / 186000;
+        String time = new TimeModel(time1).toString();
+        return time;
     }
 }

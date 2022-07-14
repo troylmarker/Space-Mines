@@ -67,7 +67,7 @@ public class Prefs  extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public String checkPrefOrCreate(String preference, String baseValue) {
+    public String getPrefOrCreate(String preference, String baseValue) {
         SQLiteDatabase db = getReadableDatabase();
         String returnValue;
         String query = String.format("SELECT %s FROM %s WHERE %s = '%s'", COLUMN_NAME_VALUE, TABLE_NAME_PREFERENCES, COLUMN_NAME_PREFERENCE,

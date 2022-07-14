@@ -73,7 +73,8 @@
 
     <string name="miner">Miner</string>
     <string name="worker_recall" translatable="false">Recall Workers</string>
-
+    <string name="transit_time">Transit Time</string>
+    <string name="blank_transit_time">%1$s</string>
 
 
 </resources>
