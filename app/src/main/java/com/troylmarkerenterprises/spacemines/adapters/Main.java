@@ -1,22 +1,22 @@
-/************************************************************************************************************************************************
- *  Project Name: Space Mines                                                                                                                   *
- *  Class Name: com.troylmarkerenterprises.spacemines.adapters.Main                                                                             *
- *  File Name: Main.java                                                                                                                        *
- *  File Creation Date: 6/30/2022                                                                                                               *
- *  File Creation Time: 19:59:9                                                                                                                 *
- *  File Creator: troylmarker                                                                                                                   *
- *                                                                                                                                              *
- *  Copyright 2022  by Troy L Marker Enterprises                                                                                                *
- *                                                                                                                                              *
- *  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.            *
- *  You may obtain a copy of the License at                                                                                                     *
- *                                                                                                                                              *
- *       http://www.apache.org/licenses/LICENSE-2.0                                                                                             *
- *                                                                                                                                              *
- *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,       *
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                    *
- *  See the License for the specific language governing permissions and limitations under the License.                                          *
- ************************************************************************************************************************************************/
+/***********************************************************************************************************************************************
+ *  Project Name: Space Mines                                                                                                                  *
+ *  Class Name: com.troylmarkerenterprises.spacemines.adapters.Main                                                                            *
+ *  File Name: Main.java                                                                                                                       *
+ *  File Creation Date: 7/15/2022                                                                                                              *
+ *  File Creation Time: 16:15:10                                                                                                               *
+ *  File Creator: troylmarker                                                                                                                  *
+ *                                                                                                                                             *
+ *  Copyright 2022  by Troy L Marker Enterprises                                                                                               *
+ *                                                                                                                                             *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.           *
+ *  You may obtain a copy of the License at                                                                                                    *
+ *                                                                                                                                             *
+ *       http://www.apache.org/licenses/LICENSE-2.0                                                                                            *
+ *                                                                                                                                             *
+ *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,      *
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                   *
+ *  See the License for the specific language governing permissions and limitations under the License.                                         *
+ ***********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.adapters;
 
 import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_SHIP_PASSENGER;
@@ -44,8 +44,8 @@ public class Main extends FragmentStateAdapter {
     public Main(FragmentActivity fa) {
         super(fa);
         prefs = new Prefs(fa.getApplicationContext());
-        //shipPassenger = Integer.parseInt(prefs.getPrefOrCreate(PREFERENCE_SHIP_PASSENGER,"1"));
-        //shipSpeed = Integer.parseInt(prefs.getPrefOrCreate(PREFERENCE_SHIP_SPEED, "1"));
+        shipPassenger = Integer.parseInt(prefs.getPrefOrCreate(PREFERENCE_SHIP_PASSENGER,"1"));
+        shipSpeed = Integer.parseInt(prefs.getPrefOrCreate(PREFERENCE_SHIP_SPEED, "1"));
     }
 
     @Override

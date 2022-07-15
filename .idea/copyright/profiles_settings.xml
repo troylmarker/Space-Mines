@@ -8,8 +8,8 @@
       <option name="addBlankAfter" value="false" />
       <option name="separateBefore" value="true" />
       <option name="separateAfter" value="true" />
-      <option name="lenBefore" value="146" />
-      <option name="lenAfter" value="146" />
+      <option name="lenBefore" value="145" />
+      <option name="lenAfter" value="145" />
       <option name="box" value="true" />
     </LanguageOptions>
     <LanguageOptions name="XML">

@@ -1,27 +1,28 @@
-/************************************************************************************************************************************************
- *  Project Name: Space Mines                                                                                                                   *
- *  Class Name: com.troylmarkerenterprises.spacemines.fragments.Workers                                                                         *
- *  File Name: Workers.java                                                                                                                     *
- *  File Creation Date: 6/19/2022                                                                                                               *
- *  File Creation Time: 16:19:11                                                                                                                *
- *  File Creator: troylmarker                                                                                                                   *
- *                                                                                                                                              *
- *  Copyright 2022  by Troy L Marker Enterprises                                                                                                *
- *                                                                                                                                              *
- *  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.            *
- *  You may obtain a copy of the License at                                                                                                     *
- *                                                                                                                                              *
- *       http://www.apache.org/licenses/LICENSE-2.0                                                                                             *
- *                                                                                                                                              *
- *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,       *
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                    *
- *  See the License for the specific language governing permissions and limitations under the License.                                          *
- ************************************************************************************************************************************************/
+/***********************************************************************************************************************************************
+ *  Project Name: Space Mines                                                                                                                  *
+ *  Class Name: com.troylmarkerenterprises.spacemines.fragments.Workers                                                                        *
+ *  File Name: Workers.java                                                                                                                    *
+ *  File Creation Date: 7/15/2022                                                                                                              *
+ *  File Creation Time: 16:55:59                                                                                                               *
+ *  File Creator: troylmarker                                                                                                                  *
+ *                                                                                                                                             *
+ *  Copyright 2022  by Troy L Marker Enterprises                                                                                               *
+ *                                                                                                                                             *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.           *
+ *  You may obtain a copy of the License at                                                                                                    *
+ *                                                                                                                                             *
+ *       http://www.apache.org/licenses/LICENSE-2.0                                                                                            *
+ *                                                                                                                                             *
+ *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,      *
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                   *
+ *  See the License for the specific language governing permissions and limitations under the License.                                         *
+ ***********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.fragments;
 
 import static com.troylmarkerenterprises.spacemines.constants.Pref.*;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ import com.troylmarkerenterprises.spacemines.database.Read;
 import com.troylmarkerenterprises.spacemines.database.Prefs;
 import com.troylmarkerenterprises.spacemines.database.Utilities;
 import com.troylmarkerenterprises.spacemines.model.ITWorkersModel;
+import com.troylmarkerenterprises.spacemines.model.TimeModel;
 import com.troylmarkerenterprises.spacemines.model.WorkerModel;
 
 public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
@@ -185,6 +187,7 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         inTransitWorkers.setText(getString(R.string.in_transit_workers, mPlanet));
         ITWorkersModel itworkers = read.readITWorkers(mId);
         String transit = utilities.getTransitTime(mId,mId);
+        final int[] trans = {utilities.getTime()};
         if(itworkers.getMinerw() > 0) {
             txtMinerTransitTime.setText(getString(R.string.blank_transit_time, transit));
         }
@@ -200,6 +203,22 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         txtTransitMaintenanceSupervisor.setText(String.valueOf(itworkers.getMaints()));
         txtTransitEntertainerWorker.setText(String.valueOf(itworkers.getEnterw()));
         txtTransitEntertainerSupervisor.setText(String.valueOf(itworkers.getEnters()));
+        new CountDownTimer(trans[0] * 1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                trans[0]--;
+                txtMinerTransitTime.setText(getString(R.string.blank_transit_time, new TimeModel(trans[0]).toString()));
+                txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, new TimeModel(trans[0]).toString()));
+                txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, new TimeModel(trans[0]).toString()));
+            }
+
+            @Override
+            public void onFinish() {
+                txtMinerTransitTime.setText(getString(R.string.blank_transit_time, "00:00:00"));
+                txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, "00:00:00"));
+                txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, "00:00:00"));
+            }
+        }.start();
     }
 
     private void displayRecruitment () {
