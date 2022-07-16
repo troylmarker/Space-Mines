@@ -20,6 +20,7 @@
 package com.troylmarkerenterprises.spacemines.database;
 
 import static com.troylmarkerenterprises.spacemines.constants.Db.*;
+import static com.troylmarkerenterprises.spacemines.constants.Pref.*;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -34,7 +35,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Utilities extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
-    Prefs pref;
+    final Prefs pref;
     int time;
 
     public boolean doesTableExist(String tableName) {
@@ -101,14 +102,13 @@ public class Utilities extends SQLiteOpenHelper {
     }
 
     public String getTransitTime(int p1Id, int p2Id) {
-        double distance = 0d;
+        double distance;
         SQLiteDatabase db = getReadableDatabase();
         String sql = String.format("SELECT * FROM %s WHERE %s = %s", TABLE_NAME_DISTANCE, COLUMN_NAME_ID, p1Id);
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql,null);
         cursor.moveToFirst();
         distance = cursor.getDouble(p2Id + 1);
-        int shipSpeed = 9;
-        //int shipSpeed = Integer.parseInt(pref.getPref(PREFERENCE_SHIP_SPEED));
+        int shipSpeed = Integer.parseInt(pref.getPref(PREFERENCE_SHIP_SPEED));
         this.time = (int) ((int)(distance * 5.879e12) / ( 186000 * (Math.pow(shipSpeed * 1d , 3d))));
         return new TimeModel(this.time).toString();
     }

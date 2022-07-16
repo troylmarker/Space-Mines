@@ -23,10 +23,10 @@ import androidx.annotation.NonNull;
 
 public class TimeModel {
 
-    int time;
-    int hour;
-    int minute;
-    int second;
+    final int time;
+    final int hour;
+    final int minute;
+    final int second;
 
     public TimeModel(int time) {
         this.time = time;

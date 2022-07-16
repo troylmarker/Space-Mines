@@ -19,15 +19,11 @@
  ***********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.adapters;
 
-import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_SHIP_PASSENGER;
-import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_SHIP_SPEED;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.troylmarkerenterprises.spacemines.database.Prefs;
 import com.troylmarkerenterprises.spacemines.fragments.Entertainment;
 import com.troylmarkerenterprises.spacemines.fragments.Housing;
 import com.troylmarkerenterprises.spacemines.fragments.Mines;
@@ -37,15 +33,9 @@ import com.troylmarkerenterprises.spacemines.fragments.Workers;
 
 public class Main extends FragmentStateAdapter {
     final int PAGE_COUNT  = 6;
-    int shipPassenger;
-    int shipSpeed;
-    Prefs prefs;
 
     public Main(FragmentActivity fa) {
         super(fa);
-        prefs = new Prefs(fa.getApplicationContext());
-        shipPassenger = Integer.parseInt(prefs.getPrefOrCreate(PREFERENCE_SHIP_PASSENGER,"1"));
-        shipSpeed = Integer.parseInt(prefs.getPrefOrCreate(PREFERENCE_SHIP_SPEED, "1"));
     }
 
     @Override

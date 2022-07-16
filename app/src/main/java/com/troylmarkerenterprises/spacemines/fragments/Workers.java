@@ -86,7 +86,6 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     Update update;
     Utilities utilities;
 
-
     public static Workers newInstance() {
         return new Workers ();
     }
@@ -203,7 +202,7 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         txtTransitMaintenanceSupervisor.setText(String.valueOf(itworkers.getMaints()));
         txtTransitEntertainerWorker.setText(String.valueOf(itworkers.getEnterw()));
         txtTransitEntertainerSupervisor.setText(String.valueOf(itworkers.getEnters()));
-        new CountDownTimer(trans[0] * 1000, 1000) {
+        new CountDownTimer(trans[0] * 1000L, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 trans[0]--;
