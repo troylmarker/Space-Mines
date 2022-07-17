@@ -19,15 +19,22 @@
  ***********************************************************************************************************************************************/
 package com.troylmarkerenterprises.spacemines.activities;
 
+import static com.troylmarkerenterprises.spacemines.constants.Pref.PREFERENCE_STOP_TIME;
+
 import android.os.Bundle;
+import android.os.SystemClock;
+
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.troylmarkerenterprises.spacemines.database.Create;
 import com.troylmarkerenterprises.spacemines.R;
+import com.troylmarkerenterprises.spacemines.database.Prefs;
 
 public class Main extends FragmentActivity {
+
+    Prefs pref;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -60,5 +67,13 @@ public class Main extends FragmentActivity {
                     break;
             }
         }).attach ();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        pref = new Prefs(getApplicationContext());
+        long stopTime = SystemClock.elapsedRealtime();
+        pref.setPref(PREFERENCE_STOP_TIME, String.valueOf(stopTime));
     }
 }

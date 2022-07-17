@@ -21,6 +21,8 @@ package com.troylmarkerenterprises.spacemines.model;
 
 import androidx.annotation.NonNull;
 
+import java.util.Locale;
+
 public class TimeModel {
 
     final int time;
@@ -30,7 +32,7 @@ public class TimeModel {
 
     public TimeModel(int time) {
         this.time = time;
-        hour = (int)(this.time / 3600);
+        hour = this.time / 3600;
         int temp1 = hour * 3600;
         int temp2 = this.time - temp1;
         minute = temp2 / 60;
@@ -41,24 +43,6 @@ public class TimeModel {
     @NonNull
     @Override
     public String toString() {
-        String hr;
-        String min;
-        String sec;
-        if (hour < 10) {
-            hr = "0" + hour;
-        } else {
-            hr = String.valueOf(hour);
-        }
-        if (minute < 10) {
-            min = "0" + minute;
-        } else {
-            min = String.valueOf(minute);
-        }
-        if (second < 10) {
-            sec = "0" + second;
-        } else {
-            sec = String.valueOf(second);
-        }
-        return hr + ":" + min + ":" + sec;
+        return String.format(Locale.getDefault(),"%02d:%02d:%02d", hour, minute, second);
     }
 }

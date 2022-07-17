@@ -101,19 +101,20 @@ public class Utilities extends SQLiteOpenHelper {
         return returnValue.get();
     }
 
-    public String getTransitTime(int p1Id, int p2Id) {
+    public int getTransitTime(int p1Id, int p2Id) {
         double distance;
         SQLiteDatabase db = getReadableDatabase();
         String sql = String.format("SELECT * FROM %s WHERE %s = %s", TABLE_NAME_DISTANCE, COLUMN_NAME_ID, p1Id);
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery(sql,null);
         cursor.moveToFirst();
         distance = cursor.getDouble(p2Id + 1);
-        int shipSpeed = Integer.parseInt(pref.getPref(PREFERENCE_SHIP_SPEED));
+        //int shipSpeed = Integer.parseInt(pref.getPref(PREFERENCE_SHIP_SPEED));
+        int shipSpeed = 9;
         this.time = (int) ((int)(distance * 5.879e12) / ( 186000 * (Math.pow(shipSpeed * 1d , 3d))));
-        return new TimeModel(this.time).toString();
+        return this.time;
     }
 
-    public int getTime() {
-        return this.time;
+    public String getTime() {
+        return new TimeModel(this.time).toString();
     }
 }

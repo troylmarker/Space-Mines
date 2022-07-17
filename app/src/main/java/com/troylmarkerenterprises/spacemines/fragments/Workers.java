@@ -23,6 +23,7 @@ import static com.troylmarkerenterprises.spacemines.constants.Pref.*;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +86,11 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     Read read;
     Update update;
     Utilities utilities;
+    private CountDownTimer mTransitTimer;
+    private boolean mTimerRunning;
+    private long mTimeLeftInSecs;
+    private long mStopTime;
+    private long mElapsed;
 
     public static Workers newInstance() {
         return new Workers ();
@@ -147,6 +153,12 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         txtMinerTransitTime.setText(getString(R.string.blank_transit_time, "0"));
         txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, "0"));
         txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, "0"));
+        mStopTime = Long.parseLong(prefs.getPrefOrCreate(PREFERENCE_STOP_TIME, "0"));
+        if(mStopTime != 0) {
+            mElapsed = mStopTime - SystemClock.elapsedRealtime();
+        } else {
+            mElapsed = 0;
+        }
         return view;
     }
 
@@ -155,6 +167,7 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         super.setMenuVisibility(visible);
         if (!visible) {
             currentPlanet.setText(getString(R.string.current_workers, "-------"));
+            pauseTimer();
         }else{
             if(prefs.checkPref(PREFERENCE_PLANET_NAME)) {
                 displayCurrentCounts();
@@ -185,16 +198,16 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
     private void displayTransitCounts () {
         inTransitWorkers.setText(getString(R.string.in_transit_workers, mPlanet));
         ITWorkersModel itworkers = read.readITWorkers(mId);
-        String transit = utilities.getTransitTime(mId,mId);
-        final int[] trans = {utilities.getTime()};
+        long transit = utilities.getTransitTime(mId,mId);
+        String trans = utilities.getTime();
         if(itworkers.getMinerw() > 0) {
-            txtMinerTransitTime.setText(getString(R.string.blank_transit_time, transit));
+            txtMinerTransitTime.setText(getString(R.string.blank_transit_time, trans));
         }
         if(itworkers.getMaintw() > 0) {
-            txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, transit));
+            txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, trans));
         }
         if(itworkers.getEnterw() > 0) {
-            txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, transit));
+            txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, trans));
         }
         txtTransitMinerWorker.setText(String.valueOf(itworkers.getMinerw()));
         txtTransitMinerSupervisor.setText(String.valueOf(itworkers.getMiners()));
@@ -202,22 +215,85 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
         txtTransitMaintenanceSupervisor.setText(String.valueOf(itworkers.getMaints()));
         txtTransitEntertainerWorker.setText(String.valueOf(itworkers.getEnterw()));
         txtTransitEntertainerSupervisor.setText(String.valueOf(itworkers.getEnters()));
-        new CountDownTimer(trans[0] * 1000L, 1000) {
+        clearTime();
+        if (mTimerRunning) {
+            pauseTimer();
+        } else {
+            int timerLength = Integer.parseInt(prefs.getPrefOrCreate(PREFERENCE_TRANSIT_TIMER, String.valueOf(transit)));
+            if (mElapsed > 0)
+                timerLength = timerLength - (int) mElapsed;
+            startTimer(timerLength);
+        }
+
+    }
+
+    private void startTimer(int time) {
+        final int[] timer = {time};
+        mTransitTimer = new CountDownTimer(time * 1000L, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                trans[0]--;
-                txtMinerTransitTime.setText(getString(R.string.blank_transit_time, new TimeModel(trans[0]).toString()));
-                txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, new TimeModel(trans[0]).toString()));
-                txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, new TimeModel(trans[0]).toString()));
+                timer[0]--;
+                mTimeLeftInSecs = timer[0];
+                prefs.setPref(PREFERENCE_TRANSIT_TIMER, String.valueOf(mTimeLeftInSecs));
+                showRemainingTime();
             }
 
             @Override
             public void onFinish() {
-                txtMinerTransitTime.setText(getString(R.string.blank_transit_time, "00:00:00"));
-                txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, "00:00:00"));
-                txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, "00:00:00"));
+                mTimerRunning = false;
+                processTransitWorkers();
+                clearTime();
+
             }
         }.start();
+        mTimerRunning = true;
+    }
+
+    private void pauseTimer() {
+        mTransitTimer.cancel();
+        mTimerRunning = false;
+    }
+
+    private void showRemainingTime() {
+        if(!txtTransitMinerWorker.getText().toString().equals("0"))
+            txtMinerTransitTime.setText(getString(R.string.blank_transit_time, new TimeModel((int) mTimeLeftInSecs).toString()));
+        if(!txtTransitMaintenanceWorker.getText().toString().equals("0"))
+            txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, new TimeModel((int) mTimeLeftInSecs).toString()));
+        if(!txtTransitEntertainerWorker.getText().toString().equals("0"))
+            txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, new TimeModel((int) mTimeLeftInSecs).toString()));
+    }
+
+    private void clearTime() {
+        txtMinerTransitTime.setText(getString(R.string.blank_transit_time, "00:00:00"));
+        txtMaintenanceTransitTime.setText(getString(R.string.blank_transit_time, "00:00:00"));
+        txtEntertainerTransitTime.setText(getString(R.string.blank_transit_time, "00:00:00"));
+    }
+
+    private void processTransitWorkers() {
+        int intMinerWorker = Integer.parseInt(txtCurrentMinerWorker.getText().toString()) +
+                Integer.parseInt(txtTransitMinerWorker.getText().toString());
+        int intMinerSupervisor = Integer.parseInt(txtCurrentMinerSupervisor.getText().toString()) +
+                Integer.parseInt(txtTransitMinerSupervisor.getText().toString());
+        int intMaintenanceWorker = Integer.parseInt(txtCurrentMaintenanceWorker.getText().toString()) +
+                Integer.parseInt(txtTransitMaintenanceWorker.getText().toString());
+        int intMaintenanceSupervisor = Integer.parseInt(txtCurrentMaintenanceSupervisor.getText().toString()) +
+                Integer.parseInt(txtTransitMaintenanceSupervisor.getText().toString());
+        int intEntertainerWorker = Integer.parseInt(txtCurrentEntertainerWorker.getText().toString()) +
+                Integer.parseInt(txtTransitEntertainerWorker.getText().toString());
+        int intEntertainerSupervisor = Integer.parseInt(txtCurrentEntertainerSupervisor.getText().toString()) +
+                Integer.parseInt(txtTransitEntertainerSupervisor.getText().toString());
+        txtCurrentMinerWorker.setText(String.valueOf(intMinerWorker));
+        txtTransitMinerWorker.setText("0");
+        txtCurrentMinerSupervisor.setText(String.valueOf(intMinerSupervisor));
+        txtTransitMinerSupervisor.setText("0");
+        txtCurrentMaintenanceWorker.setText(String.valueOf(intMaintenanceWorker));
+        txtTransitMaintenanceWorker.setText("0");
+        txtCurrentMaintenanceSupervisor.setText(String.valueOf(intMaintenanceSupervisor));
+        txtTransitMaintenanceSupervisor.setText("0");
+        txtCurrentEntertainerWorker.setText(String.valueOf(intEntertainerWorker));
+        txtTransitEntertainerWorker.setText("0");
+        txtCurrentEntertainerSupervisor.setText(String.valueOf(intEntertainerSupervisor));
+        txtTransitEntertainerSupervisor.setText("0");
     }
 
     private void displayRecruitment () {
@@ -271,6 +347,7 @@ public class Workers extends Fragment implements SeekBar.OnSeekBarChangeListener
                 sbMaint.setProgress(0);
                 sbEnter.setProgress(0);
                 displayTransitCounts();
+                mTimerRunning = true;
             }
         }
         if(v == btnRecall) {
