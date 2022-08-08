@@ -424,10 +424,11 @@
                     android:id="@+id/btnRecall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/trans_black"
                     android:layout_marginTop="25dp"
-                    android:text = "@string/worker_recall"
-                    android:textColor="@color/white" />
+                    android:background="@color/trans_black"
+                    android:text="@string/worker_recall"
+                    android:textColor="@color/white"
+                    android:visibility="invisible" />
 
             </LinearLayout>
 
@@ -744,10 +745,11 @@
                     android:id="@+id/btnRecruit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/trans_black"
                     android:layout_marginTop="25dp"
-                    android:text = "@string/recruit"
-                    android:textColor="@color/white" />
+                    android:background="@color/trans_black"
+                    android:text="@string/recruit"
+                    android:textColor="@color/white"
+                    android:visibility="visible" />
 
             </LinearLayout>
 

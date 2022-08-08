@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~  Project Name: Space Mines                                                                                                                  ~
-  ~  Class Name: /home/troylmarker/Documents/GitHub/Space-Mines/app/src/main/res/layout-land/fragment_workers.xml                               ~
-  ~  File Name: fragment_workers.xml                                                                                                            ~
-  ~  File Creation Date: 6/30/2022                                                                                                              ~
-  ~  File Creation Time: 22:32:35                                                                                                               ~
-  ~  File Creator: troylmarker                                                                                                                  ~
-  ~                                                                                                                                             ~
-  ~  Copyright 2022  by Troy L Marker Enterprises                                                                                               ~
-  ~                                                                                                                                             ~
-  ~  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.           ~
-  ~  You may obtain a copy of the License at                                                                                                    ~
-  ~                                                                                                                                             ~
-  ~       http://www.apache.org/licenses/LICENSE-2.0                                                                                            ~
-  ~                                                                                                                                             ~
-  ~  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,      ~
-  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                   ~
-  ~  See the License for the specific language governing permissions and limitations under the License.                                         ~
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~  Project Name: Space Mines                                                                                                               ~
+  ~  Class Name: /home/troylmarker/Documents/GitHub/SpaceMines/app/src/main/res/layout/fragment_workers.xml                                  ~
+  ~  File Name: fragment_workers.xml                                                                                                         ~
+  ~  File Creation Date: 6/19/2022                                                                                                           ~
+  ~  File Creation Time: 18:57:42                                                                                                            ~
+  ~  File Creator: troylmarker                                                                                                               ~
+  ~                                                                                                                                          ~
+  ~  Copyright 2022  by Troy L Marker Enterprises                                                                                            ~
+  ~                                                                                                                                          ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.        ~
+  ~  You may obtain a copy of the License at                                                                                                 ~
+  ~                                                                                                                                          ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0                                                                                         ~
+  ~                                                                                                                                          ~
+  ~  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,   ~
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                                                ~
+  ~  See the License for the specific language governing permissions and limitations under the License.                                      ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/space01"
-    android:orientation="horizontal"
-    android:baselineAligned="false">
+    android:orientation="horizontal">
 
     <ScrollView
         android:layout_width="0dp"
@@ -224,7 +223,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/ul_border"
                     android:text="@string/department"
                     android:textAlignment="center"
@@ -234,7 +233,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/um_border"
                     android:text="@string/workers"
                     android:textAlignment="center"
@@ -244,12 +243,24 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
-                    android:background="@drawable/ur_border"
+                    android:layout_weight=".25"
+                    android:background="@drawable/um_border"
                     android:text="@string/supervisors"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/ur_border"
+                    android:text="@string/transit_time"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+
 
             </LinearLayout>
 
@@ -261,7 +272,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/ml_border"
                     android:text="@string/miner"
                     android:textAlignment="center"
@@ -272,7 +283,7 @@
                     android:id="@+id/txtTransitMinerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/mm_border"
                     android:text="@string/miner_staff_count"
                     android:textAlignment="center"
@@ -283,9 +294,20 @@
                     android:id="@+id/txtTransitMinerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
-                    android:background="@drawable/mr_border"
+                    android:layout_weight=".25"
+                    android:background="@drawable/mm_border"
                     android:text="@string/miner_supervisor_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/txtMinerTransitTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/blank_transit_time"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
@@ -300,7 +322,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/ml_border"
                     android:text="@string/maintenance"
                     android:textAlignment="center"
@@ -311,7 +333,7 @@
                     android:id="@+id/txtTransitMaintenanceWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/mm_border"
                     android:text="@string/maintenance_staff_count"
                     android:textAlignment="center"
@@ -322,12 +344,24 @@
                     android:id="@+id/txtTransitMaintenanceSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
-                    android:background="@drawable/mr_border"
+                    android:layout_weight=".25"
+                    android:background="@drawable/mm_border"
                     android:text="@string/maintenance_supervisor_count"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/txtMaintenanceTransitTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/mr_border"
+                    android:text="@string/blank_transit_time"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
 
             </LinearLayout>
 
@@ -339,7 +373,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/ll_border"
                     android:text="@string/entertainers"
                     android:textAlignment="center"
@@ -350,7 +384,7 @@
                     android:id="@+id/txtTransitEntertainerWorker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
+                    android:layout_weight=".25"
                     android:background="@drawable/lm_border"
                     android:text="@string/entertainer_staff_count"
                     android:textAlignment="center"
@@ -361,18 +395,47 @@
                     android:id="@+id/txtTransitEntertainerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".33"
-                    android:background="@drawable/lr_border"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lm_border"
                     android:text="@string/entertainer_supervisor_count"
+                    android:textAlignment="center"
+                    android:textColor="@color/worker_text"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/txtEntertainerTransitTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:background="@drawable/lr_border"
+                    android:text="@string/blank_transit_time"
                     android:textAlignment="center"
                     android:textColor="@color/worker_text"
                     tools:ignore="TextContrastCheck" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnRecall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:background="@color/trans_black"
+                    android:text="@string/worker_recall"
+                    android:textColor="@color/white"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -661,7 +724,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/txtEnterS"
+                    android:id="@+id/txtRecruitEntertainerSupervisor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
@@ -682,10 +745,11 @@
                     android:id="@+id/btnRecruit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/trans_black"
                     android:layout_marginTop="25dp"
-                    android:text = "@string/recruit"
-                    android:textColor="@color/white" />
+                    android:background="@color/trans_black"
+                    android:text="@string/recruit"
+                    android:textColor="@color/white"
+                    android:visibility="visible" />
 
             </LinearLayout>
 
